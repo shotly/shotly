@@ -1,5 +1,8 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui-pro'],
+  modules: [
+    '@nuxt/ui-pro',
+    '@nuxt/content',
+  ],
   compatibilityDate: '2025-05-15',
   experimental: {
     typedPages: true,
