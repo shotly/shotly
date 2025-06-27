@@ -1,4 +1,128 @@
 {
   "version": "2.0.0",
-  "tasks": []
+  "tasks": [
+    {
+      "label": "release",
+      "type": "npm",
+      "script": "release",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "icon": {
+        "id": "rocket",
+        "color": "terminal.ansiRed"
+      }
+    },
+    {
+      "label": "build:web",
+      "type": "npm",
+      "script": "build:web",
+      "group": "build",
+      "icon": {
+        "id": "package",
+        "color": "terminal.ansiYellow"
+      }
+    },
+    {
+      "label": "dev",
+      "type": "npm",
+      "script": "dev",
+      "group": "build",
+      "icon": {
+        "id": "play",
+        "color": "terminal.ansiGreen"
+      }
+    },
+    {
+      "label": "dev:web",
+      "type": "npm",
+      "script": "dev:web",
+      "group": "build",
+      "icon": {
+        "id": "play",
+        "color": "terminal.ansiGreen"
+      }
+    },
+    {
+      "label": "lint",
+      "type": "npm",
+      "script": "lint",
+      "group": "test",
+      "icon": {
+        "id": "wand",
+        "color": "terminal.ansiBlue"
+      }
+    },
+    {
+      "label": "lint:fix",
+      "type": "npm",
+      "script": "lint:fix",
+      "group": "test",
+      "icon": {
+        "id": "wand",
+        "color": "terminal.ansiBlue"
+      }
+    },
+    {
+      "label": "test",
+      "type": "npm",
+      "script": "test",
+      "group": "test",
+      "icon": {
+        "id": "beaker",
+        "color": "terminal.ansiMagenta"
+      }
+    },
+    {
+      "label": "test:web",
+      "type": "npm",
+      "script": "test:web",
+      "group": "test",
+      "icon": {
+        "id": "beaker",
+        "color": "terminal.ansiMagenta"
+      }
+    },
+    {
+      "label": "typecheck",
+      "type": "npm",
+      "script": "typecheck",
+      "group": "test",
+      "icon": {
+        "id": "beaker",
+        "color": "terminal.ansiMagenta"
+      }
+    },
+    {
+      "label": "typecheck:web",
+      "type": "npm",
+      "script": "typecheck:web",
+      "group": "test",
+      "icon": {
+        "id": "beaker",
+        "color": "terminal.ansiMagenta"
+      }
+    },
+    {
+      "label": "prepare:web",
+      "type": "npm",
+      "script": "prepare:web",
+      "group": "build",
+      "icon": {
+        "id": "sync",
+        "color": "terminal.ansiWhite"
+      }
+    },
+    {
+      "label": "clean",
+      "type": "npm",
+      "script": "clean",
+      "group": "build",
+      "icon": {
+        "id": "trash",
+        "color": "terminal.ansiRed"
+      }
+    }
+  ]
 }
