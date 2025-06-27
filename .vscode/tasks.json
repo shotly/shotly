@@ -105,6 +105,36 @@
       }
     },
     {
+      "label": "db:generate",
+      "type": "npm",
+      "script": "db:generate",
+      "group": "test",
+      "icon": {
+        "id": "database",
+        "color": "terminal.ansiGreen"
+      }
+    },
+    {
+      "label": "db:migrate",
+      "type": "npm",
+      "script": "db:migrate",
+      "group": "test",
+      "icon": {
+        "id": "database",
+        "color": "terminal.ansiGreen"
+      }
+    },
+    {
+      "label": "db:studio",
+      "type": "npm",
+      "script": "db:studio",
+      "group": "test",
+      "icon": {
+        "id": "database",
+        "color": "terminal.ansiGreen"
+      }
+    },
+    {
       "label": "spec-generate:web",
       "type": "shell",
       "command": "make spec-generate-web",
