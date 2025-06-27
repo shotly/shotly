@@ -12,8 +12,8 @@
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "consola": "catalog:",
     "better-sqlite3": "^12.1.1",
+    "consola": "catalog:",
     "drizzle-cuid2": "^2.1.0",
     "drizzle-orm": "^0.44.2"
   },
