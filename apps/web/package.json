@@ -19,5 +19,6 @@
   "devDependencies": {
     "typescript": "catalog:",
     "vue-tsc": "catalog:"
-  }
+  },
+  "version": "0.0.1"
 }
