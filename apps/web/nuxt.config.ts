@@ -34,6 +34,9 @@ export default defineNuxtConfig({
       },
     ],
   },
+  colorMode: {
+    storageKey: 'shotly-color-mode',
+  },
   i18n: {
     langDir: 'locales',
     defaultLocale: 'en',
