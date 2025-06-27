@@ -1,4 +1,6 @@
 export default defineAppConfig({
+  name: 'Shotly',
+
   ui: {
     colors: {
       primary: 'amber',

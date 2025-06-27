@@ -34,6 +34,11 @@ export default defineNuxtConfig({
       },
     ],
   },
+  icon: {
+    clientBundle: {
+      scan: true,
+    },
+  },
   colorMode: {
     storageKey: 'shotly-color-mode',
   },
