@@ -1,0 +1,9 @@
+name: shotly
+
+services:
+  shotly:
+    image: ghcr.io/shotly/web:local
+    volumes:
+      - .data:/app/.data
+    ports:
+      - 3000:3000
