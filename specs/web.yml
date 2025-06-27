@@ -1,0 +1,603 @@
+openapi: 3.1.1
+
+info:
+  title: Shotly
+  description: Service for managing bookmarks.
+  version: 0.x.x
+
+servers:
+  - url: http://localhost:3000
+    description: Development
+
+paths:
+  /auth/login:
+    post:
+      summary: Login user
+      tags:
+        - Auth
+      operationId: AuthLoginCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthLoginCreatePayload"
+      responses:
+        200:
+          description: Login user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthLoginCreateResult"
+
+  /auth/register:
+    post:
+      summary: Register new user
+      tags:
+        - Auth
+      operationId: AuthRegisterCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthRegisterCreatePayload"
+      responses:
+        200:
+          description: Register new user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthRegisterCreateResult"
+
+  /profile/details:
+    put:
+      summary: Update user details
+      tags:
+        - Profile
+      operationId: ProfileDetailsUpdate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileDetailsUpdatePayload"
+      responses:
+        200:
+          description: Update user details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileDetailsUpdateResult"
+
+  /profile/password:
+    put:
+      summary: Update user password
+      tags:
+        - Profile
+      operationId: ProfilePasswordUpdate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfilePasswordUpdatePayload"
+      responses:
+        200:
+          description: Update user password
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfilePasswordUpdateResult"
+
+  /profile:
+    delete:
+      summary: Delete user profile
+      tags:
+        - Profile
+      operationId: ProfileDelete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileDeletePayload"
+      responses:
+        200:
+          description: Delete user profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileDeleteResult"
+
+  /api-keys:
+    get:
+      summary: Get api keys list
+      tags:
+        - Api
+      operationId: ApiKeysList
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+      responses:
+        200:
+          description: Get api keys list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiKeysListResult"
+    post:
+      summary: Create new api key
+      tags:
+        - Api
+      operationId: ApiKeysCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiKeysCreatePayload"
+      responses:
+        200:
+          description: Create new api key
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiKeysCreateResult"
+
+  /api-keys/{id}:
+    delete:
+      summary: Delete api key
+      tags:
+        - Api
+      operationId: ApiKeysDelete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiKeysDeletePayload"
+      responses:
+        200:
+          description: Delete api key
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiKeysDeleteResult"
+
+  /bookmarks:
+    get:
+      summary: Get bookmarks list
+      tags:
+        - Bookmarks
+      operationId: BookmarksList
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+      responses:
+        200:
+          description: Get bookmarks list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookmarksListResult"
+    post:
+      summary: Create new bookmark
+      tags:
+        - Bookmarks
+      operationId: BookmarksCreate
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookmarksCreatePayload"
+      responses:
+        200:
+          description: Create new bookmark
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookmarksCreateResult"
+
+  /bookmarks/{id}:
+    get:
+      summary: Get bookmark by id
+      tags:
+        - Bookmarks
+      operationId: BookmarksGet
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Get bookmark by id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookmarksGetResult"
+    put:
+      summary: Update bookmark
+      tags:
+        - Bookmarks
+      operationId: BookmarksUpdate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookmarksUpdatePayload"
+      responses:
+        200:
+          description: Update bookmark
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookmarksUpdateResult"
+
+    delete:
+      summary: Delete bookmark
+      tags:
+        - Bookmarks
+      operationId: BookmarksDelete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookmarksDeletePayload"
+      responses:
+        200:
+          description: Delete bookmark
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookmarksDeleteResult"
+
+  /collections:
+    get:
+      summary: Get collections list
+      tags:
+        - Collections
+      operationId: CollectionsList
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+      responses:
+        200:
+          description: Get collections list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsListResult"
+    post:
+      summary: Create new collection
+      tags:
+        - Collections
+      operationId: CollectionsCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsCreatePayload"
+      responses:
+        200:
+          description: Create new collection
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsCreateResult"
+
+  /collections/{id}:
+    get:
+      summary: Get collection by id
+      tags:
+        - Collections
+      operationId: CollectionsGet
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Get collection by id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsGetResult"
+    put:
+      summary: Update collection
+      tags:
+        - Collections
+      operationId: CollectionsUpdate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsUpdatePayload"
+      responses:
+        200:
+          description: Update collection
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsUpdateResult"
+    delete:
+      summary: Delete collection
+      tags:
+        - Collections
+      operationId: CollectionsDelete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsDeletePayload"
+      responses:
+        200:
+          description: Delete collection
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsDeleteResult"
+
+  /collections/{id}/attach:
+    post:
+      summary: Attach bookmark to collection
+      tags:
+        - Collections
+      operationId: CollectionsAttachCreate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsAttachCreatePayload"
+      responses:
+        200:
+          description: Attach bookmark to collection
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsAttachCreateResult"
+
+  /collections/{id}/detach:
+    post:
+      summary: Detach bookmark from collection
+      tags:
+        - Collections
+      operationId: CollectionsDetachCreate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollectionsDetachCreatePayload"
+      responses:
+        200:
+          description: Detach bookmark from collection
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollectionsDetachCreateResult"
+
+components:
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Page number
+      schema:
+        type: string
+        default: '1'
+
+    search:
+      name: search
+      in: query
+      description: Search query
+      schema:
+        type: string
+
+    perPage:
+      name: perPage
+      in: query
+      description: Items per page
+      schema:
+        type: string
+        default: '10'
+
+    sortColumn:
+      name: sortColumn
+      in: query
+      description: Sort column
+      schema:
+        type: string
+
+    sortType:
+      name: sortType
+      in: query
+      description: Sort type
+      schema:
+        type: string
+        default: asc
+        enum:
+          - asc
+          - desc
+
+  schemas:
+    AuthLoginCreatePayload:
+      type: object
+      description: Payload "Login user"
+
+    AuthLoginCreateResult:
+      type: object
+      description: Result "Login user"
+
+    AuthRegisterCreatePayload:
+      type: object
+      description: Payload "Register new user"
+
+    AuthRegisterCreateResult:
+      type: object
+      description: Result "Register new user"
+
+    ProfileDetailsUpdatePayload:
+      type: object
+      description: Payload "Update user details"
+
+    ProfileDetailsUpdateResult:
+      type: object
+      description: Result "Update user details"
+
+    ProfilePasswordUpdatePayload:
+      type: object
+      description: Payload "Update user password"
+
+    ProfilePasswordUpdateResult:
+      type: object
+      description: Result "Update user password"
+
+    ProfileDeletePayload:
+      type: object
+      description: Payload "Delete user profile"
+
+    ProfileDeleteResult:
+      type: object
+      description: Result "Delete user profile"
+
+    ApiKeysListResult:
+      type: object
+      description: Result "Get api keys list"
+
+    ApiKeysCreatePayload:
+      type: object
+      description: Payload "Create new api key"
+
+    ApiKeysCreateResult:
+      type: object
+      description: Result "Create new api key"
+
+    ApiKeysDeletePayload:
+      type: object
+      description: Payload "Delete api key"
+
+    ApiKeysDeleteResult:
+      type: object
+      description: Result "Delete api key"
+
+    BookmarksListResult:
+      type: object
+      description: Result "Get bookmarks list"
+
+    BookmarksCreatePayload:
+      type: object
+      description: Payload "Create new bookmark"
+
+    BookmarksCreateResult:
+      type: object
+      description: Result "Create new bookmark"
+
+    BookmarksGetResult:
+      type: object
+      description: Result "Get bookmark by id"
+
+    BookmarksUpdatePayload:
+      type: object
+      description: Payload "Update bookmark"
+
+    BookmarksUpdateResult:
+      type: object
+      description: Result "Update bookmark"
+
+    BookmarksDeletePayload:
+      type: object
+      description: Payload "Delete bookmark"
+
+    BookmarksDeleteResult:
+      type: object
+      description: Result "Delete bookmark"
+
+    CollectionsListResult:
+      type: object
+      description: Result "Get collections list"
+
+    CollectionsCreatePayload:
+      type: object
+      description: Payload "Create new collection"
+
+    CollectionsCreateResult:
+      type: object
+      description: Result "Create new collection"
+
+    CollectionsGetResult:
+      type: object
+      description: Result "Get collection by id"
+
+    CollectionsUpdatePayload:
+      type: object
+      description: Payload "Update collection"
+
+    CollectionsUpdateResult:
+      type: object
+      description: Result "Update collection"
+
+    CollectionsDeletePayload:
+      type: object
+      description: Payload "Delete collection"
+
+    CollectionsDeleteResult:
+      type: object
+      description: Result "Delete collection"
+
+    CollectionsAttachCreatePayload:
+      type: object
+      description: Payload "Attach bookmark to collection"
+
+    CollectionsAttachCreateResult:
+      type: object
+      description: Result "Attach bookmark to collection"
+
+    CollectionsDetachCreatePayload:
+      type: object
+      description: Payload "Detach bookmark from collection"
+
+    CollectionsDetachCreateResult:
+      type: object
+      description: Result "Detach bookmark from collection"
+
