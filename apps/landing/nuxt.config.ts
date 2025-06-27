@@ -2,6 +2,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui-pro',
     '@nuxt/content',
+    '@nuxtjs/seo',
+    'nuxt-llms',
   ],
   css: ['~/assets/css/main.css'],
   ui: {
