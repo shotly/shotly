@@ -16,6 +16,9 @@ jobs:
       matrix:
         package: [web]
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,6 +42,7 @@ jobs:
           context: .
           file: docker/${{ env.APP_NAME }}/Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           build-args: |
             APP_PUBLIC_VERSION=nightly
           tags: ghcr.io/shotly/${{ env.APP_NAME }}:nightly

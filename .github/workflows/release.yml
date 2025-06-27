@@ -64,6 +64,9 @@ jobs:
     needs: determine-changes
     if: ${{ needs.determine-changes.outputs.package != '' }}
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -88,6 +91,7 @@ jobs:
           context: .
           file: docker/${{ env.APP_NAME }}/Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           build-args: |
             APP_PUBLIC_VERSION=${{ env.APP_VERSION }}
           tags: ghcr.io/shotly/${{ env.APP_NAME }}:latest,ghcr.io/shotly/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
