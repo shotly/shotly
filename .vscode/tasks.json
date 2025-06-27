@@ -25,6 +25,16 @@
       }
     },
     {
+      "label": "build:landing",
+      "type": "npm",
+      "script": "build:landing",
+      "group": "build",
+      "icon": {
+        "id": "package",
+        "color": "terminal.ansiYellow"
+      }
+    },
+    {
       "label": "dev",
       "type": "npm",
       "script": "dev",
@@ -38,6 +48,16 @@
       "label": "dev:web",
       "type": "npm",
       "script": "dev:web",
+      "group": "build",
+      "icon": {
+        "id": "play",
+        "color": "terminal.ansiGreen"
+      }
+    },
+    {
+      "label": "dev:landing",
+      "type": "npm",
+      "script": "dev:landing",
       "group": "build",
       "icon": {
         "id": "play",
@@ -105,6 +125,16 @@
       }
     },
     {
+      "label": "typecheck:landing",
+      "type": "npm",
+      "script": "typecheck:landing",
+      "group": "test",
+      "icon": {
+        "id": "beaker",
+        "color": "terminal.ansiMagenta"
+      }
+    },
+    {
       "label": "db:generate",
       "type": "npm",
       "script": "db:generate",
@@ -147,6 +177,16 @@
       "label": "prepare:web",
       "type": "npm",
       "script": "prepare:web",
+      "group": "build",
+      "icon": {
+        "id": "sync",
+        "color": "terminal.ansiWhite"
+      }
+    },
+    {
+      "label": "prepare:landing",
+      "type": "npm",
+      "script": "prepare:landing",
       "group": "build",
       "icon": {
         "id": "sync",

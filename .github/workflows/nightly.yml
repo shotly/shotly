@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - "*.md"
+      - "apps/landing/**"
       - ".github/**"
       - "!.github/workflows/nightly.yml"
     branches:
