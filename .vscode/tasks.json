@@ -105,6 +105,15 @@
       }
     },
     {
+      "label": "spec-generate:web",
+      "type": "shell",
+      "command": "make spec-generate-web",
+      "icon": {
+        "id": "layers",
+        "color": "terminal.ansiCyan"
+      }
+    },
+    {
       "label": "prepare:web",
       "type": "npm",
       "script": "prepare:web",
