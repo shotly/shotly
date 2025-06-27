@@ -11,6 +11,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@shotly/db": "workspace:*",
+    "consola": "catalog:",
     "nuxt": "^3.17.5",
     "zod": "catalog:"
   },

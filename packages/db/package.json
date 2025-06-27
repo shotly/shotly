@@ -1,0 +1,26 @@
+{
+  "name": "@shotly/db",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "studio": "drizzle-kit studio",
+    "clean": "rm -rf dist node_modules"
+  },
+  "dependencies": {
+    "consola": "catalog:",
+    "better-sqlite3": "^12.1.1",
+    "drizzle-cuid2": "^2.1.0",
+    "drizzle-orm": "^0.44.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "drizzle-kit": "^0.31.1",
+    "tsc": "catalog:",
+    "typescript": "catalog:"
+  }
+}
