@@ -2,7 +2,7 @@ name: Landing
 
 on:
   push:
-    paths-ignore:
+    paths:
       - "apps/landing/**"
       - ".github/workflows/landing.yml"
     branches:
