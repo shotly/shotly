@@ -20,14 +20,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AuthLoginCreatePayload"
+              $ref: '#/components/schemas/AuthLoginCreatePayload'
       responses:
         200:
           description: Login user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AuthLoginCreateResult"
+                $ref: '#/components/schemas/AuthLoginCreateResult'
 
   /auth/register:
     post:
@@ -39,14 +39,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AuthRegisterCreatePayload"
+              $ref: '#/components/schemas/AuthRegisterCreatePayload'
       responses:
         200:
           description: Register new user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AuthRegisterCreateResult"
+                $ref: '#/components/schemas/AuthRegisterCreateResult'
 
   /profile/details:
     put:
@@ -58,14 +58,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProfileDetailsUpdatePayload"
+              $ref: '#/components/schemas/ProfileDetailsUpdatePayload'
       responses:
         200:
           description: Update user details
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProfileDetailsUpdateResult"
+                $ref: '#/components/schemas/ProfileDetailsUpdateResult'
 
   /profile/password:
     put:
@@ -77,14 +77,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProfilePasswordUpdatePayload"
+              $ref: '#/components/schemas/ProfilePasswordUpdatePayload'
       responses:
         200:
           description: Update user password
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProfilePasswordUpdateResult"
+                $ref: '#/components/schemas/ProfilePasswordUpdateResult'
 
   /profile:
     delete:
@@ -96,14 +96,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProfileDeletePayload"
+              $ref: '#/components/schemas/ProfileDeletePayload'
       responses:
         200:
           description: Delete user profile
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProfileDeleteResult"
+                $ref: '#/components/schemas/ProfileDeleteResult'
 
   /api-keys:
     get:
@@ -120,7 +120,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiKeysListResult"
+                $ref: '#/components/schemas/ApiKeysListResult'
     post:
       summary: Create new api key
       tags:
@@ -130,14 +130,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ApiKeysCreatePayload"
+              $ref: '#/components/schemas/ApiKeysCreatePayload'
       responses:
         200:
           description: Create new api key
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiKeysCreateResult"
+                $ref: '#/components/schemas/ApiKeysCreateResult'
 
   /api-keys/{id}:
     delete:
@@ -156,14 +156,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ApiKeysDeletePayload"
+              $ref: '#/components/schemas/ApiKeysDeletePayload'
       responses:
         200:
           description: Delete api key
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiKeysDeleteResult"
+                $ref: '#/components/schemas/ApiKeysDeleteResult'
 
   /bookmarks:
     get:
@@ -180,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BookmarksListResult"
+                $ref: '#/components/schemas/BookmarksListResult'
     post:
       summary: Create new bookmark
       tags:
@@ -191,14 +191,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/BookmarksCreatePayload"
+              $ref: '#/components/schemas/BookmarksCreatePayload'
       responses:
         200:
           description: Create new bookmark
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BookmarksCreateResult"
+                $ref: '#/components/schemas/BookmarksCreateResult'
 
   /bookmarks/{id}:
     get:
@@ -218,7 +218,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BookmarksGetResult"
+                $ref: '#/components/schemas/BookmarksGetResult'
     put:
       summary: Update bookmark
       tags:
@@ -234,14 +234,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/BookmarksUpdatePayload"
+              $ref: '#/components/schemas/BookmarksUpdatePayload'
       responses:
         200:
           description: Update bookmark
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BookmarksUpdateResult"
+                $ref: '#/components/schemas/BookmarksUpdateResult'
 
     delete:
       summary: Delete bookmark
@@ -258,14 +258,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/BookmarksDeletePayload"
+              $ref: '#/components/schemas/BookmarksDeletePayload'
       responses:
         200:
           description: Delete bookmark
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BookmarksDeleteResult"
+                $ref: '#/components/schemas/BookmarksDeleteResult'
 
   /collections:
     get:
@@ -282,7 +282,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsListResult"
+                $ref: '#/components/schemas/CollectionsListResult'
     post:
       summary: Create new collection
       tags:
@@ -292,14 +292,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CollectionsCreatePayload"
+              $ref: '#/components/schemas/CollectionsCreatePayload'
       responses:
         200:
           description: Create new collection
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsCreateResult"
+                $ref: '#/components/schemas/CollectionsCreateResult'
 
   /collections/{id}:
     get:
@@ -319,7 +319,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsGetResult"
+                $ref: '#/components/schemas/CollectionsGetResult'
     put:
       summary: Update collection
       tags:
@@ -335,14 +335,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CollectionsUpdatePayload"
+              $ref: '#/components/schemas/CollectionsUpdatePayload'
       responses:
         200:
           description: Update collection
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsUpdateResult"
+                $ref: '#/components/schemas/CollectionsUpdateResult'
     delete:
       summary: Delete collection
       tags:
@@ -358,14 +358,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CollectionsDeletePayload"
+              $ref: '#/components/schemas/CollectionsDeletePayload'
       responses:
         200:
           description: Delete collection
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsDeleteResult"
+                $ref: '#/components/schemas/CollectionsDeleteResult'
 
   /collections/{id}/attach:
     post:
@@ -383,14 +383,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CollectionsAttachCreatePayload"
+              $ref: '#/components/schemas/CollectionsAttachCreatePayload'
       responses:
         200:
           description: Attach bookmark to collection
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsAttachCreateResult"
+                $ref: '#/components/schemas/CollectionsAttachCreateResult'
 
   /collections/{id}/detach:
     post:
@@ -408,14 +408,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CollectionsDetachCreatePayload"
+              $ref: '#/components/schemas/CollectionsDetachCreatePayload'
       responses:
         200:
           description: Detach bookmark from collection
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CollectionsDetachCreateResult"
+                $ref: '#/components/schemas/CollectionsDetachCreateResult'
 
 components:
   parameters:
@@ -600,4 +600,3 @@ components:
     CollectionsDetachCreateResult:
       type: object
       description: Result "Detach bookmark from collection"
-
