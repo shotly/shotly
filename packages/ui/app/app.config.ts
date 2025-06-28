@@ -4,11 +4,19 @@ export default defineAppConfig({
 
   social: {
     github: 'https://github.com/shotly',
+    docs: 'https://shotly.dev/docs',
+  },
+
+  icon: {
+    aliases: {
+      'lang-ru': 'circle-flags:ru',
+      'lang-en': 'circle-flags:uk',
+    },
   },
 
   ui: {
     colors: {
-      primary: 'amber',
+      primary: 'black',
       neutral: 'neutral',
     },
 
