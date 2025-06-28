@@ -54,7 +54,7 @@
 </div>
 
 <script>
-  const localScheme = localStorage.getItem('claret-craft-color-mode')
+  const localScheme = localStorage.getItem('shotly-color-mode')
   const systemScheme = window.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? 'dark' : 'light'
 
   document.documentElement.classList.add(localScheme || systemScheme)
