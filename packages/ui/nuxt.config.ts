@@ -1,3 +1,4 @@
+import type { NuxtModule } from '@nuxt/schema'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -8,10 +9,11 @@ function resolvePath(path: string) {
 }
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui'],
   css: [resolvePath('./app/assets/css/main.css')],
   app: {
     head: {
+      viewport: 'width=device-width, initial-scale=1',
+      charset: 'utf-8',
       link: [
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -61,3 +63,16 @@ export default defineNuxtConfig({
     enabled: true,
   },
 })
+
+/**
+ * You cannot pass `@nuxt/ui` in the base layer because it will conflict with `@nuxt/ui-pro`.
+ * To avoid a TypeScript error, you need to pass the types from `@nuxt/ui` to `@nuxt/schema`.
+ */
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    icon?: typeof import('@nuxt/icon').default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    fonts?: typeof import('@nuxt/fonts').default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    colorMode?: typeof import('@nuxtjs/color-mode').default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    ui?: typeof import('@nuxt/ui').default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+  }
+}
