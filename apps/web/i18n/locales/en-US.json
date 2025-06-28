@@ -1,1 +1,54 @@
-{}
+{
+  "bookmarks": {
+    "title": "Bookmarks",
+    "inbox": "Inbox",
+    "random": "Lucky"
+  },
+  "aside": {
+    "back": "Back"
+  },
+  "collections": {
+    "title": "Collections"
+  },
+  "search": {
+    "tooltip": "Search"
+  },
+  "settings": {
+    "title": "Settings",
+    "account": "Account",
+    "apiKeys": "API Keys",
+    "import": "Import/Export"
+  },
+  "shortcuts": {
+    "title": "Shortcuts",
+    "description": "View all available shortcuts",
+    "searchPlaceholder": "Search shortcuts",
+    "groups": {
+      "general": "General"
+    },
+    "shortcuts": {
+      "search": "Search",
+      "openShortcutsMenu": "Open shortcuts menu",
+      "openInbox": "Open inbox",
+      "openSettingsMenu": "Open settings menu",
+      "openRandomBookmark": "Open random bookmark",
+      "createNewBookmark": "Create new bookmark"
+    }
+  },
+  "appearance": {
+    "theme": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "i18n": {
+    "language": "Language"
+  },
+  "auth": {
+    "logOut": "Log out"
+  },
+  "links": {
+    "docs": "Documentation",
+    "github": "GitHub repository"
+  }
+}

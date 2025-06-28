@@ -1,1 +1,54 @@
-{}
+{
+  "bookmarks": {
+    "title": "Закладки",
+    "inbox": "Входящие",
+    "random": "Мне повезёт"
+  },
+  "aside": {
+    "back": "Назад"
+  },
+  "collections": {
+    "title": "Коллекции"
+  },
+  "search": {
+    "tooltip": "Поиск"
+  },
+  "settings": {
+    "title": "Настройки",
+    "account": "Аккаунт",
+    "apiKeys": "API ключи",
+    "import": "Импорт/Экспорт"
+  },
+  "shortcuts": {
+    "title": "Горячие клавиши",
+    "description": "Посмотреть все доступные горячие клавиши",
+    "searchPlaceholder": "Поиск горячих клавиш",
+    "groups": {
+      "general": "Общие"
+    },
+    "shortcuts": {
+      "search": "Поиск",
+      "openShortcutsMenu": "Открыть меню горячих клавиш",
+      "openInbox": "Открыть входящие",
+      "openSettingsMenu": "Открыть меню настроек",
+      "openRandomBookmark": "Открыть случайную закладку",
+      "createNewBookmark": "Создать новую закладку"
+    }
+  },
+  "appearance": {
+    "theme": "Тема",
+    "system": "Системная",
+    "light": "Светлая",
+    "dark": "Тёмная"
+  },
+  "i18n": {
+    "language": "Язык"
+  },
+  "auth": {
+    "logOut": "Выйти"
+  },
+  "links": {
+    "docs": "Документация",
+    "github": "Репозиторий"
+  }
+}
