@@ -1,7 +1,0 @@
-@import "tailwindcss";
-@import "@nuxt/ui";
-
-@theme static {
-  --font-sans: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
-}
