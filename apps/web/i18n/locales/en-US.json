@@ -1,4 +1,9 @@
 {
+  "soon": {
+    "title": "Coming soon",
+    "description": "This feature is not available yet",
+    "badge": "soon"
+  },
   "bookmarks": {
     "title": "Bookmarks",
     "inbox": "Inbox",

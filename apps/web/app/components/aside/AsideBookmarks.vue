@@ -31,15 +31,20 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
   {
     label: $t('bookmarks.title'),
     icon: 'lucide:bookmark',
+    disabled: true,
+    badge: { label: $t('soon.badge') },
   },
   {
     label: $t('bookmarks.inbox'),
     icon: 'lucide:inbox',
-    badge: { label: 0 },
+    disabled: true,
+    badge: { label: $t('soon.badge') },
   },
   {
     label: $t('bookmarks.random'),
     icon: 'lucide:dices',
+    disabled: true,
+    badge: { label: $t('soon.badge') },
   },
 ])
 

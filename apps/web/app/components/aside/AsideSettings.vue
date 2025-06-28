@@ -22,11 +22,15 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
     label: $t('settings.apiKeys'),
     icon: 'lucide:key-round',
     to: { name: 'settings-api-keys' },
+    disabled: true,
+    badge: { label: $t('soon.badge') },
   },
   {
     label: $t('settings.import'),
     icon: 'lucide:cloud-download',
     to: { name: 'settings-import' },
+    disabled: true,
+    badge: { label: $t('soon.badge') },
   },
 ])
 </script>
