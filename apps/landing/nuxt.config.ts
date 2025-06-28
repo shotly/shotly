@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   $development: {
     site: {
-      url: 'http://localhost:3000',
+      url: 'http://localhost:3501',
     },
   },
   compatibilityDate: '2025-05-15',
