@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "main": "./nuxt.config.ts",
   "scripts": {
     "typecheck": "nuxt typecheck",
     "clean": "rm -rf .nuxt .output node_modules",
