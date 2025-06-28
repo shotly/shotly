@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
+  extends: ['@shotly/ui'],
   modules: [
     'nuxt-zod-i18n',
     'nuxt-auth-utils',
@@ -15,33 +16,6 @@ export default defineNuxtConfig({
     databaseURL: '/app/.data/db.sqlite3',
   },
   css: ['~/assets/css/main.css'],
-  ui: {
-    colorMode: true,
-    fonts: true,
-  },
-  fonts: {
-    provider: 'google',
-    families: [
-      {
-        name: 'Geist',
-        provider: 'google',
-        weights: [300, 400, 500, 600, 700, 800, 900],
-      },
-      {
-        name: 'Geist Mono',
-        provider: 'google',
-        weights: [400],
-      },
-    ],
-  },
-  icon: {
-    clientBundle: {
-      scan: true,
-    },
-  },
-  colorMode: {
-    storageKey: 'shotly-color-mode',
-  },
   i18n: {
     langDir: 'locales',
     defaultLocale: 'en',

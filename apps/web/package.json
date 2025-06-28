@@ -14,10 +14,9 @@
   },
   "dependencies": {
     "@iconify-json/lucide": "catalog:",
-    "@nuxt/ui": "^3.2.0",
     "@nuxtjs/i18n": "^9.5.6",
     "@shotly/db": "workspace:*",
-    "consola": "catalog:",
+    "@shotly/ui": "workspace:*",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.20",
     "nuxt-zod-i18n": "^1.12.0",
