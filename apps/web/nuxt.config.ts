@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   i18n: {
     langDir: 'locales',
+    strategy: 'no_prefix',
     defaultLocale: 'en',
     experimental: {
       autoImportTranslationFunctions: true,
