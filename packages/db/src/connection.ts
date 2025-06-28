@@ -1,7 +1,6 @@
 import type { BetterSQLite3Database } from 'drizzle-orm/better-sqlite3'
 import { existsSync, mkdirSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
-import process from 'node:process'
+import { dirname } from 'node:path'
 import BetterSqlite3 from 'better-sqlite3'
 import { consola } from 'consola'
 import { drizzle } from 'drizzle-orm/better-sqlite3'
@@ -22,7 +21,7 @@ export function createConnection(path: string): Database {
   }
 
   const sqlite = new BetterSqlite3(path)
-  consola.info('Database connection created', resolve(process.cwd(), path))
+  consola.info('Database connection created')
 
   return drizzle(sqlite, {
     schema,
