@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
-  extends: ['@shotly/ui'],
+  extends: '@shotly/ui',
   modules: [
     'nuxt-zod-i18n',
     'nuxt-auth-utils',
