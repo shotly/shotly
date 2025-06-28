@@ -10,8 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/circle-flags": "catalog:",
     "@iconify-json/lucide": "catalog:",
+    "@iconify-json/simple-icons": "catalog:",
     "@nuxt/ui": "^3.2.0",
+    "@vueuse/nuxt": "^13.4.0",
     "consola": "catalog:",
     "nuxt": "catalog:"
   },

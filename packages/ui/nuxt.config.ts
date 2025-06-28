@@ -9,6 +9,9 @@ function resolvePath(path: string) {
 }
 
 export default defineNuxtConfig({
+  modules: [
+    '@vueuse/nuxt',
+  ],
   css: [resolvePath('./app/assets/css/main.css')],
   app: {
     head: {
