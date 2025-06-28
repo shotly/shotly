@@ -13,6 +13,8 @@
     "prepare": "nuxt prepare"
   },
   "dependencies": {
+    "@dicebear/collection": "^9.2.3",
+    "@dicebear/core": "^9.2.3",
     "@iconify-json/lucide": "catalog:",
     "@nuxtjs/i18n": "^9.5.6",
     "@shotly/db": "workspace:*",
