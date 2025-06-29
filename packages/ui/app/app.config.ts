@@ -5,6 +5,7 @@ export default defineAppConfig({
   links: {
     docs: 'https://shotly.dev/docs',
     llms: 'https://shotly.dev/llms.txt',
+    release: 'https://github.com/shotly/shotly/releases',
   },
 
   social: {
