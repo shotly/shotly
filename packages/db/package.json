@@ -12,13 +12,13 @@
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "better-sqlite3": "^12.1.1",
     "consola": "catalog:",
     "drizzle-cuid2": "^2.1.0",
-    "drizzle-orm": "^0.44.2"
+    "drizzle-orm": "^0.44.2",
+    "pg": "^8.16.0"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
+    "@types/pg": "^8.15.4",
     "drizzle-kit": "^0.31.4",
     "tsc": "catalog:",
     "typescript": "catalog:"

@@ -1,29 +1,21 @@
-import type { BetterSQLite3Database } from 'drizzle-orm/better-sqlite3'
-import { existsSync, mkdirSync } from 'node:fs'
-import { dirname } from 'node:path'
-import BetterSqlite3 from 'better-sqlite3'
-import { consola } from 'consola'
-import { drizzle } from 'drizzle-orm/better-sqlite3'
+import type { NodePgDatabase } from 'drizzle-orm/node-postgres'
+import { drizzle } from 'drizzle-orm/node-postgres'
+import pg from 'pg'
 import * as schema from './tables'
 
-export type Database = BetterSQLite3Database<typeof schema>
+export type Database = NodePgDatabase<typeof schema>
 
 /**
  * Create a database connection.
  *
- * @param path - The path to the database file.
+ * @param connectionString - The connection string to the database.
  * @returns The database connection.
  */
-export function createConnection(path: string): Database {
-  if (!existsSync(dirname(path))) {
-    consola.info('Database directory does not exist, creating it', path)
-    mkdirSync(dirname(path), { recursive: true })
-  }
+export function createConnection(connectionString: string): Database {
+  const pool = new pg.Pool({ connectionString })
 
-  const sqlite = new BetterSqlite3(path)
-  consola.info('Database connection created')
-
-  return drizzle(sqlite, {
+  return drizzle({
     schema,
+    client: pool,
   })
 }

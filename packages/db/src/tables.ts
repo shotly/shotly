@@ -1,13 +1,16 @@
-import { cuid2 } from 'drizzle-cuid2/sqlite'
-import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
-import { createdAtField, updatedAtField } from './fields'
+import { cuid2 } from 'drizzle-cuid2/postgres'
+import { index, pgEnum, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
 
-export const users = sqliteTable('users', {
+export const userRole = pgEnum('user_roles', ['admin', 'user'])
+
+export const users = pgTable('users', {
   id: cuid2('id').defaultRandom().primaryKey(),
-  name: text('name').notNull(),
-  email: text('email').notNull().unique(),
-  password: text('password').notNull(),
-  role: text('role', { enum: ['admin', 'user'] }).notNull().default('user'),
-  createdAt: createdAtField(),
-  updatedAt: updatedAtField(),
-})
+  name: varchar('name').notNull(),
+  email: varchar('email').unique().notNull(),
+  password: varchar('password').notNull(),
+  role: userRole('role').notNull().default('user'),
+  createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
+}, (table) => [
+  index('users_name_idx').on(table.name),
+])

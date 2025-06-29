@@ -14,7 +14,7 @@ export default defineNitroPlugin(async () => {
 
   // In dev mode, don't run migrations, use the `pnpm db:*` commands instead
   if (import.meta.dev) {
-    // return
+    return
   }
 
   const tasks = ['db:migrate', 'db:seed']

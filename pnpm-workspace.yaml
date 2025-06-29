@@ -12,5 +12,3 @@ catalog:
   typescript: ^5.8.3
   vue-tsc: ^2.2.10
   zod: ^3.25.67
-onlyBuiltDependencies:
-  - better-sqlite3

@@ -1,6 +1,7 @@
 import type { Database } from './connection'
+import { resolve } from 'node:path'
 import { consola } from 'consola'
-import { migrate } from 'drizzle-orm/better-sqlite3/migrator'
+import { migrate } from 'drizzle-orm/node-postgres/migrator'
 import { createConnection } from './connection'
 
 let instance: Database | null = null
@@ -8,16 +9,16 @@ let instance: Database | null = null
 /**
  * Create a database instance.
  *
- * @param path - The path to the database file.
+ * @param connectionString - The connection string to the database.
  * @returns The database instance.
  */
-export function createDatabaseInstance(path: string): Database {
+export function createDatabaseInstance(connectionString: string): Database {
   if (instance) {
-    consola.info('Database instance already created')
+    consola.warn('Database instance already created')
     return instance
   }
 
-  instance = createConnection(path)
+  instance = createConnection(connectionString)
 
   return instance
 }
@@ -40,8 +41,10 @@ export function useDatabase(): Database {
  *
  * @param migrationsFolder - The migrations folder.
  */
-export function migrateDatabase(migrationsFolder: string): void {
+export async function migrateDatabase(migrationsFolder: string): Promise<void> {
   const db = useDatabase()
 
-  migrate(db, { migrationsFolder })
+  await migrate(db, {
+    migrationsFolder: resolve(migrationsFolder),
+  })
 }

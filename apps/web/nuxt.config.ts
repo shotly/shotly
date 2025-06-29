@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     nitro: {
       envPrefix: 'APP_',
     },
-    databaseURL: '/app/.data/db.sqlite3',
+    databaseURL: '',
   },
   css: ['~/assets/css/main.css'],
   i18n: {

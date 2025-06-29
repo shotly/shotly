@@ -7,12 +7,9 @@ export default defineTask({
     name: 'db:migrate',
     description: 'Run database migrations',
   },
-  run() {
-    const migrationsFolder = import.meta.dev
-      ? resolve(process.cwd(), '../../packages/db/migrations')
-      : resolve(process.cwd(), 'server/migrations')
-
-    migrateDatabase(migrationsFolder)
+  async run() {
+    const migrationsFolder = resolve(process.cwd(), 'server/migrations')
+    await migrateDatabase(migrationsFolder)
 
     return {
       result: 'Database migrations completed',

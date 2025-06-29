@@ -9,7 +9,7 @@ if (!process.env.APP_DATABASE_URL) {
 }
 
 export default defineConfig({
-  dialect: 'sqlite',
+  dialect: 'postgresql',
   schema: './src/tables.ts',
   out: './migrations',
   dbCredentials: {
