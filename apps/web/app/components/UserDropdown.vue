@@ -93,11 +93,11 @@ const items = computed<DropdownMenuItem[][]>(() => ([
       label: $t('links.docs'),
       icon: 'lucide:book-open',
       target: '_blank',
-      to: appConfig.social.docs,
+      to: appConfig.links.docs,
     },
     {
       label: $t('links.github'),
-      icon: 'i-simple-icons-github',
+      icon: 'simple-icons:github',
       target: '_blank',
       to: appConfig.social.github,
     },
