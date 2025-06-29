@@ -2,9 +2,13 @@ export default defineAppConfig({
   name: 'Shotly',
   description: 'Bookmarks that work like magic.',
 
+  links: {
+    docs: 'https://shotly.dev/docs',
+    llms: 'https://shotly.dev/llms.txt',
+  },
+
   social: {
     github: 'https://github.com/shotly',
-    docs: 'https://shotly.dev/docs',
   },
 
   icon: {
