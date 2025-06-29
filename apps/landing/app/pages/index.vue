@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen">
+  <div class="flex flex-col items-center justify-center h-dvh">
     <UIcon name="shotly:logo-symbol" class="size-8" />
     <div class="text-xl mt-4">
       Coming Soon
