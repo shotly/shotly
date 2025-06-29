@@ -12,5 +12,12 @@ export default defineAppConfig({
         },
       },
     },
+    pageHero: {
+      slots: {
+        title: 'text-4xl text-balance',
+        description: 'text-balance',
+        headline: 'mb-8',
+      },
+    },
   },
 })
