@@ -28,6 +28,15 @@ export default defineNuxtConfig({
       },
     ],
   },
+  mdc: {
+    highlight: {
+      theme: {
+        dark: 'github-dark',
+        default: 'github-dark',
+        light: 'github-light',
+      },
+    },
+  },
   css: ['~/assets/css/main.css'],
   $development: {
     site: {

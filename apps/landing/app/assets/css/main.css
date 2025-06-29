@@ -6,3 +6,8 @@
   --font-sans: 'Geist', sans-serif;
   --font-mono: 'Geist Mono', monospace;
 }
+
+:root {
+  --ui-container: var(--container-6xl);
+  --ui-header-height: --spacing(16);
+}
