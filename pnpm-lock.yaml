@@ -149,7 +149,7 @@ importers:
         specifier: ^0.44.2
         version: 0.44.2(@types/better-sqlite3@7.6.13)(@types/pg@8.15.4)(better-sqlite3@12.1.1)(pg@8.16.3)
       pg:
-        specifier: ^8.16.0
+        specifier: ^8.16.3
         version: 8.16.3
     devDependencies:
       '@types/pg':
