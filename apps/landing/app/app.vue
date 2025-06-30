@@ -15,23 +15,11 @@ useSeoMeta({
   titleTemplate: `%s - ${appConfig.name}`,
 })
 
-const [{ data: navigation }] = await Promise.all([
-  useAsyncData('navigation', () => {
-    return Promise.all([
-      queryCollectionNavigation('docs'),
-    ])
-  }, {
-    transform: (data) => data.flat(),
-  }),
-  useLazyAsyncData('search', () => {
-    return Promise.all([
-      queryCollectionSearchSections('docs'),
-    ])
-  }, {
-    server: false,
-    transform: (data) => data.flat(),
-  }),
-])
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
+const { data: _files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+  server: false,
+  transform: (data) => data.flat(),
+})
 
 provide('navigation', navigation!)
 </script>

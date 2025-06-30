@@ -32,28 +32,25 @@
         </div>
       </USeparator>
 
-      <template v-if="surround?.length">
-        <UContentSurround :surround="surround" />
-      </template>
+      <UContentSurround :surround="surround" />
     </UPageBody>
   </UPage>
 </template>
 
 <script setup lang="ts">
-import { kebabCase } from 'scule'
-
 definePageMeta({
   layout: 'docs',
 })
 
 const route = useRoute()
 
-const { data: page } = await useAsyncData(kebabCase(route.path), () => queryCollection('docs').path(route.path).first())
+const { data: page } = await useAsyncData(route.path, () => queryCollection('docs').path(route.path).first())
+
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`${kebabCase(route.path)}-surround`, () => {
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings('docs', route.path, {
     fields: ['description'],
   })
