@@ -45,6 +45,8 @@ const navigation = computed<NavigationMenuItem[]>(() => {
       label: child.title,
       to: child.path,
       icon: child.icon,
+      badge: child.badge,
+      disabled: child.disabled,
     })),
   }))
 })

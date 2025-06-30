@@ -11,6 +11,9 @@ export default defineContentConfig({
         schema: z.object({
           navigation: z.object({
             title: z.string().optional(),
+            badge: z.string().optional(),
+            icon: z.string().optional(),
+            disabled: z.boolean().optional(),
           }),
           links: z.array(z.object({
             label: z.string(),
