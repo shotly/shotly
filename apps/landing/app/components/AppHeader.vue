@@ -11,9 +11,9 @@
     />
 
     <template #right>
-      <UTooltip text="Soon">
-        <UButton label="Try Demo" class="px-3 py-2 rounded-full" disabled />
-      </UTooltip>
+      <!-- <UTooltip text="Soon">
+        <UButton label="Try Now" class="px-3 py-2 rounded-full" disabled />
+      </UTooltip> -->
     </template>
 
     <template #body>
