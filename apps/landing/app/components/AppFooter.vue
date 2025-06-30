@@ -38,9 +38,16 @@ const navigation = computed(() => [
     to: '/docs/getting-started',
   },
   {
-    label: 'LLMs',
-    to: appConfig.links.llms,
-    target: '_blank',
+    label: 'Releases',
+  },
+  {
+    label: 'Extension',
+  },
+  {
+    label: 'Terms',
+  },
+  {
+    label: 'Status',
   },
 ])
 </script>

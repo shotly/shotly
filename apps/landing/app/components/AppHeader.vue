@@ -11,9 +11,7 @@
     />
 
     <template #right>
-      <UTooltip text="Soon">
-        <UButton label="Open App" class="px-3 py-2 rounded-full" disabled />
-      </UTooltip>
+      <UButton label="Open App" class="px-3 py-2 rounded-full" />
     </template>
 
     <template #body>
@@ -34,14 +32,18 @@ const route = useRoute()
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
-    label: 'Docs',
+    label: 'Guide',
     to: '/docs/getting-started',
     active: route.path.startsWith('/docs'),
   },
   {
+    label: 'Extension',
+  },
+  {
+    label: 'Blog',
+  },
+  {
     label: 'Releases',
-    to: 'https://github.com/shotly/shotly/releases',
-    target: '_blank',
   },
 ])
 </script>
