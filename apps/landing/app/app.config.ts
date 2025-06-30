@@ -1,5 +1,13 @@
 export default defineAppConfig({
   uiPro: {
+    prose: {
+      codeIcon: {
+        'docker-compose.yml': 'simple-icons:docker',
+      },
+      a: {
+        base: 'border-b border-current',
+      },
+    },
     pageHeader: {
       slots: {
         title: 'font-extrabold tracking-tight text-2xl sm:text-3xl',
