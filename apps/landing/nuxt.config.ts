@@ -40,6 +40,18 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  routeRules: {
+    '/': { prerender: true },
+    '/docs': { redirect: { statusCode: 301, to: '/docs/getting-started' } },
+    '/docs/advanced': { redirect: { statusCode: 301, to: '/docs/advanced/nightly' } },
+    '/docs/self-hosting': { redirect: { statusCode: 301, to: '/docs/self-hosting/docker' } },
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      autoSubfolderIndex: false,
+    },
+  },
   $development: {
     site: {
       url: 'http://localhost:3001',
