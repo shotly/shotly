@@ -13,6 +13,13 @@
         >
           <template #left>
             <UPageAside :ui="{ root: 'lg:top-0' }">
+              <UContentSearchButton
+                :collapsed="false"
+                :kbds="['meta', 'k']"
+                variant="subtle"
+                class="w-full mb-6"
+              />
+
               <DocsNavigation :navigation="docsNavigation" />
             </UPageAside>
           </template>
