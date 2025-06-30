@@ -6,6 +6,7 @@ catalog:
   '@iconify-json/circle-flags': ^1.2.6
   '@iconify-json/lucide': ^1.2.53
   '@iconify-json/simple-icons': ^1.2.40
+  '@iconify-json/vscode-icons': ^1.2.23
   consola: ^3.4.2
   nuxt: ^3.17.5
   tsc: ^2.0.4
@@ -15,5 +16,6 @@ catalog:
 
 ignoredBuiltDependencies:
   - vue-demi
+
 onlyBuiltDependencies:
   - better-sqlite3

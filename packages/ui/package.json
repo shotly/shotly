@@ -13,6 +13,7 @@
     "@iconify-json/circle-flags": "catalog:",
     "@iconify-json/lucide": "catalog:",
     "@iconify-json/simple-icons": "catalog:",
+    "@iconify-json/vscode-icons": "catalog:",
     "@nuxt/ui": "^3.2.0",
     "@vueuse/nuxt": "^13.4.0",
     "consola": "catalog:",
