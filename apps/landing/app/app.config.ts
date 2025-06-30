@@ -5,7 +5,7 @@ export default defineAppConfig({
         'docker-compose.yml': 'simple-icons:docker',
       },
       a: {
-        base: 'border-b border-current',
+        base: 'border-b border-secondary',
       },
     },
     pageHeader: {
