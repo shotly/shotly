@@ -29,5 +29,9 @@ export default defineAppConfig({
     icons: {
       loading: 'lucide:loader',
     },
+
+    button: {
+      base: 'cursor-pointer',
+    },
   },
 })
