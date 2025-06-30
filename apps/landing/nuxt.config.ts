@@ -4,6 +4,8 @@ export default defineNuxtConfig({
     '@nuxt/ui-pro',
     '@nuxt/content',
     '@nuxtjs/seo',
+    '@nuxt/image',
+    'nuxt-og-image',
     'nuxt-llms',
   ],
   site: {
@@ -40,7 +42,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   $development: {
     site: {
-      url: 'http://localhost:3501',
+      url: 'http://localhost:3001',
     },
   },
   compatibilityDate: '2025-05-15',
