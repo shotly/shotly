@@ -30,6 +30,15 @@ export default defineNuxtConfig({
       },
     ],
   },
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['bash', 'sh', 'diff', 'json', 'yml', 'mdc', 'md', 'docker', 'dotenv'],
+        },
+      },
+    },
+  },
   mdc: {
     highlight: {
       theme: {
