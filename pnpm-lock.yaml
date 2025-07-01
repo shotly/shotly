@@ -10,10 +10,10 @@ catalogs:
       specifier: ^1.2.6
       version: 1.2.6
     '@iconify-json/lucide':
-      specifier: ^1.2.53
+      specifier: ^1.2.54
       version: 1.2.54
     '@iconify-json/simple-icons':
-      specifier: ^1.2.40
+      specifier: ^1.2.41
       version: 1.2.41
     '@iconify-json/vscode-icons':
       specifier: ^1.2.23
@@ -161,7 +161,7 @@ importers:
         specifier: ^0.44.2
         version: 0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)
       pg:
-        specifier: ^8.16.0
+        specifier: ^8.16.3
         version: 8.16.3
     devDependencies:
       '@types/pg':
