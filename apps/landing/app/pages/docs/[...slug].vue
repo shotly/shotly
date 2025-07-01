@@ -1,5 +1,7 @@
 <template>
-  <UPage v-if="page">
+  <UPage v-if="page" class="relative">
+    <DocsToc v-if="page.body?.toc?.links.length" :links="page.body?.toc?.links" />
+
     <UPageHeader
       :title="page.title"
       :description="page.description"
