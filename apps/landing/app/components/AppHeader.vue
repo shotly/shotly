@@ -11,7 +11,12 @@
     />
 
     <template #right>
-      <UButton label="Open App" class="px-3 py-2 rounded-full" />
+      <UButton
+        label="Open App"
+        class="px-3 py-2 rounded-full"
+        :to="appConfig.links.app"
+        :external="true"
+      />
     </template>
 
     <template #body>
@@ -28,6 +33,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+const appConfig = useAppConfig()
 const route = useRoute()
 
 const items = computed<NavigationMenuItem[]>(() => [
