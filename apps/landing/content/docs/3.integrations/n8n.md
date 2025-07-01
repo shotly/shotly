@@ -1,6 +1,6 @@
 ---
 title: n8n
-description: Learn more about the n8n integration in Shotly.
+description: Automate workflows by connecting Shotly with n8n.
 navigation: false
 #  icon: simple-icons:n8n
 ---

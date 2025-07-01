@@ -1,6 +1,6 @@
 ---
 title: Shortcuts
-description: Keyboard shortcuts for Shotly.
+description: List of keyboard shortcuts to boost your productivity in Shotly.
 navigation:
   icon: lucide:keyboard
 ---

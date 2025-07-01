@@ -1,6 +1,6 @@
 ---
 title: Raycast
-description: Learn more about the Raycast integration in Shotly.
+description: Access Shotly features directly from Raycast (coming soon).
 navigation:
   icon: simple-icons:raycast
   badge: Soon

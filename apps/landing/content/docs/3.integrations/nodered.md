@@ -1,6 +1,6 @@
 ---
 title: Node-RED
-description: Learn more about the Node-RED integration in Shotly.
+description: Integrate Shotly with Node-RED for visual automation.
 navigation: false
 #  icon: simple-icons:nodered
 ---

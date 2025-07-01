@@ -1,6 +1,6 @@
 ---
 title: Obsidian
-description: Learn more about the Obsidian integration in Shotly.
+description: Sync and use your Shotly bookmarks inside Obsidian.
 navigation: false
 #  icon: simple-icons:obsidian
 ---
