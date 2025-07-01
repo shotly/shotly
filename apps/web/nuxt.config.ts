@@ -13,7 +13,11 @@ export default defineNuxtConfig({
     nitro: {
       envPrefix: 'APP_',
     },
+    public: {
+      siteUrl: 'https://app.shotly.dev',
+    },
     databaseURL: '',
+    allowedOrigins: '',
   },
   css: ['~/assets/css/main.css'],
   icon: {
