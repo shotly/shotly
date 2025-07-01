@@ -12,7 +12,7 @@
 
     <slot />
 
-    <div class="text-sm flex items-center text-muted">
+    <div v-if="runtimeConfig.public.showHomeLink" class="text-sm flex items-center text-muted">
       {{ $t('auth.back.label') }}
       <UButton
         color="neutral"
@@ -28,4 +28,5 @@
 
 <script setup lang="ts">
 const appConfig = useAppConfig()
+const runtimeConfig = useRuntimeConfig()
 </script>
