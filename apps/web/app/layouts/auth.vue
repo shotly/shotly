@@ -6,6 +6,8 @@
 
     <AppLogotype size="lg" class="absolute left-1/2 -translate-x-1/2" />
 
+    <LocaleButton class="absolute right-6 top-6" />
+
     <div class="h-24" />
 
     <slot />
