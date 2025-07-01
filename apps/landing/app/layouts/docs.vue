@@ -12,7 +12,7 @@
           }"
         >
           <template #left>
-            <UPageAside :ui="{ root: 'lg:top-0' }">
+            <UPageAside :ui="{ root: 'lg:top-0 lg:max-h-screen' }">
               <UContentSearchButton
                 :collapsed="false"
                 :kbds="['meta', 'k']"
