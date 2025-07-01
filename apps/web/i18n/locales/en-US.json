@@ -50,7 +50,32 @@
     "language": "Language"
   },
   "auth": {
-    "logOut": "Log out"
+    "logout": {
+      "label": "Log out"
+    },
+    "login": {
+      "title": "Log in to your Shotly account",
+      "label": "Log in",
+      "logInWithGoogle": "Log in with Google",
+      "logInWithGitHub": "Log in with GitHub",
+      "continueWithEmail": "Continue with Email",
+      "or": "or",
+      "emailForm": {
+        "email": "Email address",
+        "emailPlaceholder": "Enter your email address",
+        "submit": "Send verification code"
+      },
+      "verificationForm": {
+        "title": "Enter verification code",
+        "description": "We've sent a verification code to your email",
+        "resend": "Didn't receive the code? Resend",
+        "differentEmail": "Use a different email"
+      }
+    },
+    "back": {
+      "label": "Want to go back to homepage?",
+      "link": "Click here"
+    }
   },
   "links": {
     "docs": "Documentation",

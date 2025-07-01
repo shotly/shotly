@@ -104,7 +104,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([
   ],
   [
     {
-      label: $t('auth.logOut'),
+      label: $t('auth.logout.label'),
       icon: 'lucide:log-out',
       loading: isLoggingOut.value,
       onSelect: () => logout(),

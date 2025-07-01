@@ -50,7 +50,32 @@
     "language": "Язык"
   },
   "auth": {
-    "logOut": "Выйти"
+    "logout": {
+      "label": "Выйти"
+    },
+    "login": {
+      "title": "Войдите в аккаунт Shotly",
+      "label": "Войти",
+      "logInWithGoogle": "Войти через Google",
+      "logInWithGitHub": "Войти через GitHub",
+      "continueWithEmail": "Продолжить с Email",
+      "or": "или",
+      "emailForm": {
+        "email": "Email адрес",
+        "emailPlaceholder": "Введите ваш email адрес",
+        "submit": "Отправить код верификации"
+      },
+      "verificationForm": {
+        "title": "Введите код верификации",
+        "description": "Мы отправили код верификации на ваш email",
+        "resend": "Не получили код? Отправить снова",
+        "differentEmail": "Использовать другой email"
+      }
+    },
+    "back": {
+      "label": "Хотите вернуться?",
+      "link": "Нажмите здесь"
+    }
   },
   "links": {
     "docs": "Документация",

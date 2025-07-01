@@ -3,6 +3,7 @@ export default defineAppConfig({
   description: 'Bookmarks that work like magic.',
 
   links: {
+    home: 'https://shotly.dev',
     app: 'https://app.shotly.dev',
     docs: 'https://shotly.dev/docs',
     llms: 'https://shotly.dev/llms.txt',

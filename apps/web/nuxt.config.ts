@@ -16,6 +16,11 @@ export default defineNuxtConfig({
     databaseURL: '',
   },
   css: ['~/assets/css/main.css'],
+  icon: {
+    customCollections: [
+      { prefix: 'web', dir: './app/assets/icons' },
+    ],
+  },
   i18n: {
     langDir: 'locales',
     strategy: 'no_prefix',
