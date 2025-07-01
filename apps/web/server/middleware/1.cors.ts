@@ -1,3 +1,5 @@
+import { withoutTrailingSlash } from 'ufo'
+
 export default defineEventHandler((event) => {
   const origin = getRequestHeader(event, 'origin')
   const runtimeConfig = useRuntimeConfig(event)
@@ -7,10 +9,10 @@ export default defineEventHandler((event) => {
   }
 
   const allowedOrigins = [
-    runtimeConfig.public.siteUrl,
+    withoutTrailingSlash(runtimeConfig.public.siteUrl),
     ...runtimeConfig.allowedOrigins
       .split(',')
-      .map((origin) => origin.trim())
+      .map((origin) => withoutTrailingSlash(origin.trim()))
       .filter(Boolean),
   ]
 
