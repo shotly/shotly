@@ -12,10 +12,18 @@
 
     <template #right>
       <UButton
+        :label="stats?.stars"
+        icon="simple-icons:github"
+        variant="ghost"
+        class="px-2.5 py-2 gap-2 rounded-full"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        :href="appConfig.links.repo"
+      />
+      <UButton
         label="Open App"
         class="px-3 py-2 rounded-full"
         :to="appConfig.links.app"
-        :external="true"
       />
     </template>
 
@@ -44,6 +52,8 @@ export interface AppHeaderSlots {
 
 const appConfig = useAppConfig()
 const route = useRoute()
+
+const { data: stats } = await useFetch('/api/stats')
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
