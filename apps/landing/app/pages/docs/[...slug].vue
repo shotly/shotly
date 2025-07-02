@@ -40,6 +40,9 @@
 </template>
 
 <script setup lang="ts">
+import type { ContentNavigationItem } from '@nuxt/content'
+import { findPageHeadline } from '@nuxt/content/utils'
+
 definePageMeta({
   layout: 'docs',
 })
@@ -61,6 +64,18 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
 const title = page.value.seo?.title || page.value.title
 const description = page.value.seo?.description || page.value.description
 const titleTemplate = ref('%s - Shotly Docs')
+
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation', ref([]))
+const headline = computed(() => findPageHeadline(navigation?.value, page.value?.path))
+
+defineOgImageComponent('Docs', {
+  title,
+  description,
+  headline,
+  icon: page.value.navigation?.icon,
+}, {
+  fonts: ['Geist:400', 'Geist:600'],
+})
 
 useSeoMeta({
   title,
