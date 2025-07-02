@@ -7,6 +7,7 @@ export default defineAppConfig({
     app: 'https://app.shotly.dev',
     docs: 'https://shotly.dev/docs',
     llms: 'https://shotly.dev/llms.txt',
+    repo: 'https://github.com/shotly/shotly',
     release: 'https://github.com/shotly/shotly/releases',
   },
 
