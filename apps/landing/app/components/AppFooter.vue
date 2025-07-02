@@ -11,7 +11,7 @@
 
     <UNavigationMenu
       :items="navigation"
-      :ui="{ list: 'gap-4' }"
+      :ui="{ list: 'lg:gap-4' }"
       variant="link"
     />
 

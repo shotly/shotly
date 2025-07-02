@@ -1,5 +1,5 @@
 <template>
-  <UHeader :ui="{ root: 'bg-transparent backdrop-blur-none border-transparent z-50 relative' }">
+  <UHeader mode="drawer" :ui="{ root: 'bg-transparent backdrop-blur-none border-transparent z-50 relative' }">
     <template #left>
       <AppLogotype />
     </template>
@@ -22,16 +22,25 @@
     <template #body>
       <UNavigationMenu
         :items="items"
-        :ui="{ list: 'gap-4' }"
+        :ui="{ list: 'gap-4 -mx-2' }"
         orientation="vertical"
-        variant="link"
       />
+
+      <template v-if="$slots.body">
+        <USeparator class="my-4" />
+
+        <slot name="body" />
+      </template>
     </template>
   </UHeader>
 </template>
 
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+
+export interface AppHeaderSlots {
+  body?: () => any
+}
 
 const appConfig = useAppConfig()
 const route = useRoute()

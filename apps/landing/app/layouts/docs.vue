@@ -1,6 +1,13 @@
 <template>
   <div class="relative">
-    <AppHeader />
+    <AppHeader>
+      <template #body>
+        <UContentNavigation
+          :navigation="docsNavigation"
+          color="neutral"
+        />
+      </template>
+    </AppHeader>
 
     <UMain>
       <UContainer>
@@ -20,7 +27,10 @@
                 class="w-full mb-6"
               />
 
-              <DocsNavigation :navigation="docsNavigation" />
+              <UContentNavigation
+                :navigation="docsNavigation"
+                color="neutral"
+              />
             </UPageAside>
           </template>
 

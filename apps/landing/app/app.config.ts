@@ -27,5 +27,13 @@ export default defineAppConfig({
         headline: 'mb-8',
       },
     },
+    contentNavigation: {
+      slots: {
+        trigger: 'font-medium text-default!',
+        listWithChildren: 'border-0 ms-0',
+        linkLeadingIcon: 'size-4',
+        linkTrailingIcon: 'size-4',
+      },
+    },
   },
 })
