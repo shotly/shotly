@@ -54,6 +54,7 @@ export default defineNuxtConfig({
     '/docs': { redirect: { statusCode: 301, to: '/docs/getting-started' } },
     '/docs/advanced': { redirect: { statusCode: 301, to: '/docs/advanced/cli' } },
     '/docs/self-hosting': { redirect: { statusCode: 301, to: '/docs/self-hosting/docker' } },
+    '/api/stats': { prerender: true },
   },
   nitro: {
     prerender: {
