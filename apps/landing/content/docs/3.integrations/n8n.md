@@ -1,8 +1,8 @@
 ---
 title: n8n
 description: Automate workflows by connecting Shotly with n8n.
-navigation: false
-#  icon: simple-icons:n8n
+navigation:
+  icon: simple-icons:n8n
 ---
 
 Integration with n8n enables the creation of automated workflows, connecting Shotly with a wide range of external services. This expands possibilities for data processing, notifications, and information synchronization.

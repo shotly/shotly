@@ -1,8 +1,8 @@
 ---
 title: Node-RED
 description: Integrate Shotly with Node-RED for visual automation.
-navigation: false
-#  icon: simple-icons:nodered
+navigation: 
+  icon: simple-icons:nodered
 ---
 
 Node-RED provides visual programming for automating Shotly workflows. This integration allows the creation of complex data processing scenarios, IoT integrations, and connections with external APIs.
