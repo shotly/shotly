@@ -14,7 +14,7 @@ export default defineOAuthGitHubEventHandler({
     return sendRedirect(event, getAuthRedirectTo(event))
   },
   onError: (event, error) => {
-    logger.error(`GitHub OAuth error: ${error.message}`)
+    logger.error(error.message)
 
     return sendRedirect(event, `/login?error=${error.message}`)
   },

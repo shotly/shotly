@@ -14,7 +14,7 @@ export default defineOAuthGoogleEventHandler({
     return sendRedirect(event, getAuthRedirectTo(event))
   },
   onError: (event, error) => {
-    logger.error(`Google OAuth error: ${error.message}`)
+    logger.error(error.message)
 
     return sendRedirect(event, `/login?error=${error.message}`)
   },
