@@ -18,9 +18,11 @@
         color="neutral"
         variant="outline"
         icon="web:google-color"
-        :label="$t('auth.login.logInWithGoogle')"
         class="w-full justify-center"
+        :label="$t('auth.login.logInWithGoogle')"
         :ui="{ leadingIcon: 'size-4' }"
+        loading-auto
+        @click="handleOAuth('google')"
       />
       <UButton
         v-if="allowedAuthProviders.github"
@@ -28,9 +30,11 @@
         color="neutral"
         variant="outline"
         icon="simple-icons:github"
-        :label="$t('auth.login.logInWithGitHub')"
         class="w-full justify-center"
+        :label="$t('auth.login.logInWithGitHub')"
         :ui="{ leadingIcon: 'size-4' }"
+        loading-auto
+        @click="handleOAuth('github')"
       />
 
       <template v-if="allowedAuthProviders.email">
@@ -64,6 +68,13 @@ useSeoMeta({
 })
 
 const { allowedAuthProviders } = useSiteConfig()
+
+function handleOAuth(provider: string) {
+  return Promise.all([
+    new Promise((resolve) => setTimeout(resolve, 1000)),
+    navigateTo(`/auth/${provider}`, { redirectCode: 307, external: true }),
+  ])
+}
 
 const countAuthProviders = computed<number>(() => {
   const providers = Object.values(allowedAuthProviders)

@@ -100,7 +100,7 @@ function enrichHttpError(error: unknown): Partial<H3Error> {
  * @param httpCodesMap - Optional custom mapping for error types to status keys.
  * @returns The formatted H3Error for the response.
  */
-async function errorServerResolver(event: H3Event, error: unknown, httpCodesMap: HttpStatusesCodesMap = {}) {
+export async function errorServerResolver(event: H3Event, error: unknown, httpCodesMap: HttpStatusesCodesMap = {}) {
   const httpStatusKey = extractHttpStatusKey(error, httpCodesMap)
   const httpStatusMessage = await getHttpStatusMessage(event, httpStatusKey)
   const httpStatusCode = httpStatuses[httpStatusKey]
