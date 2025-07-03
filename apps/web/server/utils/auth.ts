@@ -20,6 +20,9 @@ export function getAuthRedirectTo(event: H3Event): string {
  *
  * @param event - The H3 event.
  * @param provider - The OAuth provider.
+ * @param provider.email - The email of the OAuth user.
+ * @param provider.name - The name of the OAuth user.
+ * @param provider.avatarUrl - The avatar URL of the OAuth user.
  * @param oauthUser - The OAuth user.
  */
 export async function processOAuthFlow(
