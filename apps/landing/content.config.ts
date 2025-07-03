@@ -6,8 +6,7 @@ export default defineContentConfig({
     docs: defineCollection(
       asSeoCollection({
         type: 'page',
-        // @todo: replace to `docs/**/*`, after fix https://github.com/nuxt/content/issues/3433
-        source: '**',
+        source: 'docs/**/*',
         schema: z.object({
           navigation: z.object({
             title: z.string().optional(),
