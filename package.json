@@ -39,6 +39,9 @@
     "lint-staged": "^16.1.2",
     "madge": "^8.0.0"
   },
+  "resolutions": {
+    "zod": "catalog:"
+  },
   "lint-staged": {
     "*.ts": "pnpm run lint"
   },
