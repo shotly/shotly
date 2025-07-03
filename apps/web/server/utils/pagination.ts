@@ -1,6 +1,12 @@
 import type { Pagination } from '#shared/api'
 import type { KeysMatching } from '#shared/types/utils'
 
+/**
+ * Extract pagination data
+ *
+ * @param data - Data
+ * @returns Pagination
+ */
 export function extractPaginationData<T extends { total: number }>(data: T[]): { items: Omit<T, 'total'>[], pagination: Pagination }
 export function extractPaginationData<T extends object, K extends KeysMatching<T, number>>(data: T[], key: K): { items: Omit<T, K>[], pagination: Pagination }
 export function extractPaginationData<T, K>(data: T[], key?: K) {
