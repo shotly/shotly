@@ -16,7 +16,6 @@ export default defineTask({
         name: 'Admin',
         email: 'admin@shotly.dev',
         role: 'admin',
-        password: await hashPassword('password'),
       })
     }
 

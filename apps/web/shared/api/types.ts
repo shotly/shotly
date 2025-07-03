@@ -1,15 +1,3 @@
-/** Payload "Login user" */
-export type AuthLoginCreatePayload = object
-
-/** Result "Login user" */
-export type AuthLoginCreateResult = object
-
-/** Payload "Register new user" */
-export type AuthRegisterCreatePayload = object
-
-/** Result "Register new user" */
-export type AuthRegisterCreateResult = object
-
 /** Payload "Update user details" */
 export type ProfileDetailsUpdatePayload = object
 

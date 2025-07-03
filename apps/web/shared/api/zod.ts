@@ -1,13 +1,5 @@
 import { z } from 'zod'
 
-export const authLoginCreatePayloadSchema = z.record(z.any())
-
-export const authLoginCreateResultSchema = z.record(z.any())
-
-export const authRegisterCreatePayloadSchema = z.record(z.any())
-
-export const authRegisterCreateResultSchema = z.record(z.any())
-
 export const profileDetailsUpdatePayloadSchema = z.record(z.any())
 
 export const profileDetailsUpdateResultSchema = z.record(z.any())

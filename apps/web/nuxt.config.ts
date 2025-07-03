@@ -14,6 +14,9 @@ export default defineNuxtConfig({
     nitro: {
       envPrefix: 'APP_',
     },
+    session: {
+      name: 'shotly-session',
+    },
     public: {
       siteUrl: 'https://app.shotly.dev',
       showRepoLink: true,

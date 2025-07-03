@@ -2,58 +2,31 @@ openapi: 3.1.1
 
 info:
   title: Shotly
-  description: Service for managing bookmarks.
+  description: Shotly is a modern platform for organizing your bookmarks. It helps you save, categorize, and quickly find your favorite links — whether for work, study, or inspiration.
+  license:
+    name: AGPL-3.0
+    url: https://github.com/shotly/shotly/blob/main/LICENSE
   version: 0.x.x
 
+externalDocs:
+  url: https://shotly.dev/docs
+  description: Shotly Documentation
+
 servers:
-  - url: http://localhost:3000
+  - url: https://app.shotly.dev/api
+    description: Production
+  - url: http://localhost:3000/api
     description: Development
 
 paths:
-  /auth/login:
-    post:
-      summary: Login user
-      tags:
-        - Auth
-      operationId: AuthLoginCreate
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AuthLoginCreatePayload'
-      responses:
-        200:
-          description: Login user
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AuthLoginCreateResult'
-
-  /auth/register:
-    post:
-      summary: Register new user
-      tags:
-        - Auth
-      operationId: AuthRegisterCreate
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AuthRegisterCreatePayload'
-      responses:
-        200:
-          description: Register new user
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AuthRegisterCreateResult'
-
   /profile/details:
     put:
       summary: Update user details
       tags:
         - Profile
       operationId: ProfileDetailsUpdate
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
       requestBody:
         content:
           application/json:
@@ -73,6 +46,8 @@ paths:
       tags:
         - Profile
       operationId: ProfilePasswordUpdate
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
       requestBody:
         content:
           application/json:
@@ -92,6 +67,8 @@ paths:
       tags:
         - Profile
       operationId: ProfileDelete
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
       requestBody:
         content:
           application/json:
@@ -109,9 +86,10 @@ paths:
     get:
       summary: Get api keys list
       tags:
-        - Api
+        - Api Keys
       operationId: ApiKeysList
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/perPage'
       responses:
@@ -124,8 +102,10 @@ paths:
     post:
       summary: Create new api key
       tags:
-        - Api
+        - Api Keys
       operationId: ApiKeysCreate
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
       requestBody:
         content:
           application/json:
@@ -143,9 +123,10 @@ paths:
     delete:
       summary: Delete api key
       tags:
-        - Api
+        - Api Keys
       operationId: ApiKeysDelete
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -172,6 +153,7 @@ paths:
         - Bookmarks
       operationId: BookmarksList
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/perPage'
       responses:
@@ -186,7 +168,8 @@ paths:
       tags:
         - Bookmarks
       operationId: BookmarksCreate
-
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
       requestBody:
         content:
           application/json:
@@ -207,6 +190,7 @@ paths:
         - Bookmarks
       operationId: BookmarksGet
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -225,6 +209,7 @@ paths:
         - Bookmarks
       operationId: BookmarksUpdate
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -249,6 +234,7 @@ paths:
         - Bookmarks
       operationId: BookmarksDelete
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -274,6 +260,7 @@ paths:
         - Collections
       operationId: CollectionsList
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/perPage'
       responses:
@@ -288,6 +275,8 @@ paths:
       tags:
         - Collections
       operationId: CollectionsCreate
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
       requestBody:
         content:
           application/json:
@@ -308,6 +297,7 @@ paths:
         - Collections
       operationId: CollectionsGet
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -326,6 +316,7 @@ paths:
         - Collections
       operationId: CollectionsUpdate
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -349,6 +340,7 @@ paths:
         - Collections
       operationId: CollectionsDelete
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -374,6 +366,7 @@ paths:
         - Collections
       operationId: CollectionsAttachCreate
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -399,6 +392,7 @@ paths:
         - Collections
       operationId: CollectionsDetachCreate
       parameters:
+        - $ref: '#/components/parameters/x-api-key'
         - name: id
           in: path
           required: true
@@ -419,6 +413,13 @@ paths:
 
 components:
   parameters:
+    x-api-key:
+      name: x-api-key
+      in: header
+      required: true
+      schema:
+        type: string
+
     page:
       name: page
       in: query
@@ -461,22 +462,6 @@ components:
           - desc
 
   schemas:
-    AuthLoginCreatePayload:
-      type: object
-      description: Payload "Login user"
-
-    AuthLoginCreateResult:
-      type: object
-      description: Result "Login user"
-
-    AuthRegisterCreatePayload:
-      type: object
-      description: Payload "Register new user"
-
-    AuthRegisterCreateResult:
-      type: object
-      description: Result "Register new user"
-
     ProfileDetailsUpdatePayload:
       type: object
       description: Payload "Update user details"
