@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/docs': { redirect: { statusCode: 301, to: '/docs/getting-started' } },
     '/docs/usage': { redirect: { statusCode: 301, to: '/docs/usage/bookmarks' } },
-    '/docs/advanced': { redirect: { statusCode: 301, to: '/docs/advanced/cli' } },
+    '/docs/advanced': { redirect: { statusCode: 301, to: '/docs/advanced/ai-tags' } },
     '/docs/integrations': { redirect: { statusCode: 301, to: '/docs/integrations/n8n' } },
     '/docs/self-hosting': { redirect: { statusCode: 301, to: '/docs/self-hosting/docker' } },
     '/api/stats': { prerender: true },
