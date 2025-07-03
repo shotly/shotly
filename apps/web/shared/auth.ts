@@ -1,1 +1,1 @@
-export const REDIRECT_TO_COOKIE = 'auth-redirect'
+export const REDIRECT_TO_COOKIE = 'shotly-auth-redirect'
