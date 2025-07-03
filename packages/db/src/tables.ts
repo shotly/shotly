@@ -9,6 +9,7 @@ export const users = pgTable('users', {
   name: varchar('name').notNull(),
   email: varchar('email').unique().notNull(),
   role: userRole('role').notNull().default('user'),
+  avatarUrl: varchar('avatar_url'),
   createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
   lastSeenAt: timestamp('last_seen_at', { mode: 'string' }).notNull().defaultNow(),
