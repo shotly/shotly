@@ -1,3 +1,28 @@
+/** Pagination */
+export interface Pagination {
+  /**
+   * Total items
+   * @default 0
+   */
+  total: number
+}
+
+/**
+ * Id
+ * @format cuid
+ * @minLength 24
+ * @maxLength 24
+ * @example "cma410aol00000cjobbw006p"
+ */
+export type CUID = string
+
+/**
+ * Api key
+ * @format uuid
+ * @example "123e4567-e89b-12d3-a456-426614174000"
+ */
+export type ApiKey = string
+
 /** Payload "Update user details" */
 export type ProfileDetailsUpdatePayload = object
 

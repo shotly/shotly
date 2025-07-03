@@ -462,6 +462,31 @@ components:
           - desc
 
   schemas:
+    Pagination:
+      type: object
+      description: Pagination
+      required:
+        - total
+      properties:
+        total:
+          type: number
+          description: Total items
+          default: 0
+
+    CUID:
+      type: string
+      description: Id
+      format: cuid
+      example: cma410aol00000cjobbw006p
+      maxLength: 24
+      minLength: 24
+
+    ApiKey:
+      type: string
+      description: Api key
+      format: uuid
+      example: 123e4567-e89b-12d3-a456-426614174000
+
     ProfileDetailsUpdatePayload:
       type: object
       description: Payload "Update user details"

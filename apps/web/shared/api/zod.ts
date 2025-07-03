@@ -1,5 +1,13 @@
 import { z } from 'zod'
 
+export const paginationSchema = z.object({
+  total: z.number().default(0),
+})
+
+export const cuidSchema = z.string().min(24).max(24)
+
+export const apiKeySchema = z.string().uuid()
+
 export const profileDetailsUpdatePayloadSchema = z.record(z.any())
 
 export const profileDetailsUpdateResultSchema = z.record(z.any())
