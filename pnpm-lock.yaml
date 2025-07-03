@@ -135,6 +135,9 @@ importers:
       nuxt-auth-utils:
         specifier: ^0.5.20
         version: 0.5.20(magicast@0.3.5)
+      nuxt-site-config:
+        specifier: ^3.2.2
+        version: 3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
       nuxt-zod-i18n:
         specifier: ^1.12.0
         version: 1.12.0(magicast@0.3.5)(typescript@5.8.3)
@@ -14394,10 +14397,10 @@ snapshots:
 
   nuxt-site-config@3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3)):
     dependencies:
-      '@nuxt/kit': 3.17.5(magicast@0.3.5)
+      '@nuxt/kit': 3.17.6(magicast@0.3.5)
       nuxt-site-config-kit: 3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
       pathe: 2.0.3
-      pkg-types: 2.1.1
+      pkg-types: 2.2.0
       sirv: 3.0.1
       site-config-stack: 3.2.2(vue@3.5.17(typescript@5.8.3))
       ufo: 1.6.1

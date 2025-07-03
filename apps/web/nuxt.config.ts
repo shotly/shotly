@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@nuxt/ui',
     '@nuxtjs/i18n',
+    'nuxt-site-config',
   ],
   ssr: false,
   runtimeConfig: {
