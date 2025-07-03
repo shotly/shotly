@@ -56,9 +56,11 @@
     "login": {
       "title": "Log in to your Shotly account",
       "label": "Log in",
+      "pageTitle": "Log in to account",
       "logInWithGoogle": "Log in with Google",
       "logInWithGitHub": "Log in with GitHub",
       "continueWithEmail": "Continue with Email",
+      "noAuthProviders": "No auth providers are available at the moment. Please contact the administrator to get access.",
       "or": "or",
       "emailForm": {
         "email": "Email address",

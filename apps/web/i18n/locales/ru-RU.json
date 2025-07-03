@@ -56,9 +56,11 @@
     "login": {
       "title": "Войдите в аккаунт Shotly",
       "label": "Войти",
+      "pageTitle": "Вход в аккаунт",
       "logInWithGoogle": "Войти через Google",
       "logInWithGitHub": "Войти через GitHub",
       "continueWithEmail": "Продолжить с Email",
+      "noAuthProviders": "На данный момент нет доступных методов авторизации. Пожалуйста, свяжитесь с администратором для получения доступа.",
       "or": "или",
       "emailForm": {
         "email": "Email адрес",

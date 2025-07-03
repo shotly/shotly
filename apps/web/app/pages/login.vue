@@ -4,7 +4,16 @@
       {{ $t('auth.login.title') }}
     </h3>
     <div class="flex flex-col gap-3">
+      <UAlert
+        v-if="countAuthProviders === 0"
+        color="warning"
+        variant="subtle"
+        class="text-center"
+        :title="$t('auth.login.noAuthProviders')"
+      />
+
       <UButton
+        v-if="allowedAuthProviders.google"
         size="lg"
         color="neutral"
         variant="outline"
@@ -14,6 +23,7 @@
         :ui="{ leadingIcon: 'size-4' }"
       />
       <UButton
+        v-if="allowedAuthProviders.github"
         size="lg"
         color="neutral"
         variant="outline"
@@ -23,17 +33,23 @@
         :ui="{ leadingIcon: 'size-4' }"
       />
 
-      <USeparator :label="$t('auth.login.or')" :ui="{ container: 'text-muted' }" />
+      <template v-if="allowedAuthProviders.email">
+        <USeparator
+          v-if="countAuthProviders > 1"
+          :label="$t('auth.login.or')"
+          :ui="{ container: 'text-muted' }"
+        />
 
-      <UButton
-        size="lg"
-        class="w-full justify-center"
-        icon="lucide:mail"
-        color="neutral"
-        variant="subtle"
-        :label="$t('auth.login.continueWithEmail')"
-        :ui="{ leadingIcon: 'size-4' }"
-      />
+        <UButton
+          size="lg"
+          class="w-full justify-center"
+          icon="lucide:mail"
+          color="neutral"
+          variant="subtle"
+          :label="$t('auth.login.continueWithEmail')"
+          :ui="{ leadingIcon: 'size-4' }"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -41,5 +57,16 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'auth',
+})
+
+useSeoMeta({
+  title: () => $t('auth.login.pageTitle'),
+})
+
+const { allowedAuthProviders } = useSiteConfig()
+
+const countAuthProviders = computed<number>(() => {
+  const providers = Object.values(allowedAuthProviders)
+  return providers.filter(Boolean).length
 })
 </script>
