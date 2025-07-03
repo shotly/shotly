@@ -1,6 +1,41 @@
 # Changelog
 
 
+## @shotly/web-v0.2.0
+
+[compare changes](https://github.com/shotly/shotly/compare/@shotly/web-v0.1.0...@shotly/web-v0.2.0)
+
+### 🚀 Enhancements
+
+- **auth:** Draft login layout ([8106665](https://github.com/shotly/shotly/commit/8106665))
+- **web:** Add LocaleButton component for language selection ([3f3be2c](https://github.com/shotly/shotly/commit/3f3be2c))
+- **web:** Add CORS middleware and site URL configuration ([31bd822](https://github.com/shotly/shotly/commit/31bd822))
+- **web:** Add configuration options for repository, documentation, and home links ([a7cbd3b](https://github.com/shotly/shotly/commit/a7cbd3b))
+- **auth:** Draft add support for Google and GitHub OAuth ([7aa7ef5](https://github.com/shotly/shotly/commit/7aa7ef5))
+- **web:** Custom handling http request ([7523a07](https://github.com/shotly/shotly/commit/7523a07))
+- **web:** Add session configuration and update API documentation ([149a1ea](https://github.com/shotly/shotly/commit/149a1ea))
+- **web:** Implement pagination utility and related types ([177ea24](https://github.com/shotly/shotly/commit/177ea24))
+- **web:** Add validation utilities for sorting and pagination queries ([d5c7be2](https://github.com/shotly/shotly/commit/d5c7be2))
+
+### 🩹 Fixes
+
+- **app:** Update locale import ([3534b40](https://github.com/shotly/shotly/commit/3534b40))
+- **web:** Normalize site URL and allowed origins in CORS middleware ([903961f](https://github.com/shotly/shotly/commit/903961f))
+- **app:** Update locale import path for correct localization ([5e32223](https://github.com/shotly/shotly/commit/5e32223))
+
+### 💅 Refactors
+
+- **web:** Remove unused login and register API handlers ([cbe796f](https://github.com/shotly/shotly/commit/cbe796f))
+
+### 🏡 Chore
+
+- **deps:** Add nuxt-site-config dependency and update related packages ([2cee357](https://github.com/shotly/shotly/commit/2cee357))
+- Add APP_PUBLIC_SITE_URL to example environment files ([cf0be39](https://github.com/shotly/shotly/commit/cf0be39))
+
+### ❤️ Contributors
+
+- Hywax <a.hywax@gmail.com>
+
 ## @shotly/web-v0.1.0
 
 [compare changes](https://github.com/shotly/shotly/compare/@shotly/web-v0.0.1...@shotly/web-v0.1.0)
