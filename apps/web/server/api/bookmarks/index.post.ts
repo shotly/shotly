@@ -8,7 +8,7 @@ interface BookmarksCreateRequest {
 /**
  * Create new bookmark
  */
-export default defineEventHandler<BookmarksCreateRequest, BookmarksCreateResult>(async (event) => {
+export default defineHttpHandler<BookmarksCreateRequest, BookmarksCreateResult>(async (event) => {
   const _data = await readValidatedBody(event, bookmarksCreatePayloadSchema.parse)
 
   return {} as BookmarksCreateResult // todo: implement

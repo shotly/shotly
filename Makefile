@@ -21,5 +21,6 @@ spec-generate-web: ## Generate the web API spec
 		--name api \
 		--spec ./specs/web.yml \
 		--output ./apps/web \
+		--httpHandler defineHttpHandler \
 		--zod && \
 	pnpm run lint:fix

@@ -9,7 +9,7 @@ interface CollectionsAttachCreateRequest {
 /**
  * Attach bookmark to collection
  */
-export default defineEventHandler<CollectionsAttachCreateRequest, CollectionsAttachCreateResult>(async (event) => {
+export default defineHttpHandler<CollectionsAttachCreateRequest, CollectionsAttachCreateResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsAttachCreateRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, collectionsAttachCreatePayloadSchema.parse)
 

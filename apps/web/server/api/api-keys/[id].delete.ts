@@ -9,7 +9,7 @@ interface ApiKeysDeleteRequest {
 /**
  * Delete api key
  */
-export default defineEventHandler<ApiKeysDeleteRequest, ApiKeysDeleteResult>(async (event) => {
+export default defineHttpHandler<ApiKeysDeleteRequest, ApiKeysDeleteResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, apiKeysDeleteRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, apiKeysDeletePayloadSchema.parse)
 

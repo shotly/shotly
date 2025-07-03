@@ -9,7 +9,7 @@ interface BookmarksUpdateRequest {
 /**
  * Update bookmark
  */
-export default defineEventHandler<BookmarksUpdateRequest, BookmarksUpdateResult>(async (event) => {
+export default defineHttpHandler<BookmarksUpdateRequest, BookmarksUpdateResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, bookmarksUpdateRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, bookmarksUpdatePayloadSchema.parse)
 

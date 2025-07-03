@@ -9,7 +9,7 @@ interface CollectionsUpdateRequest {
 /**
  * Update collection
  */
-export default defineEventHandler<CollectionsUpdateRequest, CollectionsUpdateResult>(async (event) => {
+export default defineHttpHandler<CollectionsUpdateRequest, CollectionsUpdateResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsUpdateRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, collectionsUpdatePayloadSchema.parse)
 

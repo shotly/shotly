@@ -8,7 +8,7 @@ interface CollectionsGetRequest {
 /**
  * Get collection by id
  */
-export default defineEventHandler<CollectionsGetRequest, CollectionsGetResult>(async (event) => {
+export default defineHttpHandler<CollectionsGetRequest, CollectionsGetResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsGetRouteParamsSchema.parse)
 
   return {} as CollectionsGetResult // todo: implement

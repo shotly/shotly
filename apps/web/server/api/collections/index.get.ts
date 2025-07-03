@@ -8,7 +8,7 @@ interface CollectionsListRequest {
 /**
  * Get collections list
  */
-export default defineEventHandler<CollectionsListRequest, CollectionsListResult>(async (event) => {
+export default defineHttpHandler<CollectionsListRequest, CollectionsListResult>(async (event) => {
   const _query = await getValidatedQuery(event, collectionsListQuerySchema.parse)
 
   return {} as CollectionsListResult // todo: implement

@@ -82,5 +82,13 @@
   "links": {
     "docs": "Documentation",
     "github": "GitHub repository"
+  },
+  "httpStatuses": {
+    "badRequest": "Bad Request",
+    "unauthorized": "Unauthorized",
+    "forbidden": "Forbidden",
+    "notFound": "Not Found",
+    "requestTimeout": "Request Timeout",
+    "internalServerError": "Internal Server Error"
   }
 }

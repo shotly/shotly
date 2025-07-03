@@ -8,7 +8,7 @@ interface ProfileDeleteRequest {
 /**
  * Delete user profile
  */
-export default defineEventHandler<ProfileDeleteRequest, ProfileDeleteResult>(async (event) => {
+export default defineHttpHandler<ProfileDeleteRequest, ProfileDeleteResult>(async (event) => {
   const _data = await readValidatedBody(event, profileDeletePayloadSchema.parse)
 
   return {} as ProfileDeleteResult // todo: implement

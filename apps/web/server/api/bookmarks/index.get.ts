@@ -8,7 +8,7 @@ interface BookmarksListRequest {
 /**
  * Get bookmarks list
  */
-export default defineEventHandler<BookmarksListRequest, BookmarksListResult>(async (event) => {
+export default defineHttpHandler<BookmarksListRequest, BookmarksListResult>(async (event) => {
   const _query = await getValidatedQuery(event, bookmarksListQuerySchema.parse)
 
   return {} as BookmarksListResult // todo: implement

@@ -8,7 +8,7 @@ interface AuthRegisterCreateRequest {
 /**
  * Register new user
  */
-export default defineEventHandler<AuthRegisterCreateRequest, AuthRegisterCreateResult>(async (event) => {
+export default defineHttpHandler<AuthRegisterCreateRequest, AuthRegisterCreateResult>(async (event) => {
   const _data = await readValidatedBody(event, authRegisterCreatePayloadSchema.parse)
 
   return {} as AuthRegisterCreateResult // todo: implement

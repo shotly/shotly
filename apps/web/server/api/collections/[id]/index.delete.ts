@@ -9,7 +9,7 @@ interface CollectionsDeleteRequest {
 /**
  * Delete collection
  */
-export default defineEventHandler<CollectionsDeleteRequest, CollectionsDeleteResult>(async (event) => {
+export default defineHttpHandler<CollectionsDeleteRequest, CollectionsDeleteResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsDeleteRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, collectionsDeletePayloadSchema.parse)
 

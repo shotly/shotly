@@ -1,6 +1,6 @@
 import { withoutTrailingSlash } from 'ufo'
 
-export default defineEventHandler((event) => {
+export default defineHttpHandler((event) => {
   const origin = getRequestHeader(event, 'origin')
   const runtimeConfig = useRuntimeConfig(event)
 

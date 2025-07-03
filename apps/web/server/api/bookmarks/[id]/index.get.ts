@@ -8,7 +8,7 @@ interface BookmarksGetRequest {
 /**
  * Get bookmark by id
  */
-export default defineEventHandler<BookmarksGetRequest, BookmarksGetResult>(async (event) => {
+export default defineHttpHandler<BookmarksGetRequest, BookmarksGetResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, bookmarksGetRouteParamsSchema.parse)
 
   return {} as BookmarksGetResult // todo: implement

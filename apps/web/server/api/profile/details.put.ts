@@ -8,7 +8,7 @@ interface ProfileDetailsUpdateRequest {
 /**
  * Update user details
  */
-export default defineEventHandler<ProfileDetailsUpdateRequest, ProfileDetailsUpdateResult>(async (event) => {
+export default defineHttpHandler<ProfileDetailsUpdateRequest, ProfileDetailsUpdateResult>(async (event) => {
   const _data = await readValidatedBody(event, profileDetailsUpdatePayloadSchema.parse)
 
   return {} as ProfileDetailsUpdateResult // todo: implement

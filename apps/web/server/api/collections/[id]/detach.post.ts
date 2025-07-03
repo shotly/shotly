@@ -9,7 +9,7 @@ interface CollectionsDetachCreateRequest {
 /**
  * Detach bookmark from collection
  */
-export default defineEventHandler<CollectionsDetachCreateRequest, CollectionsDetachCreateResult>(async (event) => {
+export default defineHttpHandler<CollectionsDetachCreateRequest, CollectionsDetachCreateResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsDetachCreateRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, collectionsDetachCreatePayloadSchema.parse)
 

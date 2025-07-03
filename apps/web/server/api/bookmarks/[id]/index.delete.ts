@@ -9,7 +9,7 @@ interface BookmarksDeleteRequest {
 /**
  * Delete bookmark
  */
-export default defineEventHandler<BookmarksDeleteRequest, BookmarksDeleteResult>(async (event) => {
+export default defineHttpHandler<BookmarksDeleteRequest, BookmarksDeleteResult>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, bookmarksDeleteRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, bookmarksDeletePayloadSchema.parse)
 

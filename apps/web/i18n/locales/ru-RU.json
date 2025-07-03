@@ -82,5 +82,13 @@
   "links": {
     "docs": "Документация",
     "github": "Репозиторий"
+  },
+  "httpStatuses": {
+    "badRequest": "Неверный запрос",
+    "unauthorized": "Не авторизован",
+    "forbidden": "Доступ запрещен",
+    "notFound": "Не найдено",
+    "requestTimeout": "Время ожидания запроса истекло",
+    "internalServerError": "Внутренняя ошибка сервера"
   }
 }

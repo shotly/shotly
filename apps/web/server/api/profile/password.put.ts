@@ -8,7 +8,7 @@ interface ProfilePasswordUpdateRequest {
 /**
  * Update user password
  */
-export default defineEventHandler<ProfilePasswordUpdateRequest, ProfilePasswordUpdateResult>(async (event) => {
+export default defineHttpHandler<ProfilePasswordUpdateRequest, ProfilePasswordUpdateResult>(async (event) => {
   const _data = await readValidatedBody(event, profilePasswordUpdatePayloadSchema.parse)
 
   return {} as ProfilePasswordUpdateResult // todo: implement

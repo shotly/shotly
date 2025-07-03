@@ -35,10 +35,12 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     experimental: {
       autoImportTranslationFunctions: true,
+      localeDetector: 'localeDetector.ts',
     },
     detectBrowserLanguage: {
       useCookie: true,
       alwaysRedirect: true,
+      cookieKey: 'i18n_redirected',
     },
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },

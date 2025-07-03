@@ -8,7 +8,7 @@ interface AuthLoginCreateRequest {
 /**
  * Login user
  */
-export default defineEventHandler<AuthLoginCreateRequest, AuthLoginCreateResult>(async (event) => {
+export default defineHttpHandler<AuthLoginCreateRequest, AuthLoginCreateResult>(async (event) => {
   const _data = await readValidatedBody(event, authLoginCreatePayloadSchema.parse)
 
   return {} as AuthLoginCreateResult // todo: implement
