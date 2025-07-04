@@ -8,6 +8,13 @@
       "when": 1751217759071,
       "tag": "0000_slim_bushwacker",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1751570281800,
+      "tag": "0001_low_greymalkin",
+      "breakpoints": true
     }
   ]
 }
