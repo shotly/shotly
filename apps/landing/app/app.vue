@@ -45,7 +45,7 @@ const links = computed(() => [
   },
   {
     label: 'GitHub Repository',
-    to: appConfig.social.github,
+    to: appConfig.links.repository,
     target: '_blank',
     icon: 'simple-icons:github',
   },

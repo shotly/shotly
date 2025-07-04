@@ -1,12 +1,12 @@
 <template>
   <PageCard class="bg-gradient-to-tl from-error/10 from-5% to-default">
     <PageHeader
-      :title="$t('profile.dangerZone.title')"
-      :description="$t('profile.dangerZone.description')"
+      :title="$t('settings.profile.dangerZone.title')"
+      :description="$t('settings.profile.dangerZone.description')"
     />
 
     <template #footer-right>
-      <UButton :label="$t('form.actions.delete')" color="error" />
+      <UButton :label="$t('settings.profile.dangerZone.deleteAccount')" color="error" />
     </template>
   </PageCard>
 </template>

@@ -16,11 +16,16 @@
     "@dicebear/collection": "^9.2.3",
     "@dicebear/core": "^9.2.3",
     "@iconify-json/lucide": "catalog:",
-    "@shotly/base": "workspace:*",
+    "@nuxt/ui": "^3.2.0",
+    "@nuxtjs/i18n": "^9.5.6",
     "@shotly/db": "workspace:*",
+    "@vueuse/nuxt": "^13.5.0",
+    "consola": "catalog:",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.20",
-    "nuxt-site-config": "^3.2.2"
+    "nuxt-site-config": "^3.2.2",
+    "nuxt-zod-i18n": "^1.12.0",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "typescript": "catalog:",

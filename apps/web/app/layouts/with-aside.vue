@@ -32,7 +32,7 @@
     <aside class="fixed top-0 left-0 bottom-0 w-full max-w-60 h-full flex-col hidden md:flex p-3 gap-3">
       <div class="flex items-center justify-between gap-1">
         <AppLogotype class="px-2" />
-        <UTooltip :text="$t('search.tooltip')" :kbds="['/']">
+        <UTooltip :text="$t('common.search.tooltip')" :kbds="['/']">
           <UButton
             icon="lucide:search"
             size="sm"

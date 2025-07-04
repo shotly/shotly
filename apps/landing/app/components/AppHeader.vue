@@ -18,7 +18,7 @@
         class="px-2.5 py-2 gap-2 rounded-full"
         target="_blank"
         rel="noopener noreferrer nofollow"
-        :href="appConfig.links.repo"
+        :href="appConfig.links.repository"
       />
       <UButton
         label="Open App"

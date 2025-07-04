@@ -19,7 +19,7 @@
       <UButton
         color="neutral"
         variant="ghost"
-        :to="appConfig.social.github"
+        :to="appConfig.links.repository"
         target="_blank"
         icon="simple-icons:github"
         size="sm"

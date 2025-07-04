@@ -1,4 +1,44 @@
 export default defineAppConfig({
+  name: 'Shotly',
+  description: 'Bookmarks that work like magic.',
+
+  links: {
+    home: 'https://shotly.dev',
+    app: 'https://app.shotly.dev',
+    llms: 'https://shotly.dev/llms.txt',
+    repository: 'https://github.com/shotly/shotly',
+  },
+
+  ui: {
+    colors: {
+      primary: 'black',
+      neutral: 'zinc',
+      info: 'sky',
+      warning: 'orange',
+      error: 'rose',
+    },
+
+    icons: {
+      loading: 'lucide:loader',
+    },
+
+    button: {
+      slots: {
+        base: 'cursor-pointer',
+      },
+    },
+
+    navigationMenu: {
+      variants: {
+        orientation: {
+          vertical: {
+            link: 'py-2',
+          },
+        },
+      },
+    },
+  },
+
   uiPro: {
     prose: {
       codeIcon: {

@@ -1,70 +1,103 @@
 {
-  "bookmarks": {
-    "title": "Bookmarks",
-    "inbox": "Inbox",
-    "random": "Lucky"
-  },
-  "aside": {
-    "back": "Back"
-  },
-  "collections": {
-    "title": "Collections"
-  },
-  "search": {
-    "tooltip": "Search"
-  },
-  "settings": {
-    "title": "Settings",
-    "profile": "Profile",
-    "apiKeys": "API Keys",
-    "import": "Import/Export",
-    "webhooks": "Webhooks"
-  },
-  "profile": {
-    "details": {
-      "title": "Profile details",
-      "description": "Update your profile details."
-    },
-    "dangerZone": {
-      "title": "Danger zone",
-      "description": "Delete your profile and all of its contents. This action is irreversible."
-    },
-    "deleteProfile": {
-      "title": "Delete profile",
-      "description": "Are you sure you want to delete this profile? This action cannot be undone."
-    }
-  },
-  "form": {
-    "fields": {
-      "userName": {
-        "label": "Name",
-        "placeholder": "Enter your name"
-      },
-      "email": {
-        "label": "Email",
-        "placeholder": "Enter your email"
-      }
-    },
+  "common": {
     "actions": {
+      "back": "Back",
       "save": "Save",
       "saveChanges": "Save changes",
-      "confirm": "Confirm",
       "cancel": "Cancel",
-      "delete": "Delete"
+      "delete": "Delete",
+      "confirm": "Confirm"
+    },
+
+    "fields": {
+      "name": "Name",
+      "email": "Email"
+    },
+
+    "appearance": {
+      "theme": "Theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
+
+    "i18n": {
+      "language": "Language"
+    },
+
+    "links": {
+      "docs": "Documentation",
+      "github": "GitHub repository"
+    },
+
+    "confirmation": {
+      "title": "Confirm",
+      "message": "Are you sure you want to confirm?",
+      "confirmText": "Enter {confirmText} to confirm"
+    },
+
+    "search": {
+      "tooltip": "Search"
     }
   },
+
+  "settings": {
+    "title": "Settings",
+
+    "profile": {
+      "title": "Profile",
+
+      "details": {
+        "title": "Profile details",
+        "description": "Update your profile details."
+      },
+
+      "dangerZone": {
+        "title": "Danger zone",
+        "description": "Delete your profile and all of its contents. This action is irreversible.",
+        "deleteAccount": "Delete account"
+      }
+    },
+
+    "apiKeys": {
+      "title": "API keys",
+      "description": "Manage your API keys.",
+      "create": "Create API key",
+      "empty": "No API keys found"
+    },
+
+    "import": {
+      "title": "Import/Export"
+    },
+
+    "webhooks": {
+      "title": "Webhooks",
+      "create": "Create webhook"
+    }
+  },
+
   "admin": {
     "title": "Admin panel",
-    "console": "Console",
-    "users": "Users"
+
+    "console": {
+      "title": "Console"
+    },
+
+    "users": {
+      "title": "Users",
+      "description": "Manage your users."
+    }
   },
+
   "shortcuts": {
     "title": "Shortcuts",
     "description": "View all available shortcuts",
     "searchPlaceholder": "Search shortcuts",
+
     "groups": {
       "general": "General"
     },
+
     "shortcuts": {
       "search": "Search",
       "openShortcutsMenu": "Open shortcuts menu",
@@ -74,10 +107,22 @@
       "createNewBookmark": "Create new bookmark"
     }
   },
+
+  "bookmarks": {
+    "title": "Bookmarks",
+    "inbox": "Inbox",
+    "random": "Lucky"
+  },
+
+  "collections": {
+    "title": "Collections"
+  },
+
   "auth": {
     "logout": {
       "label": "Log out"
     },
+
     "login": {
       "title": "Log in to your Shotly account",
       "label": "Log in",
@@ -89,11 +134,13 @@
       "noAuthProviders": "No auth providers are available at the moment. Please contact the administrator to get access.",
       "error": "An error occurred while logging in. Please try again.",
       "or": "or",
+
       "emailForm": {
         "email": "Email address",
         "emailPlaceholder": "Enter your email address",
         "submit": "Send verification code"
       },
+
       "verificationForm": {
         "title": "Enter verification code",
         "description": "We've sent a verification code to your email",
@@ -101,11 +148,13 @@
         "differentEmail": "Use a different email"
       }
     },
+
     "back": {
       "label": "Want to go back to homepage?",
       "link": "Click here"
     }
   },
+
   "httpStatuses": {
     "badRequest": "Bad Request",
     "unauthorized": "Unauthorized",
