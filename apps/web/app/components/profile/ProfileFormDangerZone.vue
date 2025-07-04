@@ -7,6 +7,7 @@
 
     <template #footer-right>
       <ButtonDelete
+        :title="$t('settings.profile.dangerZone.deleteAccount')"
         :button-props="{ label: $t('settings.profile.dangerZone.deleteAccount') }"
         :confirm-text="user?.email"
         @confirm="handleDelete()"
