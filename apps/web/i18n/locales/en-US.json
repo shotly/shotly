@@ -26,7 +26,9 @@
     "webhooks": "Webhooks"
   },
   "admin": {
-    "title": "Admin panel"
+    "title": "Admin panel",
+    "console": "Console",
+    "users": "Users"
   },
   "shortcuts": {
     "title": "Shortcuts",

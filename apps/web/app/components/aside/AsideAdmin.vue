@@ -13,5 +13,15 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
     icon: 'lucide:arrow-left',
     to: { name: 'index' },
   },
+  {
+    label: $t('admin.console'),
+    icon: 'lucide:gauge',
+    to: { name: 'admin-console' },
+  },
+  {
+    label: $t('admin.users'),
+    icon: 'lucide:users',
+    to: { name: 'admin-users' },
+  },
 ])
 </script>

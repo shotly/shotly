@@ -41,6 +41,8 @@ const settingsRoutes: RouteName[] = [
 
 const adminRoutes: RouteName[] = [
   'admin',
+  'admin-console',
+  'admin-users',
 ]
 
 const route = useRoute()
