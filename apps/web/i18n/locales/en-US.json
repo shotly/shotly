@@ -36,6 +36,16 @@
       "confirmText": "Enter {confirmText} to confirm"
     },
 
+    "deletion": {
+      "title": "Deletion",
+      "message": "Are you sure you want to delete?"
+    },
+
+    "error": {
+      "title": "Error",
+      "message": "An error occurred. Please try again."
+    },
+
     "search": {
       "tooltip": "Search"
     }
