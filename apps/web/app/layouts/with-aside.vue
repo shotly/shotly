@@ -54,10 +54,10 @@
           <template #error>
             <div class="absolute flex flex-col items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <p class="font-medium mb-1">
-                Произошла ошибка
+                {{ $t('common.error.title') }}
               </p>
               <p class="text-sm mb-6 max-w-xs text-center text-muted">
-                Случилось что-то непредвиденное, попробуйте обновить страницу
+                {{ $t('common.error.message') }}
               </p>
             </div>
           </template>

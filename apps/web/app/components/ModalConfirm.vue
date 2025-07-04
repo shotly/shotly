@@ -21,7 +21,7 @@
       >
         <UFormField name="confirmTextValue">
           <template #label>
-            <I18nT keypath="modalConfirm.confirmTextPlaceholder" :params="{ confirmText }">
+            <I18nT keypath="common.confirmation.confirmText" :params="{ confirmText }">
               <template #confirmText>
                 <strong class="text-highlighted">{{ confirmText }}</strong>
               </template>
@@ -36,7 +36,7 @@
     <template #footer>
       <UButton
         color="neutral"
-        :label="$t('modalConfirm.cancel')"
+        :label="$t('common.actions.cancel')"
         variant="ghost"
         size="lg"
         @click="emit('close')"
@@ -45,7 +45,7 @@
       <UButton
         v-if="confirmText"
         form="confirm-form"
-        :label="$t('modalConfirm.confirm')"
+        :label="$t('common.actions.confirm')"
         type="submit"
         size="lg"
         :disabled="state.confirmTextValue !== confirmText"
@@ -54,7 +54,7 @@
       />
       <UButton
         v-else
-        :label="$t('modalConfirm.confirm')"
+        :label="$t('common.actions.confirm')"
         size="lg"
         loading-auto
         v-bind="confirmButton"

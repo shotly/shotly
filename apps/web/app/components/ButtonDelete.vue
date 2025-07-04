@@ -43,9 +43,9 @@ const modal = useOverlay().create(ModalConfirm)
 function handleDeleteClick() {
   return modal.open({
     ...props.modalProps,
-    title: props.title ?? 'Удаление',
-    message: props.message ?? 'Вы действительно хотите удалить?',
-    confirmButton: { color: 'error', label: 'Удалить' },
+    title: props.title ?? $t('common.deletion.title'),
+    message: props.message ?? $t('common.deletion.message'),
+    confirmButton: { color: 'error', label: $t('common.actions.delete') },
     confirmText: props.confirmText,
     onConfirm: props.onConfirm,
   })
