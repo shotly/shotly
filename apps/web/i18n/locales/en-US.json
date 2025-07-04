@@ -22,7 +22,8 @@
     "title": "Settings",
     "account": "Account",
     "apiKeys": "API Keys",
-    "import": "Import/Export"
+    "import": "Import/Export",
+    "webhooks": "Webhooks"
   },
   "shortcuts": {
     "title": "Shortcuts",

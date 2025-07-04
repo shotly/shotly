@@ -32,6 +32,7 @@ const settingsRoutes: RouteName[] = [
   'settings-account',
   'settings-api-keys',
   'settings-import',
+  'settings-webhooks',
 ]
 
 const route = useRoute()
