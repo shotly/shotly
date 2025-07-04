@@ -20,10 +20,43 @@
   },
   "settings": {
     "title": "Settings",
-    "account": "Account",
+    "profile": "Profile",
     "apiKeys": "API Keys",
     "import": "Import/Export",
     "webhooks": "Webhooks"
+  },
+  "profile": {
+    "details": {
+      "title": "Profile details",
+      "description": "Update your profile details."
+    },
+    "dangerZone": {
+      "title": "Danger zone",
+      "description": "Delete your profile and all of its contents. This action is irreversible."
+    },
+    "deleteProfile": {
+      "title": "Delete profile",
+      "description": "Are you sure you want to delete this profile? This action cannot be undone."
+    }
+  },
+  "form": {
+    "fields": {
+      "userName": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      }
+    },
+    "actions": {
+      "save": "Save",
+      "saveChanges": "Save changes",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "delete": "Delete"
+    }
   },
   "admin": {
     "title": "Admin panel",

@@ -46,8 +46,8 @@
       <slot name="aside" />
     </aside>
 
-    <main class="relative min-h-screen md:pt-1.5 flex flex-col ">
-      <div class="flex-1 border-default dark:border-accented/80 bg-default py-4 rounded-tl-2xl rounded-tr-2xl border-l border-t border-r md:border-r-0 md:rounded-tr-none">
+    <main class="relative min-h-screen flex flex-col md:pt-1.5">
+      <div class="flex-1 border-default dark:border-accented/80 bg-default py-4 sm:py-6 lg:py-8 rounded-tl-2xl rounded-tr-2xl border-l border-t border-r md:border-r-0 md:rounded-tr-none">
         <NuxtErrorBoundary>
           <slot />
 

@@ -20,10 +20,43 @@
   },
   "settings": {
     "title": "Настройки",
-    "account": "Аккаунт",
+    "profile": "Профиль",
     "apiKeys": "API ключи",
     "import": "Импорт/Экспорт",
     "webhooks": "Вебхуки"
+  },
+  "profile": {
+    "details": {
+      "title": "Общая информация",
+      "description": "Настройка вашего профиля и персональных данных."
+    },
+    "dangerZone": {
+      "title": "Опасная зона",
+      "description": "Удаление вашего профиля и всех его данных. Это действие необратимо."
+    },
+    "deleteProfile": {
+      "title": "Удалить профиля",
+      "description": "Вы действительно хотите удалить этот профиль? Это действие нельзя отменить."
+    }
+  },
+  "form": {
+    "fields": {
+      "userName": {
+        "label": "Имя",
+        "placeholder": "Введите ваше имя"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Введите ваш email"
+      }
+    },
+    "actions": {
+      "save": "Сохранить",
+      "saveChanges": "Сохранить изменения",
+      "confirm": "Подтвердить",
+      "cancel": "Отмена",
+      "delete": "Удалить"
+    }
   },
   "admin": {
     "title": "Админ панель",

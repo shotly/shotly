@@ -14,9 +14,9 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
     to: { name: 'index' },
   },
   {
-    label: $t('settings.account'),
+    label: $t('settings.profile'),
     icon: 'lucide:user',
-    to: { name: 'settings-account' },
+    to: { name: 'settings-profile' },
   },
   {
     label: $t('settings.apiKeys'),
