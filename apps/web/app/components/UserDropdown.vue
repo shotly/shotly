@@ -1,14 +1,13 @@
 <template>
   <UDropdownMenu
+    v-if="user"
     :items="items"
     :content="{ align: 'center', collisionPadding: 12 }"
     :ui="{ content: 'w-(--reka-dropdown-menu-trigger-width)' }"
   >
     <UButton
-      v-bind="{
-        ...user,
-        label: user?.name,
-      }"
+      :label="user.name"
+      :avatar="{ src: userAvatar }"
       color="neutral"
       variant="ghost"
       class="data-[state=open]:bg-elevated"
@@ -26,16 +25,16 @@ const colorMode = useColorMode()
 const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
 const { locale, locales, setLocale } = useI18n()
-// const { user: userSession } = useUserSession()
-const { logout, isLoading: isLoggingOut } = useLogout()
+const { user } = useUserSession()
+const { logout, isLoading: isLoggingOut, onLoggedOut } = useLogout()
 const { isShortcutsHelpOpen } = useApp()
 
-const user = ref({
-  name: 'Hywax',
-  avatar: {
-    src: createAvatar('Hywax'),
-    alt: 'Hywax',
-  },
+const userAvatar = computed(() => {
+  if (!user.value?.avatarUrl) {
+    return createAvatar(user.value?.name)
+  }
+
+  return user.value.avatarUrl
 })
 
 const appearance = computed(() => [
@@ -120,4 +119,6 @@ const items = computed<DropdownMenuItem[][]>(() => ([
     },
   ],
 ]))
+
+onLoggedOut(() => navigateTo({ name: 'login' }))
 </script>
