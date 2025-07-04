@@ -10,6 +10,8 @@ function resolvePath(path: string) {
 
 export default defineNuxtConfig({
   modules: [
+    'nuxt-zod-i18n',
+    '@nuxtjs/i18n',
     '@vueuse/nuxt',
   ],
   css: [resolvePath('./app/assets/css/main.css')],
@@ -24,6 +26,29 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
       ],
+    },
+  },
+  i18n: {
+    langDir: 'locales',
+    defaultLocale: 'en',
+    experimental: {
+      autoImportTranslationFunctions: true,
+      localeDetector: 'localeDetector.ts',
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
+      cookieKey: 'i18n_redirected',
+    },
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
+    ],
+  },
+  zodI18n: {
+    localeCodesMapping: {
+      'en-GB': 'en',
+      'ru-RU': 'ru',
     },
   },
   ui: {

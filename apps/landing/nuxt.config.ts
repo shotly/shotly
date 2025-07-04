@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: '@shotly/ui',
+  extends: '@shotly/base',
   modules: [
     '@nuxt/ui-pro',
     '@nuxt/content',
@@ -12,6 +12,13 @@ export default defineNuxtConfig({
     url: 'https://shotly.dev',
     defaultLocale: 'en',
     indexable: true,
+  },
+  i18n: {
+    strategy: 'no_prefix',
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
+    ],
   },
   llms: {
     domain: 'https://shotly.dev',

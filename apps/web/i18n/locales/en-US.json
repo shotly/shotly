@@ -1,9 +1,4 @@
 {
-  "soon": {
-    "title": "Coming soon",
-    "description": "This feature is not available yet",
-    "badge": "soon"
-  },
   "bookmarks": {
     "title": "Bookmarks",
     "inbox": "Inbox",
@@ -79,15 +74,6 @@
       "createNewBookmark": "Create new bookmark"
     }
   },
-  "appearance": {
-    "theme": "Theme",
-    "system": "System",
-    "light": "Light",
-    "dark": "Dark"
-  },
-  "i18n": {
-    "language": "Language"
-  },
   "auth": {
     "logout": {
       "label": "Log out"
@@ -119,10 +105,6 @@
       "label": "Want to go back to homepage?",
       "link": "Click here"
     }
-  },
-  "links": {
-    "docs": "Documentation",
-    "github": "GitHub repository"
   },
   "httpStatuses": {
     "badRequest": "Bad Request",

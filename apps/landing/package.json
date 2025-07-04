@@ -16,7 +16,7 @@
     "@nuxt/image": "^1.10.0",
     "@nuxt/ui-pro": "^3.2.0",
     "@nuxtjs/seo": "^3.1.0",
-    "@shotly/ui": "workspace:*",
+    "@shotly/base": "workspace:*",
     "better-sqlite3": "^12.2.0",
     "nuxt": "catalog:",
     "nuxt-llms": "^0.1.3",

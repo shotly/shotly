@@ -1,9 +1,4 @@
 {
-  "soon": {
-    "title": "Скоро",
-    "description": "Эта функция пока недоступна",
-    "badge": "скоро"
-  },
   "bookmarks": {
     "title": "Закладки",
     "inbox": "Входящие",
@@ -79,15 +74,6 @@
       "createNewBookmark": "Создать новую закладку"
     }
   },
-  "appearance": {
-    "theme": "Тема",
-    "system": "Системная",
-    "light": "Светлая",
-    "dark": "Тёмная"
-  },
-  "i18n": {
-    "language": "Язык"
-  },
   "auth": {
     "logout": {
       "label": "Выйти"
@@ -119,10 +105,6 @@
       "label": "Хотите вернуться?",
       "link": "Нажмите здесь"
     }
-  },
-  "links": {
-    "docs": "Документация",
-    "github": "Репозиторий"
   },
   "httpStatuses": {
     "badRequest": "Неверный запрос",

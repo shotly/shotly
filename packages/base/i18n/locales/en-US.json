@@ -1,0 +1,20 @@
+{
+  "soon": {
+    "title": "Coming soon",
+    "description": "This feature is not available yet",
+    "badge": "soon"
+  },
+  "appearance": {
+    "theme": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "i18n": {
+    "language": "Language"
+  },
+  "links": {
+    "docs": "Documentation",
+    "github": "GitHub repository"
+  }
+}

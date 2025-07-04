@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
-  extends: '@shotly/ui',
+  extends: '@shotly/base',
   modules: [
     'nuxt-zod-i18n',
     'nuxt-auth-utils',
@@ -33,28 +33,11 @@ export default defineNuxtConfig({
     ],
   },
   i18n: {
-    langDir: 'locales',
     strategy: 'no_prefix',
-    defaultLocale: 'en',
-    experimental: {
-      autoImportTranslationFunctions: true,
-      localeDetector: 'localeDetector.ts',
-    },
-    detectBrowserLanguage: {
-      useCookie: true,
-      alwaysRedirect: true,
-      cookieKey: 'i18n_redirected',
-    },
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru-RU.json' },
     ],
-  },
-  zodI18n: {
-    localeCodesMapping: {
-      'en-GB': 'en',
-      'ru-RU': 'ru',
-    },
   },
   nitro: {
     preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),
