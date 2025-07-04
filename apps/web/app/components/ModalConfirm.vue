@@ -5,6 +5,7 @@
       content: 'divide-y-0',
       body: 'py-0! text-sm',
       description: 'hidden',
+      footer: 'justify-end',
     }"
   >
     <template #description />
@@ -21,7 +22,7 @@
       >
         <UFormField name="confirmTextValue">
           <template #label>
-            <I18nT keypath="common.confirmation.confirmText" :params="{ confirmText }">
+            <I18nT keypath="common.confirmation.confirmText" :params="{ confirmText }" scope="global">
               <template #confirmText>
                 <strong class="text-highlighted">{{ confirmText }}</strong>
               </template>
@@ -47,7 +48,6 @@
         form="confirm-form"
         :label="$t('common.actions.confirm')"
         type="submit"
-        size="lg"
         :disabled="state.confirmTextValue !== confirmText"
         :loading="form?.loading"
         v-bind="confirmButton"
@@ -55,7 +55,6 @@
       <UButton
         v-else
         :label="$t('common.actions.confirm')"
-        size="lg"
         loading-auto
         v-bind="confirmButton"
         @click="handleConfirmClick()"
@@ -66,6 +65,7 @@
 
 <script lang="ts" setup>
 import type { ButtonProps } from '@nuxt/ui'
+import { logger } from '#shared/logger'
 
 export interface Props {
   title?: string
@@ -90,7 +90,11 @@ const state = reactive({
 })
 
 async function handleConfirmClick() {
-  await props.onConfirm?.()
-  emit('close')
+  try {
+    await props.onConfirm?.()
+    emit('close')
+  } catch (error) {
+    logger.error(error)
+  }
 }
 </script>
