@@ -1,1 +1,3 @@
-export default defineHttpHandler(() => {})
+export default defineHttpHandler(() => {
+  throw createHttpError('forbidden')
+})

@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       alwaysRedirect: true,
-      cookieKey: 'i18n_redirected',
+      cookieKey: 'shotly-i18n-redirected',
     },
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
