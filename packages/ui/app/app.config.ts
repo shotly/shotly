@@ -28,7 +28,7 @@ export default defineAppConfig({
       neutral: 'zinc',
       info: 'sky',
       warning: 'orange',
-      error: 'pink',
+      error: 'rose',
     },
 
     icons: {
