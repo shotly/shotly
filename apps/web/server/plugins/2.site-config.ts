@@ -10,6 +10,7 @@ export default defineNitroPlugin(async (nitroApp) => {
   const allowedAuthProviders = {
     google: !!(runtimeConfig.oauth.google.clientId && runtimeConfig.oauth.google.clientSecret),
     github: !!(runtimeConfig.oauth.github.clientId && runtimeConfig.oauth.github.clientSecret),
+    authentik: !!(runtimeConfig.oauth.authentik.clientId && runtimeConfig.oauth.authentik.clientSecret && runtimeConfig.oauth.authentik.domain),
     email: false,
   }
 
