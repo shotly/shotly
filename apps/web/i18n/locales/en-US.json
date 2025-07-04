@@ -25,6 +25,9 @@
     "import": "Import/Export",
     "webhooks": "Webhooks"
   },
+  "admin": {
+    "title": "Admin panel"
+  },
   "shortcuts": {
     "title": "Shortcuts",
     "description": "View all available shortcuts",

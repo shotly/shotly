@@ -45,6 +45,15 @@ const appearance = computed(() => [
 
 const items = computed<DropdownMenuItem[][]>(() => ([
   [
+    ...(
+      user.value?.role === 'admin'
+        ? [{
+            label: $t('admin.title'),
+            icon: 'lucide:shield-check',
+            to: { name: 'admin' },
+          }] as const
+        : []
+    ),
     {
       label: $t('settings.title'),
       icon: 'lucide:settings',

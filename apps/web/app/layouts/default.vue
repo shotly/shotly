@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import type { RouteNamedMap } from 'vue-router/auto-routes'
-import { AsideBookmarks, AsideSettings } from '#components'
+import { AsideAdmin, AsideBookmarks, AsideSettings } from '#components'
 
 type RouteName = keyof RouteNamedMap
 
@@ -35,6 +35,10 @@ const settingsRoutes: RouteName[] = [
   'settings-webhooks',
 ]
 
+const adminRoutes: RouteName[] = [
+  'admin',
+]
+
 const route = useRoute()
 
 const asideComponent = computed(() => {
@@ -44,6 +48,10 @@ const asideComponent = computed(() => {
 
   if (settingsRoutes.includes(route.name)) {
     return AsideSettings
+  }
+
+  if (adminRoutes.includes(route.name)) {
+    return AsideAdmin
   }
 
   return undefined
