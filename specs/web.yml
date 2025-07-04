@@ -40,27 +40,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProfileDetailsUpdateResult'
 
-  /profile/password:
-    put:
-      summary: Update user password
-      tags:
-        - Profile
-      operationId: ProfilePasswordUpdate
-      parameters:
-        - $ref: '#/components/parameters/x-api-key'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProfilePasswordUpdatePayload'
-      responses:
-        200:
-          description: Update user password
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProfilePasswordUpdateResult'
-
   /profile:
     delete:
       summary: Delete user profile
@@ -490,18 +469,17 @@ components:
     ProfileDetailsUpdatePayload:
       type: object
       description: Payload "Update user details"
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: User name
+          minLength: 3
 
     ProfileDetailsUpdateResult:
       type: object
       description: Result "Update user details"
-
-    ProfilePasswordUpdatePayload:
-      type: object
-      description: Payload "Update user password"
-
-    ProfilePasswordUpdateResult:
-      type: object
-      description: Result "Update user password"
 
     ProfileDeletePayload:
       type: object

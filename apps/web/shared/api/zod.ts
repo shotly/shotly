@@ -8,13 +8,11 @@ export const cuidSchema = z.string().min(24).max(24)
 
 export const apiKeySchema = z.string().uuid()
 
-export const profileDetailsUpdatePayloadSchema = z.record(z.any())
+export const profileDetailsUpdatePayloadSchema = z.object({
+  name: z.string().min(3),
+})
 
 export const profileDetailsUpdateResultSchema = z.record(z.any())
-
-export const profilePasswordUpdatePayloadSchema = z.record(z.any())
-
-export const profilePasswordUpdateResultSchema = z.record(z.any())
 
 export const profileDeletePayloadSchema = z.record(z.any())
 
