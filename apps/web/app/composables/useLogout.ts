@@ -4,7 +4,7 @@ import { clearNuxtData, ref, useUserSession } from '#imports'
 
 export interface UseLogoutResult {
   isLoading: Ref<boolean>
-  logout: () => Promise<void>
+  logout: (redirectToLogin?: boolean) => Promise<void>
   onLoggedOut: EventHookOn<void>
 }
 
@@ -13,13 +13,17 @@ export const useLogout = createSharedComposable<() => UseLogoutResult>(() => {
   const { clear } = useUserSession()
   const { on: onLoggedOut, trigger: logoutTrigger } = createEventHook()
 
-  async function logout() {
+  async function logout(redirectToLogin: boolean = true) {
     isLoading.value = true
 
     try {
       clearNuxtData()
       await clear()
       logoutTrigger()
+
+      if (redirectToLogin) {
+        await navigateTo({ name: 'login' })
+      }
     } finally {
       isLoading.value = false
     }

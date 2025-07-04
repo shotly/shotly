@@ -26,7 +26,7 @@ const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
 const { locale, locales, setLocale } = useI18n()
 const { user } = useUserSession()
-const { logout, isLoading: isLoggingOut, onLoggedOut } = useLogout()
+const { logout, isLoading: isLoggingOut } = useLogout()
 const { isShortcutsHelpOpen } = useApp()
 
 const userAvatar = computed(() => {
@@ -128,6 +128,4 @@ const items = computed<DropdownMenuItem[][]>(() => ([
     },
   ],
 ]))
-
-onLoggedOut(() => navigateTo({ name: 'login' }))
 </script>
