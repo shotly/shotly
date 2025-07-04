@@ -6,18 +6,9 @@ settings:
 
 catalogs:
   default:
-    '@iconify-json/circle-flags':
-      specifier: ^1.2.6
-      version: 1.2.6
     '@iconify-json/lucide':
       specifier: ^1.2.54
       version: 1.2.54
-    '@iconify-json/simple-icons':
-      specifier: ^1.2.41
-      version: 1.2.41
-    '@iconify-json/vscode-icons':
-      specifier: ^1.2.23
-      version: 1.2.23
     consola:
       specifier: ^3.4.2
       version: 3.4.2
@@ -86,9 +77,6 @@ importers:
       '@nuxtjs/seo':
         specifier: ^3.1.0
         version: 3.1.0(@unhead/vue@2.0.11(vue@3.5.17(typescript@5.8.3)))(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(h3@1.15.3)(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.44.1)(unstorage@1.16.0(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(ioredis@5.6.1))(vite@6.3.5(@types/node@24.0.7)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
-      '@shotly/base':
-        specifier: workspace:*
-        version: link:../../packages/base
       better-sqlite3:
         specifier: ^12.2.0
         version: 12.2.0
@@ -120,49 +108,15 @@ importers:
       '@iconify-json/lucide':
         specifier: 'catalog:'
         version: 1.2.54
-      '@shotly/base':
-        specifier: workspace:*
-        version: link:../../packages/base
-      '@shotly/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      nuxt:
-        specifier: 'catalog:'
-        version: 3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.7)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.30.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.44.1)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.7)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0)
-      nuxt-auth-utils:
-        specifier: ^0.5.20
-        version: 0.5.20(magicast@0.3.5)
-      nuxt-site-config:
-        specifier: ^3.2.2
-        version: 3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
-    devDependencies:
-      typescript:
-        specifier: 'catalog:'
-        version: 5.8.3
-      vue-tsc:
-        specifier: 'catalog:'
-        version: 3.0.1(typescript@5.8.3)
-
-  packages/base:
-    dependencies:
-      '@iconify-json/circle-flags':
-        specifier: 'catalog:'
-        version: 1.2.6
-      '@iconify-json/lucide':
-        specifier: 'catalog:'
-        version: 1.2.54
-      '@iconify-json/simple-icons':
-        specifier: 'catalog:'
-        version: 1.2.41
-      '@iconify-json/vscode-icons':
-        specifier: 'catalog:'
-        version: 1.2.23
       '@nuxt/ui':
         specifier: ^3.2.0
         version: 3.2.0(@babel/parser@7.27.7)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(embla-carousel@8.6.0)(ioredis@5.6.1)(jwt-decode@4.0.0)(magicast@0.3.5)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.7)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-router@4.5.1(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))(zod@3.25.68)
       '@nuxtjs/i18n':
         specifier: ^9.5.6
         version: 9.5.6(@vue/compiler-dom@3.5.17)(eslint@9.30.1(jiti@2.4.2))(magicast@0.3.5)(rollup@4.44.1)(vue@3.5.17(typescript@5.8.3))
+      '@shotly/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@vueuse/nuxt':
         specifier: ^13.5.0
         version: 13.5.0(magicast@0.3.5)(nuxt@3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.7)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.30.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.44.1)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.7)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
@@ -172,6 +126,12 @@ importers:
       nuxt:
         specifier: 'catalog:'
         version: 3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.7)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.30.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.44.1)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.7)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0)
+      nuxt-auth-utils:
+        specifier: ^0.5.20
+        version: 0.5.20(magicast@0.3.5)
+      nuxt-site-config:
+        specifier: ^3.2.2
+        version: 3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
       nuxt-zod-i18n:
         specifier: ^1.12.0
         version: 1.12.0(magicast@0.3.5)(typescript@5.8.3)
@@ -1165,17 +1125,8 @@ packages:
     resolution: {integrity: sha512-ybUOEqZI4BA9m9kvj15qKBYtMDINUBGZq+50DIxoX4RFVzs0uyAXKnqqsl2qTCq1cOMxAeGAC3pbTIZ3tiF9rg==}
     hasBin: true
 
-  '@iconify-json/circle-flags@1.2.6':
-    resolution: {integrity: sha512-UR7hL1nxOFWDVlSTuAmssyAzm3U1PuE5CMVLlahuVsnm1l7Q2b29+jUaSLTDCFqrpvdeWifCmj4C6Ojkj+4uww==}
-
   '@iconify-json/lucide@1.2.54':
     resolution: {integrity: sha512-sUHvGWE0WI+XVew//03Y1jw7AFRv57X1BFxrLBdjwt9xccr4Y2JartcWXM/Zeinxrr3ZgBt0n16WkeN/fx9QAQ==}
-
-  '@iconify-json/simple-icons@1.2.41':
-    resolution: {integrity: sha512-4tt29cKzNsxvt6rjAOVhEgpZV0L8jleTDTMdtvIJjF14Afp9aH8peuwGYyX35l6idfFwuzbvjSVfVyVjJtfmYA==}
-
-  '@iconify-json/vscode-icons@1.2.23':
-    resolution: {integrity: sha512-gFTcKecKra2/b5SbGDgHGI/l8CuikHyBPmqGlK+YCmS8AK72dtDQbUekdoACsju/3TYS37QvdPoOQwnyx2LdYg==}
 
   '@iconify/collections@1.0.564':
     resolution: {integrity: sha512-slmxhdUVlLAxaLGIDTuGP2pXH8Tshc9V5r1zSKWEs5jj/7qlv3MyhtZ1dsUeaq1/x0t25gXF+a6F47ZPUKjU/Q==}
@@ -8709,19 +8660,7 @@ snapshots:
       - magicast
       - supports-color
 
-  '@iconify-json/circle-flags@1.2.6':
-    dependencies:
-      '@iconify/types': 2.0.0
-
   '@iconify-json/lucide@1.2.54':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify-json/simple-icons@1.2.41':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify-json/vscode-icons@1.2.23':
     dependencies:
       '@iconify/types': 2.0.0
 
