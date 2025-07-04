@@ -1,24 +1,15 @@
 <template>
   <NuxtLink :to="{ name: 'index' }" :class="ui.root()">
-    <UIcon name="shotly:logo-symbol" :class="ui.icon()" />
+    <UIcon name="web:logo" :class="ui.icon()" />
     <div :class="ui.label()">
       {{ appConfig.name }}
     </div>
   </NuxtLink>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import type { ComponentSlots } from '../types/tv'
 import { tv } from 'tailwind-variants'
-
-export interface AppLogotypeProps {
-  size?: 'sm' | 'md' | 'lg'
-}
-
-const props = withDefaults(defineProps<AppLogotypeProps>(), {
-  size: 'md',
-})
-
-const appConfig = useAppConfig()
 
 const appLogotype = tv({
   slots: {
@@ -43,6 +34,20 @@ const appLogotype = tv({
     },
   },
 })
+
+export interface AppLogotypeProps {
+  size?: 'sm' | 'md' | 'lg'
+  ui?: ComponentSlots<typeof appLogotype>
+  class?: any
+}
+</script>
+
+<script setup lang="ts">
+const props = withDefaults(defineProps<AppLogotypeProps>(), {
+  size: 'md',
+})
+
+const appConfig = useAppConfig()
 
 const ui = computed(() => appLogotype({ size: props.size }))
 </script>

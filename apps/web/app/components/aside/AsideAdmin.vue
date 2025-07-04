@@ -9,17 +9,17 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const mainMenu = computed<NavigationMenuItem[]>(() => [
   {
-    label: $t('aside.back'),
+    label: $t('common.actions.back'),
     icon: 'lucide:arrow-left',
     to: { name: 'index' },
   },
   {
-    label: $t('admin.console'),
+    label: $t('admin.console.title'),
     icon: 'lucide:gauge',
     to: { name: 'admin-console' },
   },
   {
-    label: $t('admin.users'),
+    label: $t('admin.users.title'),
     icon: 'lucide:users',
     to: { name: 'admin-users' },
   },

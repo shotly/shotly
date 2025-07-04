@@ -24,16 +24,16 @@ export type CUID = string
 export type ApiKey = string
 
 /** Payload "Update user details" */
-export type ProfileDetailsUpdatePayload = object
+export interface ProfileDetailsUpdatePayload {
+  /**
+   * User name
+   * @minLength 3
+   */
+  name: string
+}
 
 /** Result "Update user details" */
 export type ProfileDetailsUpdateResult = object
-
-/** Payload "Update user password" */
-export type ProfilePasswordUpdatePayload = object
-
-/** Result "Update user password" */
-export type ProfilePasswordUpdateResult = object
 
 /** Payload "Delete user profile" */
 export type ProfileDeletePayload = object

@@ -4,7 +4,7 @@ export default defineI18nLocaleDetector((event, config) => {
     return query.toString()
   }
 
-  const cookie = tryCookieLocale(event, { lang: '', name: 'i18n_redirected' })
+  const cookie = tryCookieLocale(event, { lang: '', name: 'shotly-i18n-redirected' })
   if (cookie) {
     return cookie.toString()
   }

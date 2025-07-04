@@ -32,7 +32,7 @@
     <aside class="fixed top-0 left-0 bottom-0 w-full max-w-60 h-full flex-col hidden md:flex p-3 gap-3">
       <div class="flex items-center justify-between gap-1">
         <AppLogotype class="px-2" />
-        <UTooltip :text="$t('search.tooltip')" :kbds="['/']">
+        <UTooltip :text="$t('common.search.tooltip')" :kbds="['/']">
           <UButton
             icon="lucide:search"
             size="sm"
@@ -46,8 +46,8 @@
       <slot name="aside" />
     </aside>
 
-    <main class="relative min-h-screen md:pt-1.5 flex flex-col ">
-      <div class="flex-1 border-default dark:border-accented/80 bg-default py-4 rounded-tl-2xl rounded-tr-2xl border-l border-t border-r md:border-r-0 md:rounded-tr-none">
+    <main class="relative min-h-screen flex flex-col md:pt-1.5">
+      <div class="flex-1 border-default dark:border-accented/80 bg-default py-4 sm:py-6 lg:py-8 rounded-tl-2xl rounded-tr-2xl border-l border-t border-r md:border-r-0 md:rounded-tr-none">
         <NuxtErrorBoundary>
           <slot />
 

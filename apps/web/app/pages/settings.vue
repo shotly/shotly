@@ -4,6 +4,6 @@
 
 <script lang="ts" setup>
 definePageMeta({
-  redirect: { name: 'settings-account' },
+  redirect: { name: 'settings-profile' },
 })
 </script>

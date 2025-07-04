@@ -1,5 +1,4 @@
 export default defineNuxtConfig({
-  extends: '@shotly/ui',
   modules: [
     '@nuxt/ui-pro',
     '@nuxt/content',
@@ -12,6 +11,16 @@ export default defineNuxtConfig({
     url: 'https://shotly.dev',
     defaultLocale: 'en',
     indexable: true,
+  },
+  app: {
+    head: {
+      viewport: 'width=device-width, initial-scale=1',
+      charset: 'utf-8',
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'shortcut icon', href: '/favicon.ico' },
+      ],
+    },
   },
   llms: {
     domain: 'https://shotly.dev',
@@ -47,6 +56,36 @@ export default defineNuxtConfig({
         light: 'github-light',
       },
     },
+  },
+  ui: {
+    colorMode: true,
+    fonts: true,
+  },
+  fonts: {
+    provider: 'google',
+    families: [
+      {
+        name: 'Geist',
+        provider: 'google',
+        weights: [300, 400, 500, 600, 700, 800, 900],
+      },
+      {
+        name: 'Geist Mono',
+        provider: 'google',
+        weights: [400],
+      },
+    ],
+  },
+  icon: {
+    customCollections: [
+      { prefix: 'landing', dir: './app/assets/icons' },
+    ],
+    clientBundle: {
+      scan: true,
+    },
+  },
+  colorMode: {
+    storageKey: 'shotly-color-mode',
   },
   css: ['~/assets/css/main.css'],
   routeRules: {

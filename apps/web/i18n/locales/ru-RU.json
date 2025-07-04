@@ -1,96 +1,160 @@
 {
-  "soon": {
-    "title": "Скоро",
-    "description": "Эта функция пока недоступна",
-    "badge": "скоро"
+  "common": {
+    "actions": {
+      "back": "Назад",
+      "save": "Сохранить",
+      "saveChanges": "Сохранить изменения",
+      "cancel": "Отмена",
+      "delete": "Удалить",
+      "confirm": "Подтвердить"
+    },
+
+    "fields": {
+      "name": "Имя",
+      "email": "Email"
+    },
+
+    "appearance": {
+      "theme": "Тема",
+      "system": "Системная",
+      "light": "Светлая",
+      "dark": "Тёмная"
+    },
+
+    "i18n": {
+      "language": "Язык"
+    },
+
+    "links": {
+      "docs": "Документация",
+      "github": "Репозиторий на GitHub"
+    },
+
+    "confirmation": {
+      "title": "Подтвердить",
+      "message": "Вы уверены, что хотите подтвердить?",
+      "confirmText": "Введите {confirmText} для подтверждения"
+    },
+
+    "search": {
+      "tooltip": "Поиск"
+    }
   },
-  "bookmarks": {
-    "title": "Закладки",
-    "inbox": "Входящие",
-    "random": "Мне повезёт"
-  },
-  "aside": {
-    "back": "Назад"
-  },
-  "collections": {
-    "title": "Коллекции"
-  },
-  "search": {
-    "tooltip": "Поиск"
-  },
+
   "settings": {
     "title": "Настройки",
-    "account": "Аккаунт",
-    "apiKeys": "API ключи",
-    "import": "Импорт/Экспорт",
-    "webhooks": "Вебхуки"
+
+    "profile": {
+      "title": "Профиль",
+
+      "details": {
+        "title": "Общая информация",
+        "description": "Настройка вашего профиля и персональных данных."
+      },
+
+      "dangerZone": {
+        "title": "Опасная зона",
+        "description": "Удаление вашего профиля и всех его данных. Это действие необратимо.",
+        "deleteAccount": "Удалить профиль"
+      }
+    },
+
+    "apiKeys": {
+      "title": "API ключи",
+      "description": "Управление вашими API ключами.",
+      "create": "Создать API ключ",
+      "empty": "Нет API ключей"
+    },
+
+    "import": {
+      "title": "Импорт/Экспорт"
+    },
+
+    "webhooks": {
+      "title": "Webhooks",
+      "create": "Создать вебхук"
+    }
   },
+
   "admin": {
     "title": "Админ панель",
-    "console": "Консоль",
-    "users": "Пользователи"
+
+    "console": {
+      "title": "Консоль"
+    },
+
+    "users": {
+      "title": "Пользователи",
+      "description": "Управление вашими пользователями."
+    }
   },
+
   "shortcuts": {
     "title": "Горячие клавиши",
     "description": "Посмотреть все доступные горячие клавиши",
     "searchPlaceholder": "Поиск горячих клавиш",
+
     "groups": {
       "general": "Общие"
     },
+
     "shortcuts": {
       "search": "Поиск",
       "openShortcutsMenu": "Открыть меню горячих клавиш",
       "openInbox": "Открыть входящие",
       "openSettingsMenu": "Открыть меню настроек",
-      "openRandomBookmark": "Открыть случайную закладку",
+      "openRandomBookmark": "Открыть случайный закладку",
       "createNewBookmark": "Создать новую закладку"
     }
   },
-  "appearance": {
-    "theme": "Тема",
-    "system": "Системная",
-    "light": "Светлая",
-    "dark": "Тёмная"
+
+  "bookmarks": {
+    "title": "Закладки",
+    "inbox": "Входящие",
+    "random": "Мне повезёт"
   },
-  "i18n": {
-    "language": "Язык"
+
+  "collections": {
+    "title": "Коллекции"
   },
+
   "auth": {
     "logout": {
       "label": "Выйти"
     },
+
     "login": {
-      "title": "Войдите в аккаунт Shotly",
+      "title": "Войти в ваш аккаунт Shotly",
       "label": "Войти",
-      "pageTitle": "Вход в аккаунт",
+      "pageTitle": "Войти в аккаунт",
       "logInWithGoogle": "Войти через Google",
       "logInWithGitHub": "Войти через GitHub",
       "logInWithAuthentik": "Войти через Authentik",
       "continueWithEmail": "Продолжить с Email",
-      "noAuthProviders": "На данный момент нет доступных методов авторизации. Пожалуйста, свяжитесь с администратором для получения доступа.",
-      "error": "Произошла ошибка при входе. Пожалуйста, попробуйте снова.",
+      "noAuthProviders": "В настоящее время нет доступных провайдеров авторизации. Пожалуйста, свяжитесь с администратором для получения доступа.",
+      "error": "Произошла ошибка при входе. Пожалуйста, попробуйте ещё раз.",
       "or": "или",
+
       "emailForm": {
         "email": "Email адрес",
         "emailPlaceholder": "Введите ваш email адрес",
-        "submit": "Отправить код верификации"
+        "submit": "Отправить код подтверждения"
       },
+
       "verificationForm": {
-        "title": "Введите код верификации",
-        "description": "Мы отправили код верификации на ваш email",
-        "resend": "Не получили код? Отправить снова",
+        "title": "Введите код подтверждения",
+        "description": "Мы отправили код подтверждения на ваш email",
+        "resend": "Не получили код? Отправить ещё раз",
         "differentEmail": "Использовать другой email"
       }
     },
+
     "back": {
-      "label": "Хотите вернуться?",
+      "label": "Хотите вернуться на главную страницу?",
       "link": "Нажмите здесь"
     }
   },
-  "links": {
-    "docs": "Документация",
-    "github": "Репозиторий"
-  },
+
   "httpStatuses": {
     "badRequest": "Неверный запрос",
     "unauthorized": "Не авторизован",

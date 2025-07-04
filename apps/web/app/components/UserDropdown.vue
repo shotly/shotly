@@ -38,9 +38,9 @@ const userAvatar = computed(() => {
 })
 
 const appearance = computed(() => [
-  { label: $t('appearance.system'), value: 'system', icon: 'lucide:monitor' },
-  { label: $t('appearance.light'), value: 'light', icon: 'lucide:sun' },
-  { label: $t('appearance.dark'), value: 'dark', icon: 'lucide:moon' },
+  { label: $t('common.appearance.system'), value: 'system', icon: 'lucide:monitor' },
+  { label: $t('common.appearance.light'), value: 'light', icon: 'lucide:sun' },
+  { label: $t('common.appearance.dark'), value: 'dark', icon: 'lucide:moon' },
 ])
 
 const items = computed<DropdownMenuItem[][]>(() => ([
@@ -63,7 +63,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([
   ],
   [
     {
-      label: $t('appearance.theme'),
+      label: $t('common.appearance.theme'),
       icon: 'lucide:palette',
       children: appearance.value.map((item) => ({
         label: item.label,
@@ -77,7 +77,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([
       })),
     },
     {
-      label: $t('i18n.language'),
+      label: $t('common.i18n.language'),
       icon: 'lucide:globe',
       children: locales.value.map((loc) => ({
         label: loc.name,
@@ -101,7 +101,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([
     ...(
       runtimeConfig.public.showDocsLink
         ? [{
-            label: $t('links.docs'),
+            label: $t('common.links.docs'),
             icon: 'lucide:book-open',
             target: '_blank',
             to: appConfig.links.docs,
@@ -111,10 +111,10 @@ const items = computed<DropdownMenuItem[][]>(() => ([
     ...(
       runtimeConfig.public.showRepoLink
         ? [{
-            label: $t('links.github'),
+            label: $t('common.links.github'),
             icon: 'simple-icons:github',
             target: '_blank',
-            to: appConfig.social.github,
+            to: appConfig.links.repository,
           }]
         : []
     ),

@@ -33,7 +33,7 @@ const bookmarksRoutes: RouteName[] = [
 
 const settingsRoutes: RouteName[] = [
   'settings',
-  'settings-account',
+  'settings-profile',
   'settings-api-keys',
   'settings-import',
   'settings-webhooks',
