@@ -59,8 +59,10 @@
       "pageTitle": "Log in to account",
       "logInWithGoogle": "Log in with Google",
       "logInWithGitHub": "Log in with GitHub",
+      "logInWithAuthentik": "Log in with Authentik",
       "continueWithEmail": "Continue with Email",
       "noAuthProviders": "No auth providers are available at the moment. Please contact the administrator to get access.",
+      "error": "An error occurred while logging in. Please try again.",
       "or": "or",
       "emailForm": {
         "email": "Email address",

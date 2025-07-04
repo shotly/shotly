@@ -5,6 +5,14 @@
     </h3>
     <div class="flex flex-col gap-3">
       <UAlert
+        v-if="query && query.error"
+        color="error"
+        variant="subtle"
+        class="text-center"
+        :title="$t('auth.login.error')"
+      />
+
+      <UAlert
         v-if="countAuthProviders === 0"
         color="warning"
         variant="subtle"
@@ -12,30 +20,20 @@
         :title="$t('auth.login.noAuthProviders')"
       />
 
-      <UButton
-        v-if="allowedAuthProviders.google"
-        size="lg"
-        color="neutral"
-        variant="outline"
-        icon="web:google-color"
-        class="w-full justify-center"
-        :label="$t('auth.login.logInWithGoogle')"
-        :ui="{ leadingIcon: 'size-4' }"
-        loading-auto
-        @click="handleOAuth('google')"
-      />
-      <UButton
-        v-if="allowedAuthProviders.github"
-        size="lg"
-        color="neutral"
-        variant="outline"
-        icon="simple-icons:github"
-        class="w-full justify-center"
-        :label="$t('auth.login.logInWithGitHub')"
-        :ui="{ leadingIcon: 'size-4' }"
-        loading-auto
-        @click="handleOAuth('github')"
-      />
+      <template v-for="provider in authProviders" :key="provider.id">
+        <UButton
+          v-if="provider.isEnabled"
+          size="lg"
+          color="neutral"
+          variant="outline"
+          class="w-full justify-center"
+          :icon="provider.icon"
+          :label="provider.label"
+          :ui="{ leadingIcon: 'size-4' }"
+          loading-auto
+          @click="handleOAuth(provider.id)"
+        />
+      </template>
 
       <template v-if="allowedAuthProviders.email">
         <USeparator
@@ -68,6 +66,7 @@ useSeoMeta({
 })
 
 const { allowedAuthProviders } = useSiteConfig()
+const { query } = useRoute()
 
 function handleOAuth(provider: string) {
   return Promise.all([
@@ -80,4 +79,25 @@ const countAuthProviders = computed<number>(() => {
   const providers = Object.values(allowedAuthProviders)
   return providers.filter(Boolean).length
 })
+
+const authProviders = computed(() => [
+  {
+    id: 'google',
+    icon: 'web:google-color',
+    label: $t('auth.login.logInWithGoogle'),
+    isEnabled: allowedAuthProviders.google,
+  },
+  {
+    id: 'github',
+    icon: 'simple-icons:github',
+    label: $t('auth.login.logInWithGitHub'),
+    isEnabled: allowedAuthProviders.github,
+  },
+  {
+    id: 'authentik',
+    icon: 'simple-icons:authentik',
+    label: $t('auth.login.logInWithAuthentik'),
+    isEnabled: allowedAuthProviders.authentik,
+  },
+])
 </script>

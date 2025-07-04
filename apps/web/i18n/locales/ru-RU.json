@@ -59,8 +59,10 @@
       "pageTitle": "Вход в аккаунт",
       "logInWithGoogle": "Войти через Google",
       "logInWithGitHub": "Войти через GitHub",
+      "logInWithAuthentik": "Войти через Authentik",
       "continueWithEmail": "Продолжить с Email",
       "noAuthProviders": "На данный момент нет доступных методов авторизации. Пожалуйста, свяжитесь с администратором для получения доступа.",
+      "error": "Произошла ошибка при входе. Пожалуйста, попробуйте снова.",
       "or": "или",
       "emailForm": {
         "email": "Email адрес",
