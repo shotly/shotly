@@ -6,11 +6,30 @@
     />
 
     <template #footer-right>
-      <UButton :label="$t('settings.profile.dangerZone.deleteAccount')" color="error" />
+      <ButtonDelete
+        :button-props="{ label: $t('settings.profile.dangerZone.deleteAccount') }"
+        :confirm-text="user?.email"
+        @confirm="handleDelete()"
+      />
     </template>
   </PageCard>
 </template>
 
 <script setup lang="ts">
+const { $api } = useNuxtApp()
+const { user } = useUserSession()
+const { logout } = useLogout()
 
+function handleDelete() {
+  return $api('/api/profile', {
+    method: 'DELETE',
+    onResponse: async ({ response }) => {
+      if (!response.ok) {
+        return
+      }
+
+      await logout()
+    },
+  })
+}
 </script>
