@@ -1,4 +1,4 @@
-import type { ProfileDetailsUpdatePayload, ProfileDetailsUpdateResult } from '#shared/api'
+import type { ProfileDetailsUpdatePayload } from '#shared/api'
 import { profileDetailsUpdatePayloadSchema } from '#shared/api'
 
 interface ProfileDetailsUpdateRequest {
@@ -8,8 +8,8 @@ interface ProfileDetailsUpdateRequest {
 /**
  * Update user details
  */
-export default defineHttpHandler<ProfileDetailsUpdateRequest, ProfileDetailsUpdateResult>(async (event) => {
+export default defineHttpHandler<ProfileDetailsUpdateRequest, void>(async (event) => {
   const _data = await readValidatedBody(event, profileDetailsUpdatePayloadSchema.parse)
 
-  return {} as ProfileDetailsUpdateResult // todo: implement
+  // todo: implement
 })
