@@ -12,7 +12,7 @@ interface ApiKeysCreateRequest {
  */
 export default defineHttpHandler<ApiKeysCreateRequest, ApiKeysCreateResult>(async (event) => {
   const db = useDatabase()
-  const { user } = await requireUserSession(event)
+  const user = await getValidatedUser(event)
   const data = await readValidatedBody(event, apiKeysCreatePayloadSchema.parse)
 
   const [apiKey] = await db

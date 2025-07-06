@@ -12,7 +12,7 @@ interface ApiKeysListRequest {
  */
 export default defineHttpHandler<ApiKeysListRequest, ApiKeysListResult>(async (event) => {
   const db = useDatabase()
-  const { user } = await requireUserSession(event)
+  const user = await getValidatedUser(event)
   const query = await getValidatedQuery(event, apiKeysListQuerySchema.parse)
   const { perPage, pageOffset } = getValidatedPagination(query)
 

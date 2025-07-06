@@ -20,9 +20,9 @@ export const users = pgTable('users', {
 export const apiKeys = pgTable('api_keys', {
   id: cuid2('id').defaultRandom().primaryKey(),
   name: varchar('name').notNull(),
-  key: varchar('key').notNull(),
+  key: varchar('key').notNull().unique(),
   lastUsedAt: timestamp('last_used_at', { mode: 'string' }).notNull().defaultNow(),
-  userId: varchar('user_id').references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  userId: varchar('user_id').notNull().references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
 })
 

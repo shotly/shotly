@@ -1,3 +1,4 @@
+import type { User } from '#auth-utils'
 import type { H3Event } from 'h3'
 import { REDIRECT_TO_COOKIE } from '#shared/auth'
 import { useSiteConfig } from '#site-config/server/composables'
@@ -76,4 +77,51 @@ export async function processOAuthFlow(
   } catch (error) {
     throw await errorServerResolver(event, error)
   }
+}
+
+/**
+ * Get validated user
+ *
+ * @param event - The H3 event.
+ * @returns The user.
+ */
+export async function getValidatedUser(event: H3Event): Promise<User> {
+  const apiKeyHeader = getHeader(event, 'x-api-key')
+
+  if (!apiKeyHeader) {
+    const { user } = await requireUserSession(event)
+    return user
+  }
+
+  // todo: add cache for api keys (redis), ttl 1 hour, delete on update user https://github.com/shotly/shotly/issues/54
+
+  const db = useDatabase()
+  const apiKey = await db.query.apiKeys.findFirst({
+    columns: {
+      userId: true,
+    },
+    where: (apiKeys, { eq }) => eq(apiKeys.key, apiKeyHeader),
+  })
+
+  if (!apiKey) {
+    throw createHttpError('unauthorized')
+  }
+
+  const user = await db.query.users.findFirst({
+    columns: {
+      id: true,
+      name: true,
+      email: true,
+      avatarUrl: true,
+      role: true,
+      lastSeenAt: true,
+    },
+    where: (users, { eq }) => eq(users.id, apiKey.userId),
+  })
+
+  if (!user) {
+    throw createHttpError('unauthorized')
+  }
+
+  return user
 }

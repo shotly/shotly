@@ -12,7 +12,7 @@ interface ApiKeysDeleteRequest {
  */
 export default defineHttpHandler<ApiKeysDeleteRequest, void>(async (event) => {
   const db = useDatabase()
-  const { user } = await requireUserSession(event)
+  const user = await getValidatedUser(event)
   const { id } = await getValidatedRouterParams(event, apiKeysDeleteRouteParamsSchema.parse)
 
   await db
