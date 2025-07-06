@@ -463,11 +463,20 @@ components:
       description: Api key form
       required:
         - name
+        - expiresAt
       properties:
         name:
           type: string
           description: Api key name
           minLength: 3
+        expiresAt:
+          type: string
+          enum:
+            - 1d
+            - 1w
+            - 1m
+            - 1y
+            - never
 
     ApiKeysListItem:
       type: object
@@ -477,6 +486,7 @@ components:
         - name
         - key
         - lastUsedAt
+        - expiresAt
         - createdAt
       properties:
         id:
@@ -492,6 +502,10 @@ components:
           example: 123e4567-e89b-12d3-a456-426614174000
         lastUsedAt:
           $ref: '#/components/schemas/DateTimeType'
+        expiresAt:
+          oneOf:
+            - $ref: '#/components/schemas/DateTimeType'
+            - type: 'null'
         createdAt:
           $ref: '#/components/schemas/DateTimeType'
 
@@ -518,10 +532,13 @@ components:
       type: object
       description: Result "Create new api key"
       required:
-        - id
+        - key
       properties:
-        id:
-          $ref: '#/components/schemas/CUID'
+        key:
+          type: string
+          description: Api key
+          format: uuid
+          example: 123e4567-e89b-12d3-a456-426614174000
 
     BookmarksListResult:
       type: object

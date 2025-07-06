@@ -44,6 +44,7 @@ export interface ApiKeyForm {
    * @minLength 3
    */
   name: string
+  expiresAt: '1d' | '1w' | '1m' | '1y' | 'never'
 }
 
 /** Api key */
@@ -63,6 +64,7 @@ export interface ApiKeysListItem {
   key: string
   /** Дата и время */
   lastUsedAt: DateTimeType
+  expiresAt: DateTimeType | null
   /** Дата и время */
   createdAt: DateTimeType
 }
@@ -80,8 +82,12 @@ export type ApiKeysCreatePayload = ApiKeyForm
 
 /** Result "Create new api key" */
 export interface ApiKeysCreateResult {
-  /** Id */
-  id: CUID
+  /**
+   * Api key
+   * @format uuid
+   * @example "123e4567-e89b-12d3-a456-426614174000"
+   */
+  key: string
 }
 
 /** Result "Get bookmarks list" */

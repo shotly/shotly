@@ -100,7 +100,13 @@ export async function getValidatedUser(event: H3Event): Promise<User> {
     columns: {
       userId: true,
     },
-    where: (apiKeys, { eq }) => eq(apiKeys.key, apiKeyHeader),
+    where: (apiKeys, { eq, or, isNull, gt, and }) => and(
+      eq(apiKeys.key, apiKeyHeader),
+      or(
+        isNull(apiKeys.expiresAt),
+        gt(apiKeys.expiresAt, new Date().toISOString()),
+      ),
+    ),
   })
 
   if (!apiKey) {

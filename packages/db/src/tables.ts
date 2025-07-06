@@ -22,6 +22,7 @@ export const apiKeys = pgTable('api_keys', {
   name: varchar('name').notNull(),
   key: varchar('key').notNull().unique(),
   lastUsedAt: timestamp('last_used_at', { mode: 'string' }).notNull().defaultNow(),
+  expiresAt: timestamp('expires_at', { mode: 'string' }),
   userId: varchar('user_id').notNull().references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
 })

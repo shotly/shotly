@@ -23,6 +23,7 @@ export default defineHttpHandler<ApiKeysListRequest, ApiKeysListResult>(async (e
       key: tables.apiKeys.key,
       lastUsedAt: tables.apiKeys.lastUsedAt,
       createdAt: tables.apiKeys.createdAt,
+      expiresAt: tables.apiKeys.expiresAt,
       total: sql<number>`count(*) over()`.mapWith(Number),
     })
     .from(tables.apiKeys)

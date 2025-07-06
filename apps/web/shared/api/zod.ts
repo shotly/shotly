@@ -16,6 +16,7 @@ export const profileDetailsUpdatePayloadSchema = z.object({
 
 export const apiKeyFormSchema = z.object({
   name: z.string().min(3),
+  expiresAt: z.union([z.literal('1d'), z.literal('1w'), z.literal('1m'), z.literal('1y'), z.literal('never')]),
 })
 
 export const apiKeysListItemSchema = z.object({
@@ -23,6 +24,7 @@ export const apiKeysListItemSchema = z.object({
   name: z.string().min(3),
   key: z.string().uuid(),
   lastUsedAt: dateTimeTypeSchema,
+  expiresAt: dateTimeTypeSchema.nullable(),
   createdAt: dateTimeTypeSchema,
 })
 
@@ -34,7 +36,7 @@ export const apiKeysListResultSchema = z.object({
 export const apiKeysCreatePayloadSchema = apiKeyFormSchema
 
 export const apiKeysCreateResultSchema = z.object({
-  id: cuidSchema,
+  key: z.string().uuid(),
 })
 
 export const bookmarksListResultSchema = z.record(z.any())
