@@ -8,5 +8,7 @@
 </template>
 
 <script setup lang="ts">
-
+useSeoMeta({
+  title: () => $t('settings.profile.title'),
+})
 </script>
