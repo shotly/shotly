@@ -1,5 +1,7 @@
 import type { ProfileDetailsUpdatePayload } from '#shared/api'
 import { profileDetailsUpdatePayloadSchema } from '#shared/api'
+import { tables, useDatabase } from '@shotly/db'
+import { eq } from 'drizzle-orm'
 
 interface ProfileDetailsUpdateRequest {
   body: ProfileDetailsUpdatePayload
@@ -9,7 +11,15 @@ interface ProfileDetailsUpdateRequest {
  * Update user details
  */
 export default defineHttpHandler<ProfileDetailsUpdateRequest, void>(async (event) => {
-  const _data = await readValidatedBody(event, profileDetailsUpdatePayloadSchema.parse)
+  const db = useDatabase()
+  const { user } = await requireUserSession(event)
+  const data = await readValidatedBody(event, profileDetailsUpdatePayloadSchema.parse)
 
-  // todo: implement
+  await db
+    .update(tables.users)
+    .set({
+      ...data,
+      updatedAt: new Date().toISOString(),
+    })
+    .where(eq(tables.users.id, user.id))
 })
