@@ -22,4 +22,8 @@ export default defineHttpHandler<ProfileDetailsUpdateRequest, void>(async (event
       updatedAt: new Date().toISOString(),
     })
     .where(eq(tables.users.id, user.id))
+
+  await setUserSession(event, {
+    user: data,
+  })
 })
