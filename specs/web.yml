@@ -98,19 +98,9 @@ paths:
           required: true
           schema:
             type: string
-
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApiKeysDeletePayload'
       responses:
-        200:
+        204:
           description: Delete api key
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiKeysDeleteResult'
 
   /bookmarks:
     get:
@@ -439,6 +429,16 @@ components:
           description: Total items
           default: 0
 
+    DateType:
+      type: string
+      description: Дата
+      example: 2025-05-01
+
+    DateTimeType:
+      type: string
+      description: Дата и время
+      example: '2025-05-01 17:15:39.28042'
+
     CUID:
       type: string
       description: Id
@@ -446,12 +446,6 @@ components:
       example: cma410aol00000cjobbw006p
       maxLength: 24
       minLength: 24
-
-    ApiKey:
-      type: string
-      description: Api key
-      format: uuid
-      example: 123e4567-e89b-12d3-a456-426614174000
 
     ProfileDetailsUpdatePayload:
       type: object
@@ -464,25 +458,70 @@ components:
           description: User name
           minLength: 3
 
+    ApiKeyForm:
+      type: object
+      description: Api key form
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Api key name
+          minLength: 3
+
+    ApiKeysListItem:
+      type: object
+      description: Api key
+      required:
+        - id
+        - name
+        - key
+        - lastUsedAt
+        - createdAt
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        name:
+          type: string
+          description: Api key name
+          minLength: 3
+        key:
+          type: string
+          description: Api key
+          format: uuid
+          example: 123e4567-e89b-12d3-a456-426614174000
+        lastUsedAt:
+          $ref: '#/components/schemas/DateTimeType'
+        createdAt:
+          $ref: '#/components/schemas/DateTimeType'
+
     ApiKeysListResult:
       type: object
       description: Result "Get api keys list"
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          description: Api keys list
+          items:
+            $ref: '#/components/schemas/ApiKeysListItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
 
     ApiKeysCreatePayload:
-      type: object
-      description: Payload "Create new api key"
+      allOf:
+        - description: Payload "Create new api key"
+        - $ref: '#/components/schemas/ApiKeyForm'
 
     ApiKeysCreateResult:
       type: object
       description: Result "Create new api key"
-
-    ApiKeysDeletePayload:
-      type: object
-      description: Payload "Delete api key"
-
-    ApiKeysDeleteResult:
-      type: object
-      description: Result "Delete api key"
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
 
     BookmarksListResult:
       type: object

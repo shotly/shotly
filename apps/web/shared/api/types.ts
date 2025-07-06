@@ -8,6 +8,18 @@ export interface Pagination {
 }
 
 /**
+ * Дата
+ * @example "2025-05-01T00:00:00.000Z"
+ */
+export type DateType = string
+
+/**
+ * Дата и время
+ * @example "2025-05-01 17:15:39.28042"
+ */
+export type DateTimeType = string
+
+/**
  * Id
  * @format cuid
  * @minLength 24
@@ -15,13 +27,6 @@ export interface Pagination {
  * @example "cma410aol00000cjobbw006p"
  */
 export type CUID = string
-
-/**
- * Api key
- * @format uuid
- * @example "123e4567-e89b-12d3-a456-426614174000"
- */
-export type ApiKey = string
 
 /** Payload "Update user details" */
 export interface ProfileDetailsUpdatePayload {
@@ -32,20 +37,52 @@ export interface ProfileDetailsUpdatePayload {
   name: string
 }
 
+/** Api key form */
+export interface ApiKeyForm {
+  /**
+   * Api key name
+   * @minLength 3
+   */
+  name: string
+}
+
+/** Api key */
+export interface ApiKeysListItem {
+  /** Id */
+  id: CUID
+  /**
+   * Api key name
+   * @minLength 3
+   */
+  name: string
+  /**
+   * Api key
+   * @format uuid
+   * @example "123e4567-e89b-12d3-a456-426614174000"
+   */
+  key: string
+  /** Дата и время */
+  lastUsedAt: DateTimeType
+  /** Дата и время */
+  createdAt: DateTimeType
+}
+
 /** Result "Get api keys list" */
-export type ApiKeysListResult = object
+export interface ApiKeysListResult {
+  /** Api keys list */
+  items: ApiKeysListItem[]
+  /** Pagination */
+  pagination?: Pagination
+}
 
 /** Payload "Create new api key" */
-export type ApiKeysCreatePayload = object
+export type ApiKeysCreatePayload = ApiKeyForm
 
 /** Result "Create new api key" */
-export type ApiKeysCreateResult = object
-
-/** Payload "Delete api key" */
-export type ApiKeysDeletePayload = object
-
-/** Result "Delete api key" */
-export type ApiKeysDeleteResult = object
+export interface ApiKeysCreateResult {
+  /** Id */
+  id: CUID
+}
 
 /** Result "Get bookmarks list" */
 export type BookmarksListResult = object

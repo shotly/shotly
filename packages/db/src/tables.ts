@@ -24,7 +24,6 @@ export const apiKeys = pgTable('api_keys', {
   lastUsedAt: timestamp('last_used_at', { mode: 'string' }).notNull().defaultNow(),
   userId: varchar('user_id').references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
 })
 
 export const collections = pgTable('collections', {

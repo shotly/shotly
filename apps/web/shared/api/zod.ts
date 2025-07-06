@@ -4,23 +4,38 @@ export const paginationSchema = z.object({
   total: z.number().default(0),
 })
 
-export const cuidSchema = z.string().min(24).max(24)
+export const dateTypeSchema = z.string()
 
-export const apiKeySchema = z.string().uuid()
+export const dateTimeTypeSchema = z.string()
+
+export const cuidSchema = z.string().min(24).max(24)
 
 export const profileDetailsUpdatePayloadSchema = z.object({
   name: z.string().min(3),
 })
 
-export const apiKeysListResultSchema = z.record(z.any())
+export const apiKeyFormSchema = z.object({
+  name: z.string().min(3),
+})
 
-export const apiKeysCreatePayloadSchema = z.record(z.any())
+export const apiKeysListItemSchema = z.object({
+  id: cuidSchema,
+  name: z.string().min(3),
+  key: z.string().uuid(),
+  lastUsedAt: dateTimeTypeSchema,
+  createdAt: dateTimeTypeSchema,
+})
 
-export const apiKeysCreateResultSchema = z.record(z.any())
+export const apiKeysListResultSchema = z.object({
+  items: z.array(apiKeysListItemSchema),
+  pagination: paginationSchema.optional(),
+})
 
-export const apiKeysDeletePayloadSchema = z.record(z.any())
+export const apiKeysCreatePayloadSchema = apiKeyFormSchema
 
-export const apiKeysDeleteResultSchema = z.record(z.any())
+export const apiKeysCreateResultSchema = z.object({
+  id: cuidSchema,
+})
 
 export const bookmarksListResultSchema = z.record(z.any())
 
