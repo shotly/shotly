@@ -1,15 +1,16 @@
-import type { ProfileDeletePayload, ProfileDeleteResult } from '#shared/api'
-import { profileDeletePayloadSchema } from '#shared/api'
-
-interface ProfileDeleteRequest {
-  body: ProfileDeletePayload
-}
+import { tables, useDatabase } from '@shotly/db'
+import { eq } from 'drizzle-orm'
 
 /**
  * Delete user profile
  */
-export default defineHttpHandler<ProfileDeleteRequest, ProfileDeleteResult>(async (event) => {
-  const _data = await readValidatedBody(event, profileDeletePayloadSchema.parse)
+export default defineHttpHandler(async (event) => {
+  const db = useDatabase()
+  const { user } = await requireUserSession(event)
 
-  return {} as ProfileDeleteResult // todo: implement
+  await db
+    .delete(tables.users)
+    .where(eq(tables.users.id, user.id))
+
+  await clearUserSession(event)
 })

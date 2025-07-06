@@ -12,12 +12,6 @@ export const profileDetailsUpdatePayloadSchema = z.object({
   name: z.string().min(3),
 })
 
-export const profileDetailsUpdateResultSchema = z.record(z.any())
-
-export const profileDeletePayloadSchema = z.record(z.any())
-
-export const profileDeleteResultSchema = z.record(z.any())
-
 export const apiKeysListResultSchema = z.record(z.any())
 
 export const apiKeysCreatePayloadSchema = z.record(z.any())

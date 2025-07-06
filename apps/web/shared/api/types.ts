@@ -32,15 +32,6 @@ export interface ProfileDetailsUpdatePayload {
   name: string
 }
 
-/** Result "Update user details" */
-export type ProfileDetailsUpdateResult = object
-
-/** Payload "Delete user profile" */
-export type ProfileDeletePayload = object
-
-/** Result "Delete user profile" */
-export type ProfileDeleteResult = object
-
 /** Result "Get api keys list" */
 export type ApiKeysListResult = object
 
