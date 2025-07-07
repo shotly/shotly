@@ -15,7 +15,26 @@
       "name": "Name",
       "email": "Email",
       "expiresAt": "Expires at",
-      "key": "Key"
+      "createdAt": "Created at",
+      "key": "Key",
+      "lastUsedAt": "Last used at"
+    },
+
+    "table": {
+      "columns": "Columns",
+      "rowsPerPage": "Rows per page",
+      "total": "Total"
+    },
+
+    "empty": {
+      "title": "No data",
+      "description": "There is nothing here yet."
+    },
+
+    "sorting": {
+      "title": "Sorting",
+      "asc": "A-Z",
+      "desc": "Z-A"
     },
 
     "date": {
@@ -92,7 +111,8 @@
       "create": "Create API key",
       "createdTitle": "API key created",
       "createdDescription": "Please copy your token and store it in a safe place. For security reasons we cannot show it again.",
-      "empty": "No API keys found"
+      "emptyTitle": "No API keys found",
+      "emptyDescription": "Create your first API key to get started."
     },
 
     "import": {

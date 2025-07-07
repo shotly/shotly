@@ -6,7 +6,8 @@
       class="mb-6"
     />
 
-    <ApiKeysFormCreate @created="openViewModal" />
+    <ApiKeysFormCreate class="mb-6" @created="openViewModal" />
+    <ApiKeysList ref="apiKeysList" />
   </UContainer>
 </template>
 
@@ -18,9 +19,11 @@ useSeoMeta({
 })
 
 const overlay = useOverlay()
+const apiKeysList = useTemplateRef('apiKeysList')
 const viewKeyModal = overlay.create(LazyApiKeysViewModal)
 
 function openViewModal(apiKey: string) {
   viewKeyModal.open({ apiKey })
+  apiKeysList.value?.refresh()
 }
 </script>

@@ -48,20 +48,7 @@
 
     <main class="relative min-h-screen flex flex-col md:pt-1.5">
       <div class="flex-1 border-default dark:border-accented/80 bg-default py-4 sm:py-6 lg:py-8 rounded-tl-2xl rounded-tr-2xl border-l border-t border-r md:border-r-0 md:rounded-tr-none">
-        <NuxtErrorBoundary>
-          <slot />
-
-          <template #error>
-            <div class="absolute flex flex-col items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <p class="font-medium mb-1">
-                {{ $t('common.error.title') }}
-              </p>
-              <p class="text-sm mb-6 max-w-xs text-center text-muted">
-                {{ $t('common.error.message') }}
-              </p>
-            </div>
-          </template>
-        </NuxtErrorBoundary>
+        <slot />
       </div>
     </main>
 

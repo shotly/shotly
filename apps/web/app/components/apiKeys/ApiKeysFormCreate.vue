@@ -60,6 +60,7 @@ import { apiKeysCreatePayloadSchema as schema } from '#shared/api'
 
 export interface ApiKeysFormCreateEmits {
   created: [key: string]
+  close: []
 }
 
 const emit = defineEmits<ApiKeysFormCreateEmits>()
