@@ -3,7 +3,7 @@
     :title="$t('settings.apiKeys.createdTitle')"
     :description="$t('settings.apiKeys.createdDescription')"
     :ui="{
-      content: 'divide-y-0',
+      content: 'divide-y-0 dark:ring-accented/80',
       description: 'text-default',
       body: 'sm:py-4 text-sm',
       footer: 'justify-end bg-elevated/50 border-t border-default mt-4',
