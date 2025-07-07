@@ -8,14 +8,14 @@ export interface Pagination {
 }
 
 /**
- * Дата
+ * Date
  * @example "2025-05-01T00:00:00.000Z"
  */
 export type DateType = string
 
 /**
- * Дата и время
- * @example "2025-05-01 17:15:39.28042"
+ * Date and time with timezone
+ * @example "2025-05-01 17:15:39.189144+00"
  */
 export type DateTimeType = string
 
@@ -56,16 +56,10 @@ export interface ApiKeysListItem {
    * @minLength 3
    */
   name: string
-  /**
-   * Api key
-   * @format uuid
-   * @example "123e4567-e89b-12d3-a456-426614174000"
-   */
-  key: string
-  /** Дата и время */
+  /** Date and time with timezone */
   lastUsedAt: DateTimeType
   expiresAt: DateTimeType | null
-  /** Дата и время */
+  /** Date and time with timezone */
   createdAt: DateTimeType
 }
 

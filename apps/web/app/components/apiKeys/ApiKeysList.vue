@@ -7,15 +7,18 @@
             {{ item.name }}
           </div>
           <div class="text-muted">
-            {{ $t('common.fields.lastUsedAt') }}
-            <NuxtTime :datetime="item.lastUsedAt" relative />
+            {{ $t('common.fields.expiresAt') }}
+            <DateTime v-if="item.expiresAt" :datetime="item.expiresAt" relative />
+            <span v-else class="text-muted">
+              {{ $t('common.date.never').toLowerCase() }}
+            </span>
           </div>
         </div>
 
         <div class="flex items-center justify-between gap-2 text-sm md:justify-end">
           <div class="text-muted">
-            {{ $t('common.fields.createdAt') }}
-            <NuxtTime :datetime="item.createdAt" relative />
+            {{ $t('common.fields.lastUsedAt') }}
+            <DateTime :datetime="item.lastUsedAt" relative />
           </div>
 
           <UDropdownMenu :items="rowActions(item)" :content="{ align: 'end' }">

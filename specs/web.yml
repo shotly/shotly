@@ -431,13 +431,13 @@ components:
 
     DateType:
       type: string
-      description: Дата
+      description: Date
       example: 2025-05-01
 
     DateTimeType:
       type: string
-      description: Дата и время
-      example: '2025-05-01 17:15:39.28042'
+      description: Date and time with timezone
+      example: '2025-05-01 17:15:39.189144+00'
 
     CUID:
       type: string
@@ -484,7 +484,6 @@ components:
       required:
         - id
         - name
-        - key
         - lastUsedAt
         - expiresAt
         - createdAt
@@ -495,11 +494,6 @@ components:
           type: string
           description: Api key name
           minLength: 3
-        key:
-          type: string
-          description: Api key
-          format: uuid
-          example: 123e4567-e89b-12d3-a456-426614174000
         lastUsedAt:
           $ref: '#/components/schemas/DateTimeType'
         expiresAt:

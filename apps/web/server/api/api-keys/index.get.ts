@@ -20,7 +20,6 @@ export default defineHttpHandler<ApiKeysListRequest, ApiKeysListResult>(async (e
     .select({
       id: tables.apiKeys.id,
       name: tables.apiKeys.name,
-      key: tables.apiKeys.key,
       lastUsedAt: tables.apiKeys.lastUsedAt,
       createdAt: tables.apiKeys.createdAt,
       expiresAt: tables.apiKeys.expiresAt,

@@ -22,7 +22,6 @@ export const apiKeyFormSchema = z.object({
 export const apiKeysListItemSchema = z.object({
   id: cuidSchema,
   name: z.string().min(3),
-  key: z.string().uuid(),
   lastUsedAt: dateTimeTypeSchema,
   expiresAt: dateTimeTypeSchema.nullable(),
   createdAt: dateTimeTypeSchema,
