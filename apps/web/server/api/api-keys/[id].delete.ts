@@ -1,17 +1,21 @@
-import type { ApiKeysDeletePayload, ApiKeysDeleteResult, ApiKeysDeleteRouteParams } from '#shared/api'
-import { apiKeysDeletePayloadSchema, apiKeysDeleteRouteParamsSchema } from '#shared/api'
+import type { ApiKeysDeleteRouteParams } from '#shared/api'
+import { apiKeysDeleteRouteParamsSchema } from '#shared/api'
+import { tables, useDatabase } from '@shotly/db'
+import { and, eq } from 'drizzle-orm'
 
 interface ApiKeysDeleteRequest {
-  body: ApiKeysDeletePayload
   routerParams: ApiKeysDeleteRouteParams
 }
 
 /**
  * Delete api key
  */
-export default defineHttpHandler<ApiKeysDeleteRequest, ApiKeysDeleteResult>(async (event) => {
-  const _routeParams = await getValidatedRouterParams(event, apiKeysDeleteRouteParamsSchema.parse)
-  const _data = await readValidatedBody(event, apiKeysDeletePayloadSchema.parse)
+export default defineHttpHandler<ApiKeysDeleteRequest, void>(async (event) => {
+  const db = useDatabase()
+  const user = await getValidatedUser(event)
+  const { id } = await getValidatedRouterParams(event, apiKeysDeleteRouteParamsSchema.parse)
 
-  return {} as ApiKeysDeleteResult // todo: implement
+  await db
+    .delete(tables.apiKeys)
+    .where(and(eq(tables.apiKeys.id, id), eq(tables.apiKeys.userId, user.id)))
 })

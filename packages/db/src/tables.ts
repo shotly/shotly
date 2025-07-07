@@ -10,9 +10,9 @@ export const users = pgTable('users', {
   email: varchar('email').unique().notNull(),
   role: userRole('role').notNull().default('user'),
   avatarUrl: varchar('avatar_url'),
-  createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
-  lastSeenAt: timestamp('last_seen_at', { mode: 'string' }).notNull().defaultNow(),
+  createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+  lastSeenAt: timestamp('last_seen_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
 }, (table) => [
   index('users_name_idx').on(table.name),
 ])
@@ -20,11 +20,11 @@ export const users = pgTable('users', {
 export const apiKeys = pgTable('api_keys', {
   id: cuid2('id').defaultRandom().primaryKey(),
   name: varchar('name').notNull(),
-  key: varchar('key').notNull(),
-  lastUsedAt: timestamp('last_used_at', { mode: 'string' }).notNull().defaultNow(),
-  userId: varchar('user_id').references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-  createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
+  key: varchar('key').notNull().unique(),
+  lastUsedAt: timestamp('last_used_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+  expiresAt: timestamp('expires_at', { mode: 'string', withTimezone: true }),
+  userId: varchar('user_id').notNull().references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
 })
 
 export const collections = pgTable('collections', {
@@ -34,8 +34,8 @@ export const collections = pgTable('collections', {
   description: varchar('description').notNull(),
   icon: varchar('icon'),
   isShared: boolean('is_shared').notNull().default(false),
-  createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
+  createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
 })
 
 export const bookmarks = pgTable('bookmarks', {
@@ -47,8 +47,8 @@ export const bookmarks = pgTable('bookmarks', {
   isFavorite: boolean('is_favorite').notNull().default(false),
   collectionId: varchar('collection_id').references(() => collections.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   userId: varchar('user_id').references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-  createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
+  createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
 })
 
 export const tags = pgTable('tags', {
@@ -56,8 +56,8 @@ export const tags = pgTable('tags', {
   name: varchar('name').notNull(),
   color: varchar('color'),
   userId: varchar('user_id').references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-  createdAt: timestamp('created_at', { mode: 'string' }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { mode: 'string' }).notNull().defaultNow(),
+  createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
 })
 
 // Relations

@@ -6,12 +6,43 @@
       "saveChanges": "Save changes",
       "cancel": "Cancel",
       "delete": "Delete",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "done": "Done",
+      "copy": "Copy"
     },
 
     "fields": {
       "name": "Name",
-      "email": "Email"
+      "email": "Email",
+      "expiresAt": "Expires at",
+      "createdAt": "Created at",
+      "key": "Key",
+      "lastUsedAt": "Last used at"
+    },
+
+    "table": {
+      "columns": "Columns",
+      "rowsPerPage": "Rows per page",
+      "total": "Total"
+    },
+
+    "empty": {
+      "title": "No data",
+      "description": "There is nothing here yet."
+    },
+
+    "sorting": {
+      "title": "Sorting",
+      "asc": "A-Z",
+      "desc": "Z-A"
+    },
+
+    "date": {
+      "never": "Never",
+      "1d": "1 day",
+      "1w": "1 week",
+      "1m": "1 month",
+      "1y": "1 year"
     },
 
     "appearance": {
@@ -48,6 +79,10 @@
 
     "search": {
       "tooltip": "Search"
+    },
+
+    "help": {
+      "aboutMore": "Learn more about {link}"
     }
   },
 
@@ -71,9 +106,13 @@
 
     "apiKeys": {
       "title": "API keys",
-      "description": "Manage your API keys.",
+      "description": "Manage your API keys. These tokens allow other apps to control your whole account. Be careful!",
+      "createDescription": "Enter a unique name for your token to differentiate it from other tokens.",
       "create": "Create API key",
-      "empty": "No API keys found"
+      "createdTitle": "API key created",
+      "createdDescription": "Please copy your token and store it in a safe place. For security reasons we cannot show it again.",
+      "emptyTitle": "No API keys found",
+      "emptyDescription": "Create your first API key to get started."
     },
 
     "import": {
