@@ -1,6 +1,6 @@
 import type { WebhooksListResult } from '#shared/api'
 import { tables, useDatabase } from '@shotly/db'
-import { desc, eq, sql } from 'drizzle-orm'
+import { desc, eq } from 'drizzle-orm'
 
 interface WebhooksListRequest {
 
@@ -19,7 +19,6 @@ export default defineHttpHandler<WebhooksListRequest, WebhooksListResult>(async 
       url: tables.webhooks.url,
       events: tables.webhooks.events,
       createdAt: tables.webhooks.createdAt,
-      total: sql<number>`count(*) over()`.mapWith(Number),
     })
     .from(tables.webhooks)
     .where(eq(tables.webhooks.userId, user.id))
