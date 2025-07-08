@@ -8,7 +8,9 @@
       "delete": "Delete",
       "confirm": "Confirm",
       "done": "Done",
-      "copy": "Copy"
+      "copy": "Copy",
+      "created": "Created",
+      "deleted": "Deleted"
     },
 
     "fields": {
@@ -17,7 +19,9 @@
       "expiresAt": "Expires at",
       "createdAt": "Created at",
       "key": "Key",
-      "lastUsedAt": "Last used at"
+      "lastUsedAt": "Last used at",
+      "url": "URL",
+      "events": "Events"
     },
 
     "table": {
@@ -121,7 +125,19 @@
 
     "webhooks": {
       "title": "Webhooks",
-      "create": "Create webhook"
+      "description": "Manage your webhooks. Webhooks allow other apps to receive events from your account.",
+      "createDescription": "Enter a unique URL for your webhook, and select the events you want to receive.",
+      "create": "Create webhook",
+      "createdTitle": "Webhook created",
+      "createdDescription": "Please copy your secret token and store it in a safe place. Use it to verify events, we will send requests to your URL. Confirm authenticity by comparing the {requestHeader} request header. For security reasons we cannot show it again.",
+      "emptyTitle": "No webhooks found",
+      "emptyDescription": "Create your first webhook to get started.",
+      "events": {
+        "bookmarkCreated": "Bookmark created",
+        "bookmarkDeleted": "Bookmark deleted",
+        "collectionCreated": "Collection created",
+        "collectionDeleted": "Collection deleted"
+      }
     }
   },
 

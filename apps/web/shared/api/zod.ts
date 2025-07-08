@@ -42,8 +42,8 @@ export const apiKeysCreateResultSchema = z.object({
 })
 
 export const webhooksFormSchema = z.object({
-  url: z.string(),
-  events: z.array(webhooksEventSchema),
+  url: z.string().url(),
+  events: z.array(webhooksEventSchema).min(1),
 })
 
 export const webhooksListItemSchema = z.object({

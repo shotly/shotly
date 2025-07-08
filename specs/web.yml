@@ -613,13 +613,15 @@ components:
         url:
           type: string
           description: Webhook url
-          format: uri
+          format: url
           example: https://example.com/webhook
         events:
           type: array
           description: Webhook events
           items:
             $ref: '#/components/schemas/WebhooksEvent'
+          minLength: 1
+          uniqueItems: true
 
     WebhooksListItem:
       type: object

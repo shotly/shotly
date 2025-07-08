@@ -103,11 +103,16 @@ export interface ApiKeysCreateResult {
 export interface WebhooksForm {
   /**
    * Webhook url
-   * @format uri
+   * @format url
    * @example "https://example.com/webhook"
    */
   url: string
-  /** Webhook events */
+  /**
+   * Webhook events
+   * @minLength 1
+   * @minItems 1
+   * @uniqueItems true
+   */
   events: WebhooksEvent[]
 }
 
