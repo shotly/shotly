@@ -1,3 +1,16 @@
+/**
+ * Webhook event
+ *   bookmarkCreated - Bookmark created
+ *   bookmarkDeleted - Bookmark deleted
+ *   collectionCreated - Collection created
+ *   collectionDeleted - Collection deleted
+ */
+export type WebhooksEvent
+  = | 'bookmarkCreated'
+    | 'bookmarkDeleted'
+    | 'collectionCreated'
+    | 'collectionDeleted'
+
 /** Pagination */
 export interface Pagination {
   /**
@@ -76,12 +89,65 @@ export type ApiKeysCreatePayload = ApiKeyForm
 
 /** Result "Create new api key" */
 export interface ApiKeysCreateResult {
+  /** Id */
+  id: CUID
   /**
    * Api key
    * @format uuid
    * @example "123e4567-e89b-12d3-a456-426614174000"
    */
   key: string
+}
+
+/** Webhook form */
+export interface WebhooksForm {
+  /**
+   * Webhook url
+   * @format url
+   * @example "https://example.com/webhook"
+   */
+  url: string
+  /**
+   * Webhook events
+   * @minLength 1
+   * @minItems 1
+   * @uniqueItems true
+   */
+  events: WebhooksEvent[]
+}
+
+/** Webhook */
+export interface WebhooksListItem {
+  /** Id */
+  id: CUID
+  /**
+   * Webhook url
+   * @format url
+   * @example "https://example.com/webhook"
+   */
+  url: string
+  /** Webhook events */
+  events: WebhooksEvent[]
+  /** Date and time with timezone */
+  createdAt: DateTimeType
+}
+
+/** Result "Get webhook list" */
+export type WebhooksListResult = WebhooksListItem[]
+
+/** Payload "Create new webhook" */
+export type WebhooksCreatePayload = WebhooksForm
+
+/** Result "Create new webhook" */
+export interface WebhooksCreateResult {
+  /** Id */
+  id: CUID
+  /**
+   * Webhook secret
+   * @format uuid
+   * @example "123e4567-e89b-12d3-a456-426614174000"
+   */
+  secret: string
 }
 
 /** Result "Get bookmarks list" */
@@ -161,7 +227,15 @@ export type ApiKeysListQuery = {
 
 /** Route "Delete api key" */
 export type ApiKeysDeleteRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
+
+}
+
+/** Route "Delete webhook" */
+export type WebhooksDeleteRouteParams = {
+  /** Id */
+  id: CUID
 
 }
 
