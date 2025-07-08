@@ -3,6 +3,12 @@ import { relations } from 'drizzle-orm'
 import { boolean, index, pgEnum, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
 
 export const userRole = pgEnum('user_roles', ['admin', 'user'])
+export const webhookEvents = pgEnum('webhook_events', [
+  'bookmark.created',
+  'bookmark.deleted',
+  'collection.created',
+  'collection.deleted',
+])
 
 export const users = pgTable('users', {
   id: cuid2('id').defaultRandom().primaryKey(),
@@ -23,6 +29,15 @@ export const apiKeys = pgTable('api_keys', {
   key: varchar('key').notNull().unique(),
   lastUsedAt: timestamp('last_used_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
   expiresAt: timestamp('expires_at', { mode: 'string', withTimezone: true }),
+  userId: varchar('user_id').notNull().references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
+})
+
+export const webhooks = pgTable('webhooks', {
+  id: cuid2('id').defaultRandom().primaryKey(),
+  url: varchar('url').notNull(),
+  events: webhookEvents('events').array().notNull(),
+  secret: varchar('secret').notNull(),
   userId: varchar('user_id').notNull().references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   createdAt: timestamp('created_at', { mode: 'string', withTimezone: true }).notNull().defaultNow(),
 })
@@ -64,11 +79,19 @@ export const tags = pgTable('tags', {
 
 export const userRelations = relations(users, ({ many }) => ({
   apiKeys: many(apiKeys),
+  webhooks: many(webhooks),
 }))
 
 export const apiKeyRelations = relations(apiKeys, ({ one }) => ({
   user: one(users, {
     fields: [apiKeys.userId],
+    references: [users.id],
+  }),
+}))
+
+export const webhookRelations = relations(webhooks, ({ one }) => ({
+  user: one(users, {
+    fields: [webhooks.userId],
     references: [users.id],
   }),
 }))
