@@ -97,10 +97,62 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       responses:
         204:
           description: Delete api key
+
+  /webhooks:
+    get:
+      summary: Get webhook list
+      tags:
+        - Webhooks
+      operationId: WebhooksList
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
+      responses:
+        200:
+          description: Get webhook list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhooksListResult'
+    post:
+      summary: Create new webhook
+      tags:
+        - Webhooks
+      operationId: WebhooksCreate
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhooksCreatePayload'
+      responses:
+        200:
+          description: Create new webhook
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhooksCreateResult'
+
+  /webhooks/{id}:
+    delete:
+      summary: Delete webhook
+      tags:
+        - Webhooks
+      operationId: WebhooksDelete
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
+        - name: id
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/CUID'
+      responses:
+        204:
+          description: Delete webhook
 
   /bookmarks:
     get:
@@ -526,11 +578,96 @@ components:
       type: object
       description: Result "Create new api key"
       required:
+        - id
         - key
       properties:
+        id:
+          $ref: '#/components/schemas/CUID'
         key:
           type: string
           description: Api key
+          format: uuid
+          example: 123e4567-e89b-12d3-a456-426614174000
+
+    WebhooksEvent:
+      type: string
+      description: |
+        Webhook event
+          bookmark.created
+          bookmark.deleted
+          collection.created
+          collection.deleted
+      enum:
+        - bookmark.created
+        - bookmark.deleted
+        - collection.created
+        - collection.deleted
+
+    WebhooksForm:
+      type: object
+      description: Webhook form
+      required:
+        - url
+        - events
+      properties:
+        url:
+          type: string
+          description: Webhook url
+          format: uri
+          example: https://example.com/webhook
+        events:
+          type: array
+          description: Webhook events
+          items:
+            $ref: '#/components/schemas/WebhooksEvent'
+
+    WebhooksListItem:
+      type: object
+      description: Webhook
+      required:
+        - id
+        - url
+        - events
+        - createdAt
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        url:
+          type: string
+          description: Webhook url
+          format: url
+          example: https://example.com/webhook
+        events:
+          type: array
+          description: Webhook events
+          items:
+            $ref: '#/components/schemas/WebhooksEvent'
+        createdAt:
+          $ref: '#/components/schemas/DateTimeType'
+
+    WebhooksListResult:
+      type: array
+      description: Result "Get webhook list"
+      items:
+        $ref: '#/components/schemas/WebhooksListItem'
+
+    WebhooksCreatePayload:
+      allOf:
+        - description: Payload "Create new webhook"
+        - $ref: '#/components/schemas/WebhooksForm'
+
+    WebhooksCreateResult:
+      type: object
+      description: Result "Create new webhook"
+      required:
+        - id
+        - secret
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        secret:
+          type: string
+          description: Webhook secret
           format: uuid
           example: 123e4567-e89b-12d3-a456-426614174000
 

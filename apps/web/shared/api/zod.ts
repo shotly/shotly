@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+export const webhooksEventSchema = z.union([z.literal('bookmark.created'), z.literal('bookmark.deleted'), z.literal('collection.created'), z.literal('collection.deleted')])
+
 export const paginationSchema = z.object({
   total: z.number().default(0),
 })
@@ -35,7 +37,29 @@ export const apiKeysListResultSchema = z.object({
 export const apiKeysCreatePayloadSchema = apiKeyFormSchema
 
 export const apiKeysCreateResultSchema = z.object({
+  id: cuidSchema,
   key: z.string().uuid(),
+})
+
+export const webhooksFormSchema = z.object({
+  url: z.string(),
+  events: z.array(webhooksEventSchema),
+})
+
+export const webhooksListItemSchema = z.object({
+  id: cuidSchema,
+  url: z.string().url(),
+  events: z.array(webhooksEventSchema),
+  createdAt: dateTimeTypeSchema,
+})
+
+export const webhooksListResultSchema = z.array(webhooksListItemSchema)
+
+export const webhooksCreatePayloadSchema = webhooksFormSchema
+
+export const webhooksCreateResultSchema = z.object({
+  id: cuidSchema,
+  secret: z.string().uuid(),
 })
 
 export const bookmarksListResultSchema = z.record(z.any())
@@ -84,7 +108,11 @@ export const apiKeysListQuerySchema = z.object({
 })
 
 export const apiKeysDeleteRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
+})
+
+export const webhooksDeleteRouteParamsSchema = z.object({
+  id: cuidSchema,
 })
 
 export const bookmarksListQuerySchema = z.object({
