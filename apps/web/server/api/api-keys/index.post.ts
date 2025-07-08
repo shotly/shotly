@@ -41,6 +41,7 @@ export default defineHttpHandler<ApiKeysCreateRequest, ApiKeysCreateResult>(asyn
       expiresAt,
     })
     .returning({
+      id: tables.apiKeys.id,
       key: tables.apiKeys.key,
     })
 
