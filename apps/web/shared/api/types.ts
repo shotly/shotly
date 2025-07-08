@@ -1,15 +1,15 @@
 /**
  * Webhook event
- *   bookmark.created
- *   bookmark.deleted
- *   collection.created
- *   collection.deleted
+ *   bookmarkCreated - Bookmark created
+ *   bookmarkDeleted - Bookmark deleted
+ *   collectionCreated - Collection created
+ *   collectionDeleted - Collection deleted
  */
 export type WebhooksEvent
-  = | 'bookmark.created'
-    | 'bookmark.deleted'
-    | 'collection.created'
-    | 'collection.deleted'
+  = | 'bookmarkCreated'
+    | 'bookmarkDeleted'
+    | 'collectionCreated'
+    | 'collectionDeleted'
 
 /** Pagination */
 export interface Pagination {

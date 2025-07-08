@@ -4,10 +4,10 @@ import { boolean, index, pgEnum, pgTable, timestamp, varchar } from 'drizzle-orm
 
 export const userRole = pgEnum('user_roles', ['admin', 'user'])
 export const webhookEvents = pgEnum('webhook_events', [
-  'bookmark.created',
-  'bookmark.deleted',
-  'collection.created',
-  'collection.deleted',
+  'bookmarkCreated',
+  'bookmarkDeleted',
+  'collectionCreated',
+  'collectionDeleted',
 ])
 
 export const users = pgTable('users', {

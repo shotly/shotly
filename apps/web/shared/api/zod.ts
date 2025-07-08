@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const webhooksEventSchema = z.union([z.literal('bookmark.created'), z.literal('bookmark.deleted'), z.literal('collection.created'), z.literal('collection.deleted')])
+export const webhooksEventSchema = z.union([z.literal('bookmarkCreated'), z.literal('bookmarkDeleted'), z.literal('collectionCreated'), z.literal('collectionDeleted')])
 
 export const paginationSchema = z.object({
   total: z.number().default(0),
