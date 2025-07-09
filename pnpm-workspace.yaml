@@ -12,7 +12,7 @@ catalog:
   tsc: ^2.0.4
   typescript: ^5.8.3
   vue-tsc: ^3.0.1
-  zod: ^3.25.75
+  zod: ^4.0.0
 
 ignoredBuiltDependencies:
   - vue-demi
