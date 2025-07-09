@@ -10,7 +10,6 @@
 
 :root {
   --ui-primary: oklch(0.2046 0 0);
-  --ui-secondary: oklch(0.8042 0.0842 43.84);
 }
 
 .dark {

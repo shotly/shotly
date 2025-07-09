@@ -13,10 +13,10 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: 'black',
+      secondary: 'blue',
       neutral: 'zinc',
       info: 'sky',
       warning: 'orange',
-      error: 'rose',
     },
 
     icons: {
