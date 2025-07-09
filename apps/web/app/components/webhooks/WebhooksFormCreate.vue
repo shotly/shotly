@@ -32,7 +32,7 @@
         keypath="common.help.aboutMore"
         scope="global"
         tag="p"
-        class="leading-7 "
+        class="leading-7"
       >
         <template #link>
           <ULink
