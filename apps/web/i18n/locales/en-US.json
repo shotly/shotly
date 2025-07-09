@@ -17,6 +17,11 @@
       }
     },
 
+    "appearance": {
+      "title": "Appearance",
+      "description": "Update your appearance settings."
+    },
+
     "apiKeys": {
       "title": "API keys",
       "description": "Manage your API keys. These tokens allow other apps to control your whole account. Be careful!",

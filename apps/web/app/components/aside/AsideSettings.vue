@@ -19,6 +19,11 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
     to: { name: 'settings-profile' },
   },
   {
+    label: $t('settings.appearance.title'),
+    icon: 'lucide:paintbrush',
+    to: { name: 'settings-appearance' },
+  },
+  {
     label: $t('settings.apiKeys.title'),
     icon: 'lucide:key-round',
     to: { name: 'settings-api-keys' },
