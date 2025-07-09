@@ -1,5 +1,4 @@
 import type { Pagination } from '#shared/api'
-import type { KeysMatching } from '#shared/types/utils'
 
 /**
  * Extract pagination data
