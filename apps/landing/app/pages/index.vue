@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center h-dvh">
-    <UIcon name="landing:logo" class="size-8" />
+    <UIcon name="shotly:logo" class="size-8" />
     <div class="text-xl mt-4">
       Coming Soon
     </div>

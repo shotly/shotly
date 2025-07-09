@@ -15,6 +15,8 @@ COPY package.json pnpm-workspace.yaml pnpm-lock.yaml .npmrc ./
 
 RUN corepack enable
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=secret,id=NUXT_UI_PRO_LICENSE \
+    sh -c 'echo "NUXT_UI_PRO_LICENSE=$(cat /run/secrets/NUXT_UI_PRO_LICENSE)" > ./apps/web/.env'
 RUN pnpm build:web
 
 FROM $NODE

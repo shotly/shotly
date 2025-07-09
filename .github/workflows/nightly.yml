@@ -52,4 +52,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           build-args: |
             APP_PUBLIC_VERSION=nightly
+          secrets: |
+            NUXT_UI_PRO_LICENSE=${{ secrets.NUXT_UI_PRO_LICENSE }}
           tags: ghcr.io/shotly/${{ env.APP_NAME }}:nightly

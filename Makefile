@@ -12,6 +12,7 @@ lint-makefile: ## Lint the Makefile
 build-web-image: ## Build the web image
 	docker build \
 		--build-arg APP_VERSION=local\
+    --secret id=NUXT_UI_PRO_LICENSE,src=./docker/.secrets/NUXT_UI_PRO_LICENSE \
 		-t ${DOCKER_IMAGE_PREFIX}/web:local \
 		-f docker/web/Dockerfile .
 

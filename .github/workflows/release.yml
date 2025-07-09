@@ -100,4 +100,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           build-args: |
             APP_PUBLIC_VERSION=${{ env.APP_VERSION }}
+          secrets: |
+            NUXT_UI_PRO_LICENSE=${{ secrets.NUXT_UI_PRO_LICENSE }}
           tags: ghcr.io/shotly/${{ env.APP_NAME }}:latest,ghcr.io/shotly/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
