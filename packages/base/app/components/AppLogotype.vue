@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="{ name: 'index' }" :class="ui.root()">
-    <UIcon name="web:logo" :class="ui.icon()" />
+    <UIcon name="shotly:logo" :class="ui.icon()" />
     <div :class="ui.label()">
       {{ appConfig.name }}
     </div>

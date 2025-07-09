@@ -36,12 +36,13 @@
       >
         <template #link>
           <ULink
-            :href="`${appConfig.links.docs}/advanced/webhooks`"
+            :href="appConfig.links.docsWebhook"
             target="_blank"
             inactive-class="text-secondary border-b"
             external
           >
             {{ $t('settings.webhooks.title') }}
+            <UIcon name="lucide:arrow-up-right" class="size-3" />
           </ULink>
         </template>
       </I18nT>

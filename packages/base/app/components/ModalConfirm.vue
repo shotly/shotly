@@ -65,7 +65,7 @@
 
 <script lang="ts" setup>
 import type { ButtonProps } from '@nuxt/ui'
-import { logger } from '#shared/logger'
+import { logger } from '../../shared/logger'
 
 export interface Props {
   title?: string
