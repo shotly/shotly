@@ -42,6 +42,7 @@
             external
           >
             {{ $t('settings.webhooks.title') }}
+            <UIcon name="lucide:arrow-up-right" class="size-3" />
           </ULink>
         </template>
       </I18nT>
