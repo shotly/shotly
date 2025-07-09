@@ -31,7 +31,7 @@
       >
         <template #link>
           <ULink
-            :href="`${appConfig.links.docs}/advanced/api-keys`"
+            :href="appConfig.links.docsApiKeys"
             target="_blank"
             inactive-class="text-secondary border-b"
             external

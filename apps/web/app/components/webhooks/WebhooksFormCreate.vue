@@ -36,7 +36,7 @@
       >
         <template #link>
           <ULink
-            :href="`${appConfig.links.docs}/advanced/webhooks`"
+            :href="appConfig.links.docsWebhook"
             target="_blank"
             inactive-class="text-secondary border-b"
             external
