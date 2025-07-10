@@ -4,6 +4,7 @@
 
     "profile": {
       "title": "Profile",
+      "description": "Manage your profile details and settings.",
 
       "details": {
         "title": "Profile details",
@@ -14,6 +15,27 @@
         "title": "Danger zone",
         "description": "Delete your profile and all of its contents. This action is irreversible.",
         "deleteAccount": "Delete account"
+      }
+    },
+
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize your appearance settings.",
+      "advancedDescription": "Settings apply to the current device and do not affect other devices.",
+
+      "theme": {
+        "title": "Theme",
+        "description": "Choose your preferred theme.",
+        "systemDescription": "Will be used depending on your device settings.",
+        "lightDescription": "This the theme for those who love bright colors.",
+        "darkDescription": "This the theme for those who love dark colors and want a cozy interface."
+      },
+
+      "locale": {
+        "title": "Locale",
+        "description": "Choose your preferred locale.",
+        "feedback": "If you don't find the language you need, you can write to {link}, and we will add it.",
+        "feedbackLink": "feedback"
       }
     },
 
