@@ -4,6 +4,7 @@
 
     "profile": {
       "title": "Profile",
+      "description": "Manage your profile details and settings.",
 
       "details": {
         "title": "Profile details",
