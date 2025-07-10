@@ -8,9 +8,9 @@ function normalizeStarsCount(count: number): string {
 
 export const cachedGHStars = defineCachedFunction(async () => {
   try {
-    const data: any = await $fetch(`https://api.github.com/repos/shotly/shotly`)
+    const data: any = await $fetch(`https://ungh.cc/repos/shotly/shotly`)
 
-    return normalizeStarsCount(data.stargazers_count)
+    return normalizeStarsCount(data.stars)
   } catch (error) {
     console.error(error)
   }
