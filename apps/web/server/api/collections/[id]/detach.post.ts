@@ -1,4 +1,4 @@
-import type { CollectionsDetachCreatePayload, CollectionsDetachCreateResult, CollectionsDetachCreateRouteParams } from '#shared/api'
+import type { CollectionsDetachCreatePayload, CollectionsDetachCreateRouteParams } from '#shared/api'
 import { collectionsDetachCreatePayloadSchema, collectionsDetachCreateRouteParamsSchema } from '#shared/api'
 
 interface CollectionsDetachCreateRequest {
@@ -9,9 +9,9 @@ interface CollectionsDetachCreateRequest {
 /**
  * Detach bookmark from collection
  */
-export default defineHttpHandler<CollectionsDetachCreateRequest, CollectionsDetachCreateResult>(async (event) => {
+export default defineHttpHandler<CollectionsDetachCreateRequest, void>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsDetachCreateRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, collectionsDetachCreatePayloadSchema.parse)
 
-  return {} as CollectionsDetachCreateResult // todo: implement
+  // todo: implement
 })

@@ -1,17 +1,15 @@
-import type { CollectionsDeletePayload, CollectionsDeleteResult, CollectionsDeleteRouteParams } from '#shared/api'
-import { collectionsDeletePayloadSchema, collectionsDeleteRouteParamsSchema } from '#shared/api'
+import type { CollectionsDeleteRouteParams } from '#shared/api'
+import { collectionsDeleteRouteParamsSchema } from '#shared/api'
 
 interface CollectionsDeleteRequest {
-  body: CollectionsDeletePayload
   routerParams: CollectionsDeleteRouteParams
 }
 
 /**
  * Delete collection
  */
-export default defineHttpHandler<CollectionsDeleteRequest, CollectionsDeleteResult>(async (event) => {
+export default defineHttpHandler<CollectionsDeleteRequest, void>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsDeleteRouteParamsSchema.parse)
-  const _data = await readValidatedBody(event, collectionsDeletePayloadSchema.parse)
 
-  return {} as CollectionsDeleteResult // todo: implement
+  // todo: implement
 })

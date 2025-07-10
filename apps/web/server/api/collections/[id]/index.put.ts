@@ -1,4 +1,4 @@
-import type { CollectionsUpdatePayload, CollectionsUpdateResult, CollectionsUpdateRouteParams } from '#shared/api'
+import type { CollectionsUpdatePayload, CollectionsUpdateRouteParams } from '#shared/api'
 import { collectionsUpdatePayloadSchema, collectionsUpdateRouteParamsSchema } from '#shared/api'
 
 interface CollectionsUpdateRequest {
@@ -9,9 +9,9 @@ interface CollectionsUpdateRequest {
 /**
  * Update collection
  */
-export default defineHttpHandler<CollectionsUpdateRequest, CollectionsUpdateResult>(async (event) => {
+export default defineHttpHandler<CollectionsUpdateRequest, void>(async (event) => {
   const _routeParams = await getValidatedRouterParams(event, collectionsUpdateRouteParamsSchema.parse)
   const _data = await readValidatedBody(event, collectionsUpdatePayloadSchema.parse)
 
-  return {} as CollectionsUpdateResult // todo: implement
+  // todo: implement
 })
