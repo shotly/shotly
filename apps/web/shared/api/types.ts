@@ -69,8 +69,7 @@ export interface ApiKeysListItem {
    * @minLength 3
    */
   name: string
-  /** Date and time with timezone */
-  lastUsedAt: DateTimeType
+  lastUsedAt: DateTimeType | null
   expiresAt: DateTimeType | null
   /** Date and time with timezone */
   createdAt: DateTimeType
@@ -110,7 +109,6 @@ export interface WebhooksForm {
   /**
    * Webhook events
    * @minLength 1
-   * @minItems 1
    * @uniqueItems true
    */
   events: WebhooksEvent[]
