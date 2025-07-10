@@ -16,10 +16,7 @@
           />
         </div>
 
-        <UNavigationMenu v-if="collectionsMenu.length" :items="collectionsMenu" orientation="vertical" />
-        <div v-else class="text-muted text-sm">
-          {{ $t('collections.empty') }}
-        </div>
+        <UNavigationMenu :items="collectionsMenu" orientation="vertical" />
       </div>
     </div>
   </div>
@@ -48,7 +45,7 @@ const { data: collections } = useCollections()
 const collectionsMenu = computed<NavigationMenuItem[]>(() => {
   return collections.value?.map((collection) => ({
     label: collection.name,
-    icon: 'lucide:folder',
+    icon: collection.icon ?? 'lucide:folder',
   })) ?? []
 })
 </script>
