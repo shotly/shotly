@@ -725,7 +725,6 @@ components:
         - icon
         - isShared
         - sortOrder
-        - children
         - createdAt
       properties:
         id:
@@ -735,10 +734,14 @@ components:
           description: Collection name
           minLength: 3
         description:
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Collection description
         icon:
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Collection icon
           minLength: 5
         isShared:

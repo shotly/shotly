@@ -205,12 +205,12 @@ export interface CollectionsListItem {
    */
   name: string
   /** Collection description */
-  description: string
+  description: string | null
   /**
    * Collection icon
    * @minLength 5
    */
-  icon: string
+  icon: string | null
   /** Collection is shared */
   isShared: boolean
   /**
@@ -219,7 +219,7 @@ export interface CollectionsListItem {
    */
   sortOrder: number
   /** Collection children */
-  children: CollectionsListItem[]
+  children?: CollectionsListItem[]
   /** Date and time with timezone */
   createdAt: DateTimeType
 }

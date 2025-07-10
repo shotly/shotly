@@ -1,15 +1,42 @@
-import type { CollectionsListQuery, CollectionsListResult } from '#shared/api'
-import { collectionsListQuerySchema } from '#shared/api'
+import type { CollectionsListResult } from '#shared/api'
+import { tables, useDatabase } from '@shotly/db'
+import { desc, eq } from 'drizzle-orm'
+import buildTree from 'fast-tree-builder'
 
 interface CollectionsListRequest {
-  query: CollectionsListQuery
+
 }
 
 /**
  * Get collections list
  */
 export default defineHttpHandler<CollectionsListRequest, CollectionsListResult>(async (event) => {
-  const _query = await getValidatedQuery(event, collectionsListQuerySchema.parse)
+  const db = useDatabase()
+  const user = await getValidatedUser(event)
 
-  return {} as CollectionsListResult // todo: implement
+  const collections = await db
+    .select({
+      id: tables.collections.id,
+      name: tables.collections.name,
+      description: tables.collections.description,
+      icon: tables.collections.icon,
+      isShared: tables.collections.isShared,
+      sortOrder: tables.collections.sortOrder,
+      createdAt: tables.collections.createdAt,
+      parentId: tables.collections.parentId,
+    })
+    .from(tables.collections)
+    .where(eq(tables.collections.userId, user.id))
+    .orderBy(desc(tables.collections.sortOrder))
+
+  const { roots } = buildTree(collections, {
+    id: 'id',
+    parentId: 'parentId',
+    childrenKey: 'children',
+    parentKey: false,
+    valueKey: false,
+    valueResolver: ({ parentId, ...rest }) => rest,
+  })
+
+  return roots
 })

@@ -12,7 +12,7 @@ interface ProfileDetailsUpdateRequest {
  */
 export default defineHttpHandler<ProfileDetailsUpdateRequest, void>(async (event) => {
   const db = useDatabase()
-  const { user } = await requireUserSession(event)
+  const user = await getValidatedUser(event)
   const data = await readValidatedBody(event, profileDetailsUpdatePayloadSchema.parse)
 
   await db

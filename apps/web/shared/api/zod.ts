@@ -92,11 +92,11 @@ export const collectionsFormSchema = z.object({
 export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.lazy(() => z.object({
   id: cuidSchema,
   name: z.string().min(3),
-  description: z.string(),
-  icon: z.string().min(5),
+  description: z.string().nullable(),
+  icon: z.string().min(5).nullable(),
   isShared: z.boolean(),
   sortOrder: z.number(),
-  children: z.array(collectionsListItemSchema),
+  children: z.array(collectionsListItemSchema).optional(),
   createdAt: dateTimeTypeSchema,
 }))
 
