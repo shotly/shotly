@@ -28,8 +28,6 @@ export default defineNuxtConfig({
     },
     public: {
       siteUrl: 'https://app.shotly.dev',
-      showRepoLink: true,
-      showDocsLink: true,
       showHomeLink: true,
     },
     databaseURL: '',

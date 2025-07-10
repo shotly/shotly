@@ -23,7 +23,6 @@ import type { DropdownMenuItem } from '@nuxt/ui'
 
 const colorMode = useColorMode()
 const appConfig = useAppConfig()
-const runtimeConfig = useRuntimeConfig()
 const { locale, locales, setLocale } = useI18n()
 const { user } = useUserSession()
 const { logout, isLoading: isLoggingOut } = useLogout()
@@ -98,26 +97,18 @@ const items = computed<DropdownMenuItem[][]>(() => ([
       kbds: ['?'],
       onSelect: () => isShortcutsHelpOpen.value = true,
     },
-    ...(
-      runtimeConfig.public.showDocsLink
-        ? [{
-            label: $t('common.links.docs'),
-            icon: 'lucide:book-open',
-            target: '_blank',
-            to: appConfig.links.docs,
-          }]
-        : []
-    ),
-    ...(
-      runtimeConfig.public.showRepoLink
-        ? [{
-            label: $t('common.links.github'),
-            icon: 'simple-icons:github',
-            target: '_blank',
-            to: appConfig.links.repository,
-          }]
-        : []
-    ),
+    {
+      label: $t('common.links.docs'),
+      icon: 'lucide:book-open',
+      target: '_blank',
+      to: appConfig.links.docs,
+    },
+    {
+      label: $t('common.links.github'),
+      icon: 'simple-icons:github',
+      target: '_blank',
+      to: appConfig.links.repository,
+    },
   ],
   [
     {
