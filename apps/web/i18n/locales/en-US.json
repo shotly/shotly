@@ -111,7 +111,12 @@
   },
 
   "collections": {
-    "title": "Collections"
+    "title": "Collections",
+
+    "create": {
+      "title": "Create collection",
+      "description": "Create a new collection to organize your bookmarks."
+    }
   },
 
   "auth": {

@@ -5,6 +5,7 @@
       "save": "Save",
       "saveChanges": "Save changes",
       "cancel": "Cancel",
+      "create": "Create",
       "delete": "Delete",
       "confirm": "Confirm",
       "done": "Done",
@@ -21,7 +22,10 @@
       "key": "Key",
       "lastUsedAt": "Last used at",
       "url": "URL",
-      "events": "Events"
+      "events": "Events",
+      "description": "Description",
+      "parentCollection": "Parent collection",
+      "icon": "Icon"
     },
 
     "table": {
