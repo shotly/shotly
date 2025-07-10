@@ -547,7 +547,9 @@ components:
           description: Api key name
           minLength: 3
         lastUsedAt:
-          $ref: '#/components/schemas/DateTimeType'
+          oneOf:
+            - $ref: '#/components/schemas/DateTimeType'
+            - type: 'null'
         expiresAt:
           oneOf:
             - $ref: '#/components/schemas/DateTimeType'

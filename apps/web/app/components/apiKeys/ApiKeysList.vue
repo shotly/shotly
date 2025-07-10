@@ -16,7 +16,7 @@
         </div>
 
         <div class="flex items-center justify-between gap-2 text-sm md:justify-end">
-          <div class="text-muted">
+          <div v-if="item.lastUsedAt" class="text-muted">
             {{ $t('common.fields.lastUsedAt') }}
             <DateTime :datetime="item.lastUsedAt" relative />
           </div>

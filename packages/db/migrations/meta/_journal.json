@@ -5,36 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1751217759071,
-      "tag": "0000_slim_bushwacker",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1751570281800,
-      "tag": "0001_low_greymalkin",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1751818813511,
-      "tag": "0002_jazzy_wolfsbane",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1751881229601,
-      "tag": "0003_curvy_captain_midlands",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1751989405456,
-      "tag": "0004_naive_punisher",
+      "when": 1752138568692,
+      "tag": "0000_bright_shinko_yamashiro",
       "breakpoints": true
     }
   ]
