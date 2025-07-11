@@ -27,6 +27,31 @@ export default defineAppConfig({
       slots: {
         base: 'cursor-pointer',
       },
+      defaultVariants: {
+        size: 'lg',
+      },
+    },
+
+    input: {
+      defaultVariants: {
+        size: 'lg',
+      },
+    },
+
+    select: {
+      variants: {
+        size: {
+          md: {
+            base: 'py-2 px-3',
+          },
+        },
+      },
+    },
+
+    selectMenu: {
+      defaultVariants: {
+        size: 'lg',
+      },
     },
 
     navigationMenu: {

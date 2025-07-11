@@ -35,6 +35,12 @@
 
     <template #footer>
       <UButton
+        :label="$t('common.actions.cancel')"
+        color="neutral"
+        variant="ghost"
+        @click="emit('close')"
+      />
+      <UButton
         form="collections-form-create"
         :loading="form?.loading"
         :label="$t('common.actions.create')"
