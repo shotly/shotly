@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CollectionsCreatePayload as Schema, CUID } from '#shared/api'
+import type { CUID, CollectionsCreatePayload as Schema } from '#shared/api'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { collectionsCreatePayloadSchema as schema } from '#shared/api'
 
