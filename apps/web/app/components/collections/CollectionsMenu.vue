@@ -1,6 +1,6 @@
 <template>
   <DefineItemTemplate v-slot="{ item, level = 0 }">
-    <li class="min-w-0">
+    <AccordionItem as="li" class="min-w-0" :value="item.value">
       <ULink
         v-slot="{ active }"
         :to="{ name: 'collections-id', params: { id: item.value } }"
@@ -9,11 +9,11 @@
         active-class="text-primary before:bg-elevated"
         :data-active="activeOption === item.value ? 'true' : undefined"
       >
-        <span v-if="item.children" class="z-1 size-6 absolute left-2.5 top-2 flex items-end justify-end" @click.stop.prevent>
+        <AccordionTrigger as="span" v-if="item.children" class="z-1 size-6 absolute left-2.5 top-2 flex items-end justify-end group/trigger" @click.stop.prevent>
           <span class="bg-elevated rounded-full size-3.5 flex items-center justify-center">
-            <UIcon name="lucide:chevron-right" class="size-3" />
+            <UIcon name="lucide:chevron-right" class="size-3 group-data-[state=open]/trigger:rotate-90 transition-transform" />
           </span>
-        </span>
+        </AccordionTrigger>
 
         <UIcon :name="item.icon" class="shrink-0 size-5 group-hover:text-default transition-colors" :class="active || activeOption === item.value ? 'text-primary' : 'text-dimmed'" />
         <span class="truncate w-full flex items-center">{{ item.label }}</span>
@@ -28,8 +28,8 @@
         </span>
       </ULink>
 
-      <div v-if="item.children">
-        <ul class="isolate ms-5 border-s border-default">
+      <AccordionContent v-if="item.children" class="data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-dropdown-menu-content-transform-origin)">
+        <AccordionRoot as="ul" class="isolate ms-5 border-s border-default">
           <ReuseItemTemplate
             v-for="child in item.children"
             :key="child.value"
@@ -37,25 +37,26 @@
             :level="level + 1"
             class="ps-1.5 -ms-px"
           />
-        </ul>
-      </div>
-    </li>
+        </AccordionRoot>
+      </AccordionContent>
+    </AccordionItem>
   </DefineItemTemplate>
 
   <nav v-if="collectionsMenu" class="relative flex flex-col gap-1.5">
-    <ul class="isolate min-w-0">
+    <AccordionRoot as="ul" class="isolate min-w-0" type="multiple">
       <ReuseItemTemplate
         v-for="item in collectionsMenu"
         :key="item.value"
         :item="item"
       />
-    </ul>
+    </AccordionRoot>
   </nav>
 </template>
 
 <script setup lang="ts">
 import type { CUID } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
+import { AccordionRoot, AccordionItem, AccordionTrigger, AccordionContent } from 'reka-ui'
 
 export interface CollectionsMenuItem {
   value: CUID
