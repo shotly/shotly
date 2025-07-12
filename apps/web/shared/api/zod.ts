@@ -98,6 +98,7 @@ export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.laz
   sortOrder: z.number(),
   children: z.array(collectionsListItemSchema).optional(),
   createdAt: dateTimeTypeSchema,
+  parentId: cuidSchema.optional().nullable(),
 }))
 
 export const collectionsItemSchema = z.object({

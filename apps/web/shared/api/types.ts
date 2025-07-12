@@ -216,6 +216,7 @@ export interface CollectionsListItem {
   children?: CollectionsListItem[]
   /** Date and time with timezone */
   createdAt: DateTimeType
+  parentId?: CUID | null
 }
 
 /** Collection */

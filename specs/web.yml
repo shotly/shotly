@@ -754,6 +754,10 @@ components:
             $ref: '#/components/schemas/CollectionsListItem'
         createdAt:
           $ref: '#/components/schemas/DateTimeType'
+        parentId:
+          oneOf:
+            - $ref: '#/components/schemas/CUID'
+            - type: 'null'
 
     CollectionsItem:
       type: object

@@ -1,6 +1,6 @@
 import type { CollectionsListResult } from '#shared/api'
 import { tables, useDatabase } from '@shotly/db'
-import { desc, eq } from 'drizzle-orm'
+import { asc, eq } from 'drizzle-orm'
 import buildTree from 'fast-tree-builder'
 
 interface CollectionsListRequest {
@@ -27,7 +27,7 @@ export default defineHttpHandler<CollectionsListRequest, CollectionsListResult>(
     })
     .from(tables.collections)
     .where(eq(tables.collections.userId, user.id))
-    .orderBy(desc(tables.collections.sortOrder))
+    .orderBy(asc(tables.collections.sortOrder))
 
   const { roots } = buildTree(collections, {
     id: 'id',
@@ -35,7 +35,7 @@ export default defineHttpHandler<CollectionsListRequest, CollectionsListResult>(
     childrenKey: 'children',
     parentKey: false,
     valueKey: false,
-    valueResolver: ({ parentId, ...rest }) => ({
+    valueResolver: ({ ...rest }) => ({
       ...rest,
       icon: rest.icon ?? 'lucide:folder',
     }),
