@@ -14,7 +14,7 @@
               size="sm"
               variant="ghost"
               color="neutral"
-              @click="isCollectionsFormCreateModalOpen = true"
+              @click="isCollectionsFormModalOpen = true"
             />
           </UTooltip>
         </div>
@@ -47,7 +47,7 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
   },
 ])
 
-const { isCollectionsFormCreateModalOpen } = useApp()
+const { isCollectionsFormModalOpen } = useApp()
 const { data: collections } = useCollections()
 
 const collectionsMenu = computed(() => transformCollections(collections.value ?? []))

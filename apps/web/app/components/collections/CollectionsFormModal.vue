@@ -1,6 +1,6 @@
 <template>
   <ViewModal
-    v-model:open="isCollectionsFormCreateModalOpen"
+    v-model:open="isCollectionsFormModalOpen"
     :title="$t('collections.create.title')"
     :description="$t('collections.create.description')"
     @after:leave="onCloseModal"
@@ -37,21 +37,21 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 import { collectionsFormSchema as schema } from '#shared/api'
 import { defu } from 'defu'
 
-export interface CollectionsFormCreateModalProps {
+export interface CollectionsFormModalProps {
   id?: CUID
   initialState?: Partial<Schema>
 }
 
-export interface CollectionsFormCreateModalEmits {
+export interface CollectionsFormModalEmits {
   created: [id: CUID]
   close: []
 }
 
-const props = defineProps<CollectionsFormCreateModalProps>()
-const emit = defineEmits<CollectionsFormCreateModalEmits>()
+const props = defineProps<CollectionsFormModalProps>()
+const emit = defineEmits<CollectionsFormModalEmits>()
 
 const { $api } = useNuxtApp()
-const { isCollectionsFormCreateModalOpen } = useApp()
+const { isCollectionsFormModalOpen } = useApp()
 const { data: collections, refresh: refreshCollections } = useCollections()
 
 // pick only collections without children
@@ -85,7 +85,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       emit('created', response._data.id)
       await refreshCollections()
 
-      isCollectionsFormCreateModalOpen.value = false
+      isCollectionsFormModalOpen.value = false
 
       // todo: handle success message
     },
