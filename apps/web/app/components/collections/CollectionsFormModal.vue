@@ -65,6 +65,7 @@ const collectionsItems = computed(
 
 const { state, reset } = useResettableReactive<Schema>(() => defu(props.initialState, {
   name: '',
+  parentId: undefined,
   icon: 'lucide:folder',
 }))
 
