@@ -1,17 +1,24 @@
-import type { CollectionsDeletePayload, CollectionsDeleteResult, CollectionsDeleteRouteParams } from '#shared/api'
-import { collectionsDeletePayloadSchema, collectionsDeleteRouteParamsSchema } from '#shared/api'
+import type { CollectionsDeleteRouteParams } from '#shared/api'
+import { collectionsDeleteRouteParamsSchema } from '#shared/api'
+import { tables, useDatabase } from '@shotly/db'
+import { and, eq } from 'drizzle-orm'
 
 interface CollectionsDeleteRequest {
-  body: CollectionsDeletePayload
   routerParams: CollectionsDeleteRouteParams
 }
 
 /**
  * Delete collection
  */
-export default defineHttpHandler<CollectionsDeleteRequest, CollectionsDeleteResult>(async (event) => {
-  const _routeParams = await getValidatedRouterParams(event, collectionsDeleteRouteParamsSchema.parse)
-  const _data = await readValidatedBody(event, collectionsDeletePayloadSchema.parse)
+export default defineHttpHandler<CollectionsDeleteRequest, void>(async (event) => {
+  const db = useDatabase()
+  const user = await getValidatedUser(event)
+  const { id } = await getValidatedRouterParams(event, collectionsDeleteRouteParamsSchema.parse)
 
-  return {} as CollectionsDeleteResult // todo: implement
+  await db
+    .delete(tables.collections)
+    .where(and(
+      eq(tables.collections.id, id),
+      eq(tables.collections.userId, user.id),
+    ))
 })

@@ -1,5 +1,7 @@
-import type { CollectionsDetachCreatePayload, CollectionsDetachCreateResult, CollectionsDetachCreateRouteParams } from '#shared/api'
+import type { CollectionsDetachCreatePayload, CollectionsDetachCreateRouteParams } from '#shared/api'
 import { collectionsDetachCreatePayloadSchema, collectionsDetachCreateRouteParamsSchema } from '#shared/api'
+import { tables, useDatabase } from '@shotly/db'
+import { and, eq } from 'drizzle-orm'
 
 interface CollectionsDetachCreateRequest {
   body: CollectionsDetachCreatePayload
@@ -9,9 +11,20 @@ interface CollectionsDetachCreateRequest {
 /**
  * Detach bookmark from collection
  */
-export default defineHttpHandler<CollectionsDetachCreateRequest, CollectionsDetachCreateResult>(async (event) => {
+export default defineHttpHandler<CollectionsDetachCreateRequest, void>(async (event) => {
+  const db = useDatabase()
+  const user = await getValidatedUser(event)
   const _routeParams = await getValidatedRouterParams(event, collectionsDetachCreateRouteParamsSchema.parse)
-  const _data = await readValidatedBody(event, collectionsDetachCreatePayloadSchema.parse)
+  const data = await readValidatedBody(event, collectionsDetachCreatePayloadSchema.parse)
 
-  return {} as CollectionsDetachCreateResult // todo: implement
+  await db
+    .update(tables.bookmarks)
+    .set({
+      collectionId: null,
+      updatedAt: new Date().toISOString(),
+    })
+    .where(and(
+      eq(tables.bookmarks.id, data.bookmarkId),
+      eq(tables.bookmarks.userId, user.id),
+    ))
 })

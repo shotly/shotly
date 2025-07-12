@@ -22,7 +22,7 @@
           </div>
 
           <UDropdownMenu :items="rowActions(item)" :content="{ align: 'end' }">
-            <UButton icon="lucide:ellipsis" variant="ghost" />
+            <UButton icon="lucide:ellipsis" variant="ghost" size="md" />
           </UDropdownMenu>
         </div>
       </div>

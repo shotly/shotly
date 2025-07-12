@@ -108,6 +108,9 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
+      fast-tree-builder:
+        specifier: ^2.0.1
+        version: 2.0.1
       nuxt:
         specifier: 'catalog:'
         version: 3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.7)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.2(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.30.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.44.1)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.7)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0)
@@ -4248,6 +4251,9 @@ packages:
 
   fast-safe-stringify@2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
+
+  fast-tree-builder@2.0.1:
+    resolution: {integrity: sha512-MG6mIjq+uZYBIbEKh/CzB5LxhG1K37hhBbhroAx8OocRcM8fUufwStsru32D5xvSgRe6QCj4ip1uwl0lLGhMjQ==}
 
   fast-uri@3.0.6:
     resolution: {integrity: sha512-Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==}
@@ -12440,6 +12446,8 @@ snapshots:
   fast-npm-meta@0.4.4: {}
 
   fast-safe-stringify@2.1.1: {}
+
+  fast-tree-builder@2.0.1: {}
 
   fast-uri@3.0.6: {}
 

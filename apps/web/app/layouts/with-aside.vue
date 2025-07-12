@@ -51,8 +51,6 @@
         <slot />
       </div>
     </main>
-
-    <ShortcutsSideover />
   </div>
 </template>
 

@@ -17,5 +17,8 @@ export default defineHttpHandler<WebhooksDeleteRequest, void>(async (event) => {
 
   await db
     .delete(tables.webhooks)
-    .where(and(eq(tables.webhooks.id, id), eq(tables.webhooks.userId, user.id)))
+    .where(and(
+      eq(tables.webhooks.id, id),
+      eq(tables.webhooks.userId, user.id),
+    ))
 })

@@ -5,6 +5,7 @@
       "save": "Save",
       "saveChanges": "Save changes",
       "cancel": "Cancel",
+      "create": "Create",
       "delete": "Delete",
       "confirm": "Confirm",
       "done": "Done",
@@ -14,6 +15,7 @@
     },
 
     "fields": {
+      "title": "Title",
       "name": "Name",
       "email": "Email",
       "expiresAt": "Expires at",
@@ -21,7 +23,16 @@
       "key": "Key",
       "lastUsedAt": "Last used at",
       "url": "URL",
-      "events": "Events"
+      "events": "Events",
+      "description": "Description",
+      "parentCollection": "Parent collection",
+      "icon": "Icon",
+      "optional": "Optional"
+    },
+
+    "placeholders": {
+      "collectionName": "Enter collection name",
+      "parentCollection": "Select parent collection"
     },
 
     "table": {
