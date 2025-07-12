@@ -8,22 +8,28 @@
           <div class="text-sm text-muted">
             {{ $t('collections.title') }}
           </div>
-          <UTooltip :text="$t('collections.create.tooltip')" :kbds="['c']">
-            <UButton
-              icon="lucide:plus"
-              size="sm"
-              variant="ghost"
-              color="neutral"
-              @click="isCollectionsFormModalOpen = true"
-            />
-          </UTooltip>
+          <div class="flex items-center pr-1">
+            <!-- <UTooltip :text="$t('collections.create.tooltip')" :kbds="['c']">
+              <UButton
+                icon="lucide:settings-2"
+                size="sm"
+                variant="ghost"
+                color="neutral"
+              />
+            </UTooltip> -->
+            <UTooltip :text="$t('collections.create.tooltip')" :kbds="['c']">
+              <UButton
+                icon="lucide:plus"
+                size="sm"
+                variant="ghost"
+                color="neutral"
+                @click="isCollectionsFormModalOpen = true"
+              />
+            </UTooltip>
+          </div>
         </div>
 
-        <UNavigationMenu
-          v-if="collections"
-          :items="collectionsMenu"
-          orientation="vertical"
-        />
+        <CollectionsMenu />
       </div>
     </div>
   </div>
