@@ -29,7 +29,7 @@
       </ULink>
 
       <AccordionContent v-if="item.children" class="data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-dropdown-menu-content-transform-origin)">
-        <AccordionRoot as="ul" class="isolate ms-5 border-s border-default">
+        <ul as="ul" class="isolate ms-5 border-s border-default">
           <ReuseItemTemplate
             v-for="child in item.children"
             :key="child.value"
@@ -37,13 +37,13 @@
             :level="level + 1"
             class="ps-1.5 -ms-px"
           />
-        </AccordionRoot>
+        </ul>
       </AccordionContent>
     </AccordionItem>
   </DefineItemTemplate>
 
   <nav v-if="collectionsMenu" class="relative flex flex-col gap-1.5">
-    <AccordionRoot as="ul" class="isolate min-w-0" type="multiple">
+    <AccordionRoot as="ul" class="isolate min-w-0" type="multiple" v-model="accordion">
       <ReuseItemTemplate
         v-for="item in collectionsMenu"
         :key="item.value"
@@ -76,6 +76,9 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
     level: Number as PropType<number>,
   },
 })
+
+// to save local state of the accordion
+const accordion = ref<CUID[]>([])
 
 const activeOption = ref<CUID | null>(null)
 function handleOptionOpen(value: CUID, open: boolean) {
