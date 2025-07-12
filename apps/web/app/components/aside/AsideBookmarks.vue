@@ -19,7 +19,11 @@
           </UTooltip>
         </div>
 
-        <UNavigationMenu :items="collectionsMenu" orientation="vertical" />
+        <UNavigationMenu
+          v-if="collections"
+          :items="collectionsMenu"
+          orientation="vertical"
+        />
       </div>
     </div>
   </div>
@@ -46,10 +50,5 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
 const { isCollectionsFormCreateModalOpen } = useApp()
 const { data: collections } = useCollections()
 
-const collectionsMenu = computed<NavigationMenuItem[]>(() => {
-  return collections.value?.map((collection) => ({
-    label: collection.name,
-    icon: collection.icon ?? 'lucide:folder',
-  })) ?? []
-})
+const collectionsMenu = computed(() => transformCollections(collections.value ?? []))
 </script>

@@ -91,9 +91,9 @@ export const collectionsFormSchema = z.object({
 
 export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.lazy(() => z.object({
   id: cuidSchema,
-  name: z.string().min(3),
+  name: z.string(),
   description: z.string().nullable(),
-  icon: z.string().min(5).nullable(),
+  icon: z.string(),
   isShared: z.boolean(),
   sortOrder: z.number(),
   children: z.array(collectionsListItemSchema).optional(),

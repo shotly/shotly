@@ -199,18 +199,12 @@ export interface CollectionsForm {
 export interface CollectionsListItem {
   /** Id */
   id: CUID
-  /**
-   * Collection name
-   * @minLength 3
-   */
+  /** Collection name */
   name: string
   /** Collection description */
   description: string | null
-  /**
-   * Collection icon
-   * @minLength 5
-   */
-  icon: string | null
+  /** Collection icon */
+  icon: string
   /** Collection is shared */
   isShared: boolean
   /**

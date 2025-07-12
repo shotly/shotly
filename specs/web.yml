@@ -732,18 +732,14 @@ components:
         name:
           type: string
           description: Collection name
-          minLength: 3
         description:
           anyOf:
             - type: string
             - type: 'null'
           description: Collection description
         icon:
-          anyOf:
-            - type: string
-            - type: 'null'
+          type: string
           description: Collection icon
-          minLength: 5
         isShared:
           type: boolean
           description: Collection is shared

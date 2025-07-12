@@ -35,7 +35,10 @@ export default defineHttpHandler<CollectionsListRequest, CollectionsListResult>(
     childrenKey: 'children',
     parentKey: false,
     valueKey: false,
-    valueResolver: ({ parentId, ...rest }) => rest,
+    valueResolver: ({ parentId, ...rest }) => ({
+      ...rest,
+      icon: rest.icon ?? 'lucide:folder',
+    }),
   })
 
   return roots

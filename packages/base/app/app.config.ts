@@ -61,6 +61,10 @@ export default defineAppConfig({
     },
 
     navigationMenu: {
+      slots: {
+        linkTrailingIcon: 'size-4',
+      },
+
       variants: {
         orientation: {
           vertical: {

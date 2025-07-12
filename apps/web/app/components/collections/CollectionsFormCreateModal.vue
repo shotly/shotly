@@ -14,10 +14,10 @@
         @submit="onSubmit"
       >
         <UFormField name="name" :label="$t('common.fields.name')">
-          <UInput v-model="state.name" class="w-full" icon="lucide:folder" />
+          <UInput v-model="state.name" class="w-full" :icon="state.icon" />
         </UFormField>
         <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
-          <USelect v-model="state.parentId" class="w-full" :items="collections" />
+          <USelect v-model="state.parentId" class="w-full" :items="collectionsItems" />
         </UFormField>
 
         <UButton
@@ -52,7 +52,16 @@ const emit = defineEmits<CollectionsFormCreateModalEmits>()
 
 const { $api } = useNuxtApp()
 const { isCollectionsFormCreateModalOpen } = useApp()
-const { items: collections, refresh: refreshCollections } = useCollections()
+const { data: collections, refresh: refreshCollections } = useCollections()
+
+// pick only collections without children
+const collectionsItems = computed(
+  () => collections.value?.map((collection) => ({
+    label: collection.name,
+    value: collection.id,
+    icon: collection.icon,
+  })),
+)
 
 const { state, reset } = useResettableReactive<Schema>(() => defu(props.initialState, {
   name: '',

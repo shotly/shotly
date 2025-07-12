@@ -33,6 +33,8 @@ export default defineHttpHandler<CollectionsCreateRequest, CollectionsCreateResu
     )
     .limit(1)
 
+  // todo: check if parentId is valid, max depth is 1
+
   const [collection] = await db
     .insert(tables.collections)
     .values({
