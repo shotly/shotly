@@ -8,12 +8,15 @@
           <div class="text-sm text-muted">
             {{ $t('collections.title') }}
           </div>
-          <UButton
-            icon="lucide:plus"
-            size="sm"
-            variant="ghost"
-            color="neutral"
-          />
+          <UTooltip :text="$t('collections.create.tooltip')" :kbds="['c']">
+            <UButton
+              icon="lucide:plus"
+              size="sm"
+              variant="ghost"
+              color="neutral"
+              @click="isCollectionsFormCreateModalOpen = true"
+            />
+          </UTooltip>
         </div>
 
         <UNavigationMenu :items="collectionsMenu" orientation="vertical" />
@@ -40,6 +43,7 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
   },
 ])
 
+const { isCollectionsFormCreateModalOpen } = useApp()
 const { data: collections } = useCollections()
 
 const collectionsMenu = computed<NavigationMenuItem[]>(() => {

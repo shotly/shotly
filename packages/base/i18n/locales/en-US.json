@@ -15,6 +15,7 @@
     },
 
     "fields": {
+      "title": "Title",
       "name": "Name",
       "email": "Email",
       "expiresAt": "Expires at",
@@ -25,7 +26,8 @@
       "events": "Events",
       "description": "Description",
       "parentCollection": "Parent collection",
-      "icon": "Icon"
+      "icon": "Icon",
+      "optional": "Optional"
     },
 
     "table": {

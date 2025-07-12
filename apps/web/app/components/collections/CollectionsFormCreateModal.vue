@@ -1,76 +1,68 @@
 <template>
-  <UModal
+  <ViewModal
     v-model:open="isCollectionsFormCreateModalOpen"
     :title="$t('collections.create.title')"
     :description="$t('collections.create.description')"
-    :ui="{
-      footer: 'justify-end bg-elevated/50',
-    }"
+    @after:leave="onCloseModal"
   >
     <template #body>
       <UForm
-        id="collections-form-create"
-        ref="form"
-        class="space-y-3"
+        class="space-y-6"
+        :validate-on="['input']"
         :schema="schema"
         :state="state"
         @submit="onSubmit"
       >
-        <div class="grid grid-cols-10 gap-3">
-          <UFormField name="icon" :label="$t('common.fields.icon')" class="col-span-2">
-            <USelect class="w-full" />
-          </UFormField>
-          <UFormField name="name" :label="$t('common.fields.name')" class="col-span-8">
-            <UInput v-model="state.name" class="w-full" />
-          </UFormField>
-        </div>
-        <UFormField name="description" :label="$t('common.fields.description')">
-          <UInput v-model="state.description" class="w-full" />
+        <UFormField name="name" :label="$t('common.fields.name')">
+          <UInput v-model="state.name" class="w-full" icon="lucide:folder" />
         </UFormField>
-        <UFormField name="parentId" :label="$t('common.fields.parentCollection')">
-          ...
+        <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
+          <USelect v-model="state.parentId" class="w-full" :items="collections" />
         </UFormField>
+
+        <UButton
+          class="w-full justify-center"
+          :label="$t('common.actions.create')"
+          loading-auto
+          type="submit"
+        />
       </UForm>
     </template>
-
-    <template #footer>
-      <UButton
-        :label="$t('common.actions.cancel')"
-        color="neutral"
-        variant="ghost"
-        @click="emit('close')"
-      />
-      <UButton
-        form="collections-form-create"
-        :loading="form?.loading"
-        :label="$t('common.actions.create')"
-        @click="emit('close')"
-      />
-    </template>
-  </UModal>
+  </ViewModal>
 </template>
 
 <script setup lang="ts">
-import type { CUID, CollectionsCreatePayload as Schema } from '#shared/api'
+import type { CUID, CollectionsForm as Schema } from '#shared/api'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { collectionsCreatePayloadSchema as schema } from '#shared/api'
+import { collectionsFormSchema as schema } from '#shared/api'
+import { defu } from 'defu'
+
+export interface CollectionsFormCreateModalProps {
+  id?: CUID
+  initialState?: Partial<Schema>
+}
 
 export interface CollectionsFormCreateModalEmits {
   created: [id: CUID]
   close: []
 }
 
+const props = defineProps<CollectionsFormCreateModalProps>()
 const emit = defineEmits<CollectionsFormCreateModalEmits>()
 
 const { $api } = useNuxtApp()
 const { isCollectionsFormCreateModalOpen } = useApp()
-const form = useTemplateRef('form')
-const { state, reset } = useResettableReactive<Schema>(() => ({
+const { items: collections, refresh: refreshCollections } = useCollections()
+
+const { state, reset } = useResettableReactive<Schema>(() => defu(props.initialState, {
   name: '',
-  icon: '',
-  description: '',
-  parentId: '',
+  icon: 'lucide:folder',
 }))
+
+function onCloseModal() {
+  reset()
+  emit('close')
+}
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   await $api('/api/collections', {
@@ -81,8 +73,10 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         return
       }
 
-      reset()
       emit('created', response._data.id)
+      await refreshCollections()
+
+      isCollectionsFormCreateModalOpen.value = false
 
       // todo: handle success message
     },

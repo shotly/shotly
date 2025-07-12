@@ -56,7 +56,8 @@ const groups = computed<ShortcutGroup[]>(() => [
       { label: $t('shortcuts.shortcuts.openInbox'), kbds: ['meta', 'I'] },
       { label: $t('shortcuts.shortcuts.openRandomBookmark'), kbds: ['meta', 'R'] },
       { label: $t('shortcuts.shortcuts.openShortcutsMenu'), kbds: ['?'] },
-      { label: $t('shortcuts.shortcuts.createNewBookmark'), kbds: ['C'] },
+      { label: $t('shortcuts.shortcuts.createNewCollection'), kbds: ['C'] },
+      { label: $t('shortcuts.shortcuts.createNewBookmark'), kbds: ['B'] },
     ],
   },
 ])

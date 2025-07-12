@@ -15,6 +15,7 @@
     },
 
     "fields": {
+      "title": "Заголовок",
       "name": "Имя",
       "email": "Email",
       "expiresAt": "Истекает",
@@ -25,7 +26,8 @@
       "events": "События",
       "description": "Описание",
       "parentCollection": "Родительская коллекция",
-      "icon": "Иконка"
+      "icon": "Иконка",
+      "optional": "Необязательно"
     },
 
     "table": {

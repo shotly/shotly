@@ -38,6 +38,12 @@ export default defineAppConfig({
       },
     },
 
+    modal: {
+      slots: {
+        overlay: 'backdrop-blur-xs',
+      },
+    },
+
     select: {
       variants: {
         size: {
