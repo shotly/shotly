@@ -14,10 +14,20 @@
         @submit="onSubmit"
       >
         <UFormField name="name" :label="$t('common.fields.name')">
-          <UInput v-model="state.name" class="w-full" :icon="state.icon" />
+          <UInput
+            v-model="state.name"
+            class="w-full"
+            :icon="state.icon"
+            :placeholder="$t('common.placeholders.collectionName')"
+          />
         </UFormField>
         <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
-          <USelect v-model="state.parentId" class="w-full" :items="collectionsItems" />
+          <USelect
+            v-model="state.parentId"
+            class="w-full"
+            :items="collectionsItems"
+            :placeholder="$t('common.placeholders.parentCollection')"
+          />
         </UFormField>
 
         <UButton

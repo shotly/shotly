@@ -30,6 +30,11 @@
       "optional": "Необязательно"
     },
 
+    "placeholders": {
+      "collectionName": "Введите название коллекции",
+      "parentCollection": "Выберите родительскую коллекцию"
+    },
+
     "table": {
       "columns": "Колонки",
       "rowsPerPage": "Строк на странице",

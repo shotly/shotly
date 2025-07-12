@@ -30,6 +30,11 @@
       "optional": "Optional"
     },
 
+    "placeholders": {
+      "collectionName": "Enter collection name",
+      "parentCollection": "Select parent collection"
+    },
+
     "table": {
       "columns": "Columns",
       "rowsPerPage": "Rows per page",
