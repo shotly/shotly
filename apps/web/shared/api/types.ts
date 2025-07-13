@@ -213,7 +213,7 @@ export interface CollectionsListItem {
    */
   sortOrder: number
   /** Collection children */
-  children?: CollectionsListItem[]
+  children: CollectionsListItem[]
   /** Date and time with timezone */
   createdAt: DateTimeType
   parentId?: CUID | null

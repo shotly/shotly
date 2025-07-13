@@ -725,6 +725,7 @@ components:
         - icon
         - isShared
         - sortOrder
+        - children
         - createdAt
       properties:
         id:

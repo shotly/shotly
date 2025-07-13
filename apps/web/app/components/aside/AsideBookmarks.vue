@@ -9,34 +9,38 @@
             {{ $t('collections.title') }}
           </div>
           <div class="flex items-center pr-1">
-            <!-- <UTooltip :text="$t('collections.create.tooltip')" :kbds="['c']">
+            <UButton
+              v-if="isCollectionsSortMode"
+              icon="lucide:check"
+              size="sm"
+              variant="ghost"
+              color="neutral"
+              @click="isCollectionsSortMode = false"
+            />
+            <UDropdownMenu v-else :items="collectionsOptions">
               <UButton
                 icon="lucide:settings-2"
                 size="sm"
                 variant="ghost"
                 color="neutral"
               />
-            </UTooltip> -->
-            <UTooltip :text="$t('collections.create.tooltip')" :kbds="['c']">
-              <UButton
-                icon="lucide:plus"
-                size="sm"
-                variant="ghost"
-                color="neutral"
-                @click="isCollectionsFormModalOpen = true"
-              />
-            </UTooltip>
+            </UDropdownMenu>
           </div>
         </div>
 
-        <CollectionsMenu />
+        <CollectionsSortMenu v-if="isCollectionsSortMode && collections" v-model="collections" />
+        <CollectionsMenu v-else :items="collections" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { DropdownMenuItem, NavigationMenuItem } from '@nuxt/ui'
+
+const { isCollectionsFormModalOpen } = useApp()
+const { data: collections } = useCollections()
+const isCollectionsSortMode = ref(true)
 
 const mainMenu = computed<NavigationMenuItem[]>(() => [
   {
@@ -53,8 +57,17 @@ const mainMenu = computed<NavigationMenuItem[]>(() => [
   },
 ])
 
-const { isCollectionsFormModalOpen } = useApp()
-const { data: collections } = useCollections()
-
-const collectionsMenu = computed(() => transformCollections(collections.value ?? []))
+const collectionsOptions = computed<DropdownMenuItem[]>(() => [
+  {
+    label: 'Create', // $t('collections.create'),
+    icon: 'lucide:plus',
+    kbds: ['c'],
+    onSelect: () => isCollectionsFormModalOpen.value = true,
+  },
+  {
+    label: 'Sort', // $t('collections.sort'),
+    icon: 'lucide:list-ordered',
+    onSelect: () => isCollectionsSortMode.value = true,
+  },
+])
 </script>

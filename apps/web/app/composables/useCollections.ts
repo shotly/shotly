@@ -1,14 +1,13 @@
 import type { AsyncDataRequestStatus } from '#app'
-import type { CollectionsListItem, CUID } from '#shared/api'
-import type { RouteLocationRaw } from 'vue-router'
+import type { CollectionsListItem } from '#shared/api'
 
-export interface TransformCollectionsItem {
-  label: string
-  value: CUID
-  icon: string
-  to: RouteLocationRaw
-  children?: TransformCollectionsItem[]
-}
+// export interface TransformCollectionsItem {
+//   label: string
+//   value: CUID
+//   icon: string
+//   to: RouteLocationRaw
+//   children?: TransformCollectionsItem[]
+// }
 
 export interface UseCollectionsResult {
   data: Ref<CollectionsListItem[] | undefined>
@@ -21,6 +20,7 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
   const { data, status, execute, refresh } = useApi('/api/collections', {
     key: 'collections',
     immediate: false,
+    transform: transformCollections,
   })
 
   return {
@@ -31,16 +31,13 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
   }
 })
 
-export function transformCollections(collections: CollectionsListItem[]): TransformCollectionsItem[] {
-  const items: TransformCollectionsItem[] = []
+export function transformCollections(collections: CollectionsListItem[]): CollectionsListItem[] {
+  const items: CollectionsListItem[] = []
 
-  for (const collection of collections) {
+  for (const { children, ...collection } of collections) {
     items.push({
-      label: collection.name,
-      value: collection.id,
-      icon: collection.icon,
-      to: { name: 'collections-id', params: { id: collection.id } },
-      children: collection.children ? transformCollections(collection.children) : undefined,
+      ...collection,
+      children: children ? transformCollections(children) : [],
     })
   }
 

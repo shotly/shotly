@@ -19,7 +19,9 @@
     "fast-tree-builder": "^2.0.1",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.20",
-    "nuxt-site-config": "^3.2.2"
+    "nuxt-site-config": "^3.2.2",
+    "sortablejs": "^1.15.6",
+    "vue-draggable-plus": "^0.6.0"
   },
   "devDependencies": {
     "typescript": "catalog:",

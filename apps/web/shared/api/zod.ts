@@ -96,7 +96,7 @@ export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.laz
   icon: z.string(),
   isShared: z.boolean(),
   sortOrder: z.number(),
-  children: z.array(collectionsListItemSchema).optional(),
+  children: z.array(collectionsListItemSchema),
   createdAt: dateTimeTypeSchema,
   parentId: cuidSchema.optional().nullable(),
 }))
