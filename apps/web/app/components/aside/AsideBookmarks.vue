@@ -28,7 +28,11 @@
           </div>
         </div>
 
-        <CollectionsSortMenu v-if="isCollectionsSortMode && collections" v-model="collections" />
+        <CollectionsSortMenu
+          v-if="isCollectionsSortMode && collections"
+          v-model="collections"
+          @update:model-value="console.log('root update:model-value', $event)"
+        />
         <CollectionsMenu v-else :items="collections" />
       </div>
     </div>

@@ -21,6 +21,7 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
     key: 'collections',
     immediate: false,
     transform: transformCollections,
+    deep: true,
   })
 
   return {
