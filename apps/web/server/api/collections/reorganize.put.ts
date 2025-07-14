@@ -15,6 +15,10 @@ export default defineHttpHandler<CollectionsReorganizeCreateRequest, void>(async
   const user = await getValidatedUser(event)
   const data = await readValidatedBody(event, collectionsReorganizeCreatePayloadSchema.parse)
 
+  if (data.length === 0) {
+    return
+  }
+
   const parentIdCases = data
     .map((u) => `WHEN id = '${u.id}' THEN ${u.parentId === null ? 'NULL' : `'${u.parentId}'`}`)
     .join(' ')

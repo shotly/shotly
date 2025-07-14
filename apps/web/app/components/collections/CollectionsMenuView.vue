@@ -116,7 +116,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
     {
       label: $t('common.actions.share'),
       kbds: ['s'],
-      icon: 'lucide:share-2',
+      icon: 'lucide:globe',
       onSelect: () => {
         // todo: implement share modal
       },
