@@ -21,9 +21,10 @@
           />
         </UFormField>
         <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
-          <USelect
+          <USelectMenu
             v-model="state.parentId"
             class="w-full"
+            value-key="value"
             :items="collectionsItems"
             :placeholder="$t('common.placeholders.parentCollection')"
           />

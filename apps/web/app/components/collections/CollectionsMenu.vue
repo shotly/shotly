@@ -26,7 +26,7 @@
             />
           </UTooltip>
         </template>
-        <UDropdownMenu v-else :items="options">
+        <UDropdownMenu v-else :items="options" :content="{ side: 'bottom', align: 'end' }">
           <UButton
             icon="lucide:settings-2"
             size="sm"
@@ -129,16 +129,16 @@ async function handleApplySort() {
 const options = computed<DropdownMenuItem[]>(() => [
   {
     label: $t('common.actions.create'),
-    icon: 'lucide:plus',
     kbds: ['c'],
+    icon: 'lucide:plus',
     onSelect: () => createCollectionModal.open({
       onSuccess: () => createCollectionModal.close(),
     }),
   },
   {
     label: $t('common.actions.reorganize'),
-    icon: 'lucide:square-dashed-mouse-pointer',
     kbds: ['r'],
+    icon: 'lucide:square-dashed-mouse-pointer',
     onSelect: () => isSortMode.value = true,
   },
 ])

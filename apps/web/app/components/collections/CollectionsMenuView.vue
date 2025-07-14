@@ -115,6 +115,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
     },
     {
       label: $t('common.actions.delete'),
+      kbds: ['d'],
       icon: 'lucide:trash',
       color: 'error',
       onSelect: () => {
