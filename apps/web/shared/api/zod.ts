@@ -30,10 +30,7 @@ export const apiKeysListItemSchema = z.object({
   createdAt: dateTimeTypeSchema,
 })
 
-export const apiKeysListResultSchema = z.object({
-  items: z.array(apiKeysListItemSchema),
-  pagination: paginationSchema.optional(),
-})
+export const apiKeysListResultSchema = z.array(apiKeysListItemSchema)
 
 export const apiKeysCreatePayloadSchema = apiKeyFormSchema
 
@@ -137,11 +134,6 @@ export const collectionsAttachCreatePayloadSchema = z.object({
 
 export const collectionsDetachCreatePayloadSchema = z.object({
   bookmarkId: cuidSchema,
-})
-
-export const apiKeysListQuerySchema = z.object({
-  page: z.string().optional().default('1'),
-  perPage: z.string().optional().default('10'),
 })
 
 export const apiKeysDeleteRouteParamsSchema = z.object({

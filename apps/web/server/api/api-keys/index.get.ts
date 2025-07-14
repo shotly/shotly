@@ -1,10 +1,9 @@
-import type { ApiKeysListQuery, ApiKeysListResult } from '#shared/api'
-import { apiKeysListQuerySchema } from '#shared/api'
+import type { ApiKeysListResult } from '#shared/api'
 import { tables, useDatabase } from '@shotly/db'
-import { desc, eq, sql } from 'drizzle-orm'
+import { desc, eq } from 'drizzle-orm'
 
 interface ApiKeysListRequest {
-  query: ApiKeysListQuery
+
 }
 
 /**
@@ -13,8 +12,6 @@ interface ApiKeysListRequest {
 export default defineHttpHandler<ApiKeysListRequest, ApiKeysListResult>(async (event) => {
   const db = useDatabase()
   const user = await getValidatedUser(event)
-  const query = await getValidatedQuery(event, apiKeysListQuerySchema.parse)
-  const { perPage, pageOffset } = getValidatedPagination(query)
 
   const items = await db
     .select({
@@ -23,13 +20,10 @@ export default defineHttpHandler<ApiKeysListRequest, ApiKeysListResult>(async (e
       lastUsedAt: tables.apiKeys.lastUsedAt,
       createdAt: tables.apiKeys.createdAt,
       expiresAt: tables.apiKeys.expiresAt,
-      total: sql<number>`count(*) over()`.mapWith(Number),
     })
     .from(tables.apiKeys)
     .where(eq(tables.apiKeys.userId, user.id))
     .orderBy(desc(tables.apiKeys.createdAt))
-    .limit(perPage)
-    .offset(pageOffset)
 
-  return extractPaginationData(items)
+  return items
 })

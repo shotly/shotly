@@ -1,5 +1,5 @@
 <template>
-  <PageList :items="data?.items" :loading="status === 'pending'">
+  <PageList :items="items" :loading="status === 'pending'">
     <template #item="{ item }">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div class="text-sm">
@@ -52,7 +52,7 @@
 import type { ApiKeysListItem } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
 
-const { data, status, refresh } = useApi('/api/api-keys')
+const { data: items, status, refresh } = useApi('/api/api-keys')
 
 function rowActions(row: ApiKeysListItem): DropdownMenuItem[] {
   return [
