@@ -4,7 +4,6 @@ export interface UseAppResult {
   isAsideMobileOpen: Ref<boolean>
   isShortcutsHelpOpen: Ref<boolean>
   isSearchOpen: Ref<boolean>
-  isCollectionsFormModalOpen: Ref<boolean>
 }
 
 export const useApp = createSharedComposable<() => UseAppResult>(() => {
@@ -14,12 +13,10 @@ export const useApp = createSharedComposable<() => UseAppResult>(() => {
   const isAsideMobileOpen = ref(false)
   const isShortcutsHelpOpen = ref(false)
   const isSearchOpen = ref(false)
-  const isCollectionsFormModalOpen = ref(false)
 
   defineShortcuts({
     '?': () => isShortcutsHelpOpen.value = !isShortcutsHelpOpen.value,
     ',': () => router.push({ name: 'settings' }),
-    'C': () => isCollectionsFormModalOpen.value = !isCollectionsFormModalOpen.value,
   })
 
   watch(() => route.fullPath, () => {
@@ -30,6 +27,5 @@ export const useApp = createSharedComposable<() => UseAppResult>(() => {
     isAsideMobileOpen,
     isShortcutsHelpOpen,
     isSearchOpen,
-    isCollectionsFormModalOpen,
   }
 })

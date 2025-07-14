@@ -20,7 +20,6 @@
     <slot />
 
     <ShortcutsSideover />
-    <CollectionsFormModal />
   </NuxtLayout>
 </template>
 

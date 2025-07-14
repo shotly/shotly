@@ -64,6 +64,7 @@
 <script setup lang="ts">
 import type { CollectionsListItem, CUID } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
+import { LazyCollectionsFormModal } from '#components'
 import { AccordionContent, AccordionItem, AccordionRoot, AccordionTrigger } from 'reka-ui'
 
 export interface CollectionsMenuProps {
@@ -80,6 +81,10 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
   },
 })
 
+const { $api } = useNuxtApp()
+const { refresh: refreshCollections } = useCollections()
+const createCollectionModal = useOverlay().create(LazyCollectionsFormModal)
+
 // visible items, used for the accordion.
 const visibleItems = useLocalStorage<CUID[]>('shotly-collections-menu', [])
 
@@ -90,17 +95,41 @@ function handleOptionOpen(value: CUID, open: boolean) {
   activeOption.value = open ? value : null
 }
 
-function getItemOptions(_item: CollectionsListItem): DropdownMenuItem[] {
+function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
   return [
     {
       label: $t('common.actions.edit'),
       kbds: ['e'],
       icon: 'lucide:pencil',
+      onSelect: () => createCollectionModal.open({
+        id: item.id,
+        initialState: {
+          name: item.name,
+          icon: item.icon,
+          parentId: item.parentId,
+        },
+        onSuccess: async () => {
+          createCollectionModal.close()
+        },
+      }),
     },
     {
       label: $t('common.actions.delete'),
       icon: 'lucide:trash',
       color: 'error',
+      onSelect: () => {
+        const { open } = useConfirm({
+          title: $t('common.deletion.title'),
+          message: $t('common.deletion.message'),
+          confirmButton: { color: 'error', label: $t('common.actions.delete') },
+          onConfirm: async () => {
+            await $api(`/api/collections/${item.id}` as string, { method: 'delete' })
+            await refreshCollections()
+          },
+        })
+
+        open()
+      },
     },
   ]
 }

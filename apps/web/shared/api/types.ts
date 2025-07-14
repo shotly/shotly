@@ -189,8 +189,7 @@ export interface CollectionsForm {
    * @minLength 5
    */
   icon: string
-  /** Id */
-  parentId?: CUID
+  parentId: CUID | null
   /** Collection is shared */
   isShared?: boolean
 }
@@ -214,9 +213,9 @@ export interface CollectionsListItem {
   sortOrder: number
   /** Collection children */
   children: CollectionsListItem[]
+  parentId: CUID | null
   /** Date and time with timezone */
   createdAt: DateTimeType
-  parentId?: CUID | null
 }
 
 /** Collection */

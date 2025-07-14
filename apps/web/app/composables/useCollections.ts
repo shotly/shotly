@@ -12,7 +12,6 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
   const { data, status, execute, refresh } = useApi('/api/collections', {
     key: 'collections',
     immediate: false,
-    transform: transformCollections,
   })
 
   return {
@@ -22,16 +21,3 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
     refresh,
   }
 })
-
-export function transformCollections(collections: CollectionsListItem[]): CollectionsListItem[] {
-  const items: CollectionsListItem[] = []
-
-  for (const { children, ...collection } of collections) {
-    items.push({
-      ...collection,
-      children: children ? transformCollections(children) : [],
-    })
-  }
-
-  return items
-}

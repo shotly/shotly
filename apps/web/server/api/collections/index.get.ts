@@ -1,10 +1,29 @@
-import type { CollectionsListResult } from '#shared/api'
+import type { CollectionsListItem, CollectionsListResult } from '#shared/api'
 import { tables, useDatabase } from '@shotly/db'
 import { asc, eq } from 'drizzle-orm'
 import buildTree from 'fast-tree-builder'
 
 interface CollectionsListRequest {
 
+}
+
+interface UnnormalizedCollectionsListItem {
+  id: string
+  name: string
+  description: string | null
+  icon: string
+  isShared: boolean
+  sortOrder: number
+  createdAt: string
+  parentId: string | null
+  children?: UnnormalizedCollectionsListItem[]
+}
+
+function normalizeCollections(collections: UnnormalizedCollectionsListItem[]): CollectionsListItem[] {
+  return collections.map((collection) => ({
+    ...collection,
+    children: collection.children ? normalizeCollections(collection.children) : [],
+  }))
 }
 
 /**
@@ -35,11 +54,7 @@ export default defineHttpHandler<CollectionsListRequest, CollectionsListResult>(
     childrenKey: 'children',
     parentKey: false,
     valueKey: false,
-    valueResolver: ({ ...rest }) => ({
-      ...rest,
-      icon: rest.icon ?? 'lucide:folder',
-    }),
   })
 
-  return roots
+  return normalizeCollections(roots)
 })

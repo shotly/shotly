@@ -45,13 +45,15 @@
 <script setup lang="ts">
 import type { CollectionsListItem, CollectionsReorganizeItem } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
+import { LazyCollectionsFormModal } from '#components'
 
 const { $api } = useNuxtApp()
-const { isCollectionsFormModalOpen } = useApp()
 const { data: collections, refresh: refreshCollections } = useCollections()
 
 const isSortMode = ref(false)
 const { cloned: sortingCollections, sync: syncSortingCollections } = useCloned(() => collections.value ?? [])
+
+const createCollectionModal = useOverlay().create(LazyCollectionsFormModal)
 
 /**
  * Normalize sorting collections, return flat array of items with parentId & sortOrder (gap-based ordering)
@@ -79,7 +81,8 @@ function normalizeReorganizeCollections(collections?: CollectionsListItem[], lev
 }
 
 /**
- * Get reorganize diff
+ * Get reorganize diff.
+ * Check only parentId and sortOrder fields.
  */
 function getReorganizeDiff(initial: CollectionsReorganizeItem[], current: CollectionsReorganizeItem[]) {
   const initialMap = new Map(initial.map((item) => [item.id, item]))
@@ -127,7 +130,10 @@ const options = computed<DropdownMenuItem[]>(() => [
   {
     label: $t('common.actions.create'),
     icon: 'lucide:plus',
-    onSelect: () => isCollectionsFormModalOpen.value = true,
+    kbds: ['c'],
+    onSelect: () => createCollectionModal.open({
+      onSuccess: () => createCollectionModal.close(),
+    }),
   },
   {
     label: $t('common.actions.reorganize'),

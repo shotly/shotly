@@ -1,6 +1,5 @@
 <template>
   <ViewModal
-    v-model:open="isCollectionsFormModalOpen"
     :title="$t('collections.create.title')"
     :description="$t('collections.create.description')"
     @after:leave="onCloseModal"
@@ -49,11 +48,11 @@ import { defu } from 'defu'
 
 export interface CollectionsFormModalProps {
   id?: CUID
-  initialState?: Partial<Schema>
+  initialState?: Schema
 }
 
 export interface CollectionsFormModalEmits {
-  created: [id: CUID]
+  success: []
   close: []
 }
 
@@ -61,7 +60,6 @@ const props = defineProps<CollectionsFormModalProps>()
 const emit = defineEmits<CollectionsFormModalEmits>()
 
 const { $api } = useNuxtApp()
-const { isCollectionsFormModalOpen } = useApp()
 const { data: collections, refresh: refreshCollections } = useCollections()
 
 // pick only collections without children
@@ -73,9 +71,13 @@ const collectionsItems = computed(
   })),
 )
 
+const serverEndpoint = computed(() =>
+  props.id ? { method: 'put', path: `/api/collections/${props.id}` } as const : { method: 'post', path: '/api/collections' } as const,
+)
+
 const { state, reset } = useResettableReactive<Schema>(() => defu(props.initialState, {
   name: '',
-  parentId: undefined,
+  parentId: null,
   icon: 'lucide:folder',
 }))
 
@@ -85,18 +87,16 @@ function onCloseModal() {
 }
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  await $api('/api/collections', {
-    method: 'POST',
+  await $api(serverEndpoint.value.path, {
+    method: serverEndpoint.value.method,
     body: event.data,
     onResponse: async ({ response }) => {
       if (!response.ok) {
         return
       }
 
-      emit('created', response._data.id)
       await refreshCollections()
-
-      isCollectionsFormModalOpen.value = false
+      emit('success')
 
       // todo: handle success message
     },

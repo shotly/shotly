@@ -49,7 +49,7 @@ export const collections = pgTable('collections', {
   userId: cuid2('user_id').notNull().references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   name: varchar('name').notNull(),
   description: varchar('description'),
-  icon: varchar('icon'),
+  icon: varchar('icon').notNull(),
   isShared: boolean('is_shared').notNull().default(false),
   sortOrder: integer('sort_order').notNull(),
   parentId: cuid2('parent_id').references((): AnyPgColumn => collections.id, { onDelete: 'set null', onUpdate: 'set null' }),

@@ -712,6 +712,7 @@ components:
       required:
         - name
         - icon
+        - parentId
       properties:
         name:
           type: string
@@ -725,7 +726,9 @@ components:
           description: Collection icon
           minLength: 5
         parentId:
-          $ref: '#/components/schemas/CUID'
+          anyOf:
+            - $ref: '#/components/schemas/CUID'
+            - type: 'null'
         isShared:
           type: boolean
           description: Collection is shared
@@ -741,6 +744,7 @@ components:
         - isShared
         - sortOrder
         - children
+        - parentId
         - createdAt
       properties:
         id:
@@ -768,12 +772,12 @@ components:
           description: Collection children
           items:
             $ref: '#/components/schemas/CollectionsListItem'
-        createdAt:
-          $ref: '#/components/schemas/DateTimeType'
         parentId:
           oneOf:
             - $ref: '#/components/schemas/CUID'
             - type: 'null'
+        createdAt:
+          $ref: '#/components/schemas/DateTimeType'
 
     CollectionsItem:
       type: object

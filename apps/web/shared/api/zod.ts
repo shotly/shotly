@@ -85,7 +85,7 @@ export const collectionsFormSchema = z.object({
   name: z.string().min(3),
   description: z.string().optional(),
   icon: z.string().min(5),
-  parentId: cuidSchema.optional(),
+  parentId: cuidSchema.nullable(),
   isShared: z.boolean().optional(),
 })
 
@@ -97,8 +97,8 @@ export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.laz
   isShared: z.boolean(),
   sortOrder: z.number(),
   children: z.array(collectionsListItemSchema),
+  parentId: cuidSchema.nullable(),
   createdAt: dateTimeTypeSchema,
-  parentId: cuidSchema.optional().nullable(),
 }))
 
 export const collectionsItemSchema = z.object({
