@@ -76,12 +76,7 @@ export interface ApiKeysListItem {
 }
 
 /** Result "Get api keys list" */
-export interface ApiKeysListResult {
-  /** Api keys list */
-  items: ApiKeysListItem[]
-  /** Pagination */
-  pagination?: Pagination
-}
+export type ApiKeysListResult = ApiKeysListItem[]
 
 /** Payload "Create new api key" */
 export type ApiKeysCreatePayload = ApiKeyForm
@@ -288,21 +283,6 @@ export interface CollectionsAttachCreatePayload {
 export interface CollectionsDetachCreatePayload {
   /** Id */
   bookmarkId: CUID
-}
-
-/** Query "Get api keys list" */
-export type ApiKeysListQuery = {
-  /**
-   * Page number
-   * @default "1"
-   */
-  page?: string
-  /**
-   * Items per page
-   * @default "10"
-   */
-  perPage?: string
-
 }
 
 /** Route "Delete api key" */

@@ -56,8 +56,6 @@ paths:
       operationId: ApiKeysList
       parameters:
         - $ref: '#/components/parameters/x-api-key'
-        - $ref: '#/components/parameters/page'
-        - $ref: '#/components/parameters/perPage'
       responses:
         200:
           description: Get api keys list
@@ -553,18 +551,10 @@ components:
           $ref: '#/components/schemas/DateTimeType'
 
     ApiKeysListResult:
-      type: object
+      type: array
       description: Result "Get api keys list"
-      required:
-        - items
-      properties:
-        items:
-          type: array
-          description: Api keys list
-          items:
-            $ref: '#/components/schemas/ApiKeysListItem'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+      items:
+        $ref: '#/components/schemas/ApiKeysListItem'
 
     ApiKeysCreatePayload:
       allOf:
