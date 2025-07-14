@@ -27,9 +27,44 @@ export default defineAppConfig({
       slots: {
         base: 'cursor-pointer',
       },
+      defaultVariants: {
+        size: 'lg',
+      },
+    },
+
+    input: {
+      defaultVariants: {
+        size: 'lg',
+      },
+    },
+
+    modal: {
+      slots: {
+        overlay: 'backdrop-blur-xs',
+      },
+    },
+
+    select: {
+      variants: {
+        size: {
+          md: {
+            base: 'py-2 px-3',
+          },
+        },
+      },
+    },
+
+    selectMenu: {
+      defaultVariants: {
+        size: 'lg',
+      },
     },
 
     navigationMenu: {
+      slots: {
+        linkTrailingIcon: 'size-4',
+      },
+
       variants: {
         orientation: {
           vertical: {

@@ -4,16 +4,23 @@
       "back": "Назад",
       "save": "Сохранить",
       "saveChanges": "Сохранить изменения",
+      "apply": "Применить",
       "cancel": "Отмена",
+      "create": "Создать",
+      "edit": "Редактировать",
       "delete": "Удалить",
       "confirm": "Подтвердить",
       "done": "Готово",
       "copy": "Скопировать",
       "created": "Создан",
-      "deleted": "Удалён"
+      "deleted": "Удалён",
+      "close": "Закрыть",
+      "share": "Поделиться",
+      "reorganize": "Переупорядочить"
     },
 
     "fields": {
+      "title": "Заголовок",
       "name": "Имя",
       "email": "Email",
       "expiresAt": "Истекает",
@@ -21,7 +28,16 @@
       "key": "Ключ",
       "lastUsedAt": "Последнее использование",
       "url": "URL",
-      "events": "События"
+      "events": "События",
+      "description": "Описание",
+      "parentCollection": "Родительская коллекция",
+      "icon": "Иконка",
+      "optional": "Необязательно"
+    },
+
+    "placeholders": {
+      "collectionName": "Введите название коллекции",
+      "parentCollection": "Выберите родительскую коллекцию"
     },
 
     "table": {
@@ -62,7 +78,7 @@
 
     "links": {
       "docs": "Документация",
-      "github": "Репозиторий на GitHub"
+      "github": "Репозиторий"
     },
 
     "confirmation": {

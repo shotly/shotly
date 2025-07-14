@@ -100,6 +100,7 @@
       "openInbox": "Open inbox",
       "openSettingsMenu": "Open settings menu",
       "openRandomBookmark": "Open random bookmark",
+      "createNewCollection": "Create new collection",
       "createNewBookmark": "Create new bookmark"
     }
   },
@@ -111,7 +112,13 @@
   },
 
   "collections": {
-    "title": "Collections"
+    "title": "Collections",
+
+    "create": {
+      "title": "Create collection",
+      "description": "Create a new collection to organize your bookmarks.",
+      "tooltip": "Create a new collection"
+    }
   },
 
   "auth": {

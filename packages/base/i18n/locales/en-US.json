@@ -4,16 +4,23 @@
       "back": "Back",
       "save": "Save",
       "saveChanges": "Save changes",
+      "apply": "Apply",
       "cancel": "Cancel",
+      "create": "Create",
+      "edit": "Edit",
       "delete": "Delete",
       "confirm": "Confirm",
       "done": "Done",
       "copy": "Copy",
       "created": "Created",
-      "deleted": "Deleted"
+      "deleted": "Deleted",
+      "close": "Close",
+      "share": "Share",
+      "reorganize": "Reorganize"
     },
 
     "fields": {
+      "title": "Title",
       "name": "Name",
       "email": "Email",
       "expiresAt": "Expires at",
@@ -21,7 +28,16 @@
       "key": "Key",
       "lastUsedAt": "Last used at",
       "url": "URL",
-      "events": "Events"
+      "events": "Events",
+      "description": "Description",
+      "parentCollection": "Parent collection",
+      "icon": "Icon",
+      "optional": "Optional"
+    },
+
+    "placeholders": {
+      "collectionName": "Enter collection name",
+      "parentCollection": "Select parent collection"
     },
 
     "table": {

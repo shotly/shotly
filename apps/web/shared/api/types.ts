@@ -148,6 +148,9 @@ export interface WebhooksCreateResult {
   secret: string
 }
 
+/** Bookmark */
+export type BookmarksItem = object
+
 /** Result "Get bookmarks list" */
 export type BookmarksListResult = object
 
@@ -172,41 +175,120 @@ export type BookmarksDeletePayload = object
 /** Result "Delete bookmark" */
 export type BookmarksDeleteResult = object
 
+/** Collection form */
+export interface CollectionsForm {
+  /**
+   * Collection name
+   * @minLength 3
+   */
+  name: string
+  /** Collection description */
+  description?: string
+  /**
+   * Collection icon
+   * @minLength 5
+   */
+  icon: string
+  parentId: CUID | null
+  /** Collection is shared */
+  isShared?: boolean
+}
+
+/** Collection */
+export interface CollectionsListItem {
+  /** Id */
+  id: CUID
+  /** Collection name */
+  name: string
+  /** Collection description */
+  description: string | null
+  /** Collection icon */
+  icon: string
+  /** Collection is shared */
+  isShared: boolean
+  /**
+   * Collection sort order
+   * @example 1000
+   */
+  sortOrder: number
+  /** Collection children */
+  children: CollectionsListItem[]
+  parentId: CUID | null
+  /** Date and time with timezone */
+  createdAt: DateTimeType
+}
+
+/** Collection */
+export interface CollectionsItem {
+  /** Id */
+  id: CUID
+  /**
+   * Collection name
+   * @minLength 3
+   */
+  name: string
+  /** Collection description */
+  description: string
+  /**
+   * Collection icon
+   * @minLength 5
+   */
+  icon: string
+  /** Collection is shared */
+  isShared: boolean
+  /**
+   * Collection sort order
+   * @example 1000
+   */
+  sortOrder: number
+  /** Date and time with timezone */
+  createdAt: DateTimeType
+}
+
 /** Result "Get collections list" */
-export type CollectionsListResult = object
+export type CollectionsListResult = CollectionsListItem[]
+
+/** Collection item */
+export interface CollectionsReorganizeItem {
+  /** Id */
+  id: CUID
+  parentId: CUID | null
+  /**
+   * Collection sort order
+   * @example 1000
+   */
+  sortOrder: number
+}
+
+/** Payload "Reorganize collections" */
+export type CollectionsReorganizeCreatePayload = CollectionsReorganizeItem[]
 
 /** Payload "Create new collection" */
-export type CollectionsCreatePayload = object
+export type CollectionsCreatePayload = CollectionsForm
 
 /** Result "Create new collection" */
-export type CollectionsCreateResult = object
-
-/** Result "Get collection by id" */
-export type CollectionsGetResult = object
+export interface CollectionsCreateResult {
+  /** Id */
+  id: CUID
+}
 
 /** Payload "Update collection" */
-export type CollectionsUpdatePayload = object
+export type CollectionsUpdatePayload = CollectionsForm
 
-/** Result "Update collection" */
-export type CollectionsUpdateResult = object
-
-/** Payload "Delete collection" */
-export type CollectionsDeletePayload = object
-
-/** Result "Delete collection" */
-export type CollectionsDeleteResult = object
+/** Result "Get bookmarks list by collection" */
+export type CollectionsBookmarksListResult = BookmarksItem[]
 
 /** Payload "Attach bookmark to collection" */
-export type CollectionsAttachCreatePayload = object
-
-/** Result "Attach bookmark to collection" */
-export type CollectionsAttachCreateResult = object
+export interface CollectionsAttachCreatePayload {
+  /** Id */
+  bookmarkId: CUID
+}
 
 /** Payload "Detach bookmark from collection" */
-export type CollectionsDetachCreatePayload = object
-
-/** Result "Detach bookmark from collection" */
-export type CollectionsDetachCreateResult = object
+export interface CollectionsDetachCreatePayload {
+  /** Id */
+  bookmarkId: CUID
+}
 
 /** Query "Get api keys list" */
 export type ApiKeysListQuery = {
@@ -254,63 +336,56 @@ export type BookmarksListQuery = {
 
 /** Route "Get bookmark by id" */
 export type BookmarksGetRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
 
 }
 
 /** Route "Update bookmark" */
 export type BookmarksUpdateRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
 
 }
 
 /** Route "Delete bookmark" */
 export type BookmarksDeleteRouteParams = {
-  id: string
-
-}
-
-/** Query "Get collections list" */
-export type CollectionsListQuery = {
-  /**
-   * Page number
-   * @default "1"
-   */
-  page?: string
-  /**
-   * Items per page
-   * @default "10"
-   */
-  perPage?: string
-
-}
-
-/** Route "Get collection by id" */
-export type CollectionsGetRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
 
 }
 
 /** Route "Update collection" */
 export type CollectionsUpdateRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
 
 }
 
 /** Route "Delete collection" */
 export type CollectionsDeleteRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
+
+}
+
+/** Route "Get bookmarks list by collection" */
+export type CollectionsBookmarksListRouteParams = {
+  /** Id */
+  id: CUID
 
 }
 
 /** Route "Attach bookmark to collection" */
 export type CollectionsAttachCreateRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
 
 }
 
 /** Route "Detach bookmark from collection" */
 export type CollectionsDetachCreateRouteParams = {
-  id: string
+  /** Id */
+  id: CUID
 
 }

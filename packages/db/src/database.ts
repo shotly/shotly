@@ -10,15 +10,16 @@ let instance: Database | null = null
  * Create a database instance.
  *
  * @param connectionString - The connection string to the database.
+ * @param logger - Whether to log queries.
  * @returns The database instance.
  */
-export function createDatabaseInstance(connectionString: string): Database {
+export function createDatabaseInstance(connectionString: string, logger: boolean = false): Database {
   if (instance) {
     consola.warn('Database instance already created')
     return instance
   }
 
-  instance = createConnection(connectionString)
+  instance = createConnection(connectionString, logger)
 
   return instance
 }

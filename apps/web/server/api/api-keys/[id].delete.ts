@@ -17,5 +17,8 @@ export default defineHttpHandler<ApiKeysDeleteRequest, void>(async (event) => {
 
   await db
     .delete(tables.apiKeys)
-    .where(and(eq(tables.apiKeys.id, id), eq(tables.apiKeys.userId, user.id)))
+    .where(and(
+      eq(tables.apiKeys.id, id),
+      eq(tables.apiKeys.userId, user.id),
+    ))
 })

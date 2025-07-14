@@ -10,7 +10,7 @@ export default defineNitroPlugin(async () => {
     process.exit(1)
   }
 
-  createDatabaseInstance(runtimeConfig.databaseURL)
+  createDatabaseInstance(runtimeConfig.databaseURL, import.meta.dev)
 
   // In dev mode, don't run migrations, use the `pnpm db:*` commands instead
   if (import.meta.dev) {

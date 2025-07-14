@@ -1,3 +1,4 @@
+import type { CollectionsListItem } from './types'
 import { z } from 'zod'
 
 export const webhooksEventSchema = z.union([z.literal('bookmarkCreated'), z.literal('bookmarkDeleted'), z.literal('collectionCreated'), z.literal('collectionDeleted')])
@@ -62,6 +63,8 @@ export const webhooksCreateResultSchema = z.object({
   secret: z.string().uuid(),
 })
 
+export const bookmarksItemSchema = z.record(z.any())
+
 export const bookmarksListResultSchema = z.record(z.any())
 
 export const bookmarksCreatePayloadSchema = z.record(z.any())
@@ -78,29 +81,63 @@ export const bookmarksDeletePayloadSchema = z.record(z.any())
 
 export const bookmarksDeleteResultSchema = z.record(z.any())
 
-export const collectionsListResultSchema = z.record(z.any())
+export const collectionsFormSchema = z.object({
+  name: z.string().min(3),
+  description: z.string().optional(),
+  icon: z.string().min(5),
+  parentId: cuidSchema.nullable(),
+  isShared: z.boolean().optional(),
+})
 
-export const collectionsCreatePayloadSchema = z.record(z.any())
+export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.lazy(() => z.object({
+  id: cuidSchema,
+  name: z.string(),
+  description: z.string().nullable(),
+  icon: z.string(),
+  isShared: z.boolean(),
+  sortOrder: z.number(),
+  children: z.array(collectionsListItemSchema),
+  parentId: cuidSchema.nullable(),
+  createdAt: dateTimeTypeSchema,
+}))
 
-export const collectionsCreateResultSchema = z.record(z.any())
+export const collectionsItemSchema = z.object({
+  id: cuidSchema,
+  name: z.string().min(3),
+  description: z.string(),
+  icon: z.string().min(5),
+  isShared: z.boolean(),
+  sortOrder: z.number(),
+  createdAt: dateTimeTypeSchema,
+})
 
-export const collectionsGetResultSchema = z.record(z.any())
+export const collectionsListResultSchema = z.array(collectionsListItemSchema)
 
-export const collectionsUpdatePayloadSchema = z.record(z.any())
+export const collectionsReorganizeItemSchema = z.object({
+  id: cuidSchema,
+  parentId: cuidSchema.nullable(),
+  sortOrder: z.number(),
+})
 
-export const collectionsUpdateResultSchema = z.record(z.any())
+export const collectionsReorganizeCreatePayloadSchema = z.array(collectionsReorganizeItemSchema)
 
-export const collectionsDeletePayloadSchema = z.record(z.any())
+export const collectionsCreatePayloadSchema = collectionsFormSchema
 
-export const collectionsDeleteResultSchema = z.record(z.any())
+export const collectionsCreateResultSchema = z.object({
+  id: cuidSchema,
+})
 
-export const collectionsAttachCreatePayloadSchema = z.record(z.any())
+export const collectionsUpdatePayloadSchema = collectionsFormSchema
 
-export const collectionsAttachCreateResultSchema = z.record(z.any())
+export const collectionsBookmarksListResultSchema = z.array(bookmarksItemSchema)
 
-export const collectionsDetachCreatePayloadSchema = z.record(z.any())
+export const collectionsAttachCreatePayloadSchema = z.object({
+  bookmarkId: cuidSchema,
+})
 
-export const collectionsDetachCreateResultSchema = z.record(z.any())
+export const collectionsDetachCreatePayloadSchema = z.object({
+  bookmarkId: cuidSchema,
+})
 
 export const apiKeysListQuerySchema = z.object({
   page: z.string().optional().default('1'),
@@ -121,38 +158,33 @@ export const bookmarksListQuerySchema = z.object({
 })
 
 export const bookmarksGetRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
 })
 
 export const bookmarksUpdateRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
 })
 
 export const bookmarksDeleteRouteParamsSchema = z.object({
-  id: z.string(),
-})
-
-export const collectionsListQuerySchema = z.object({
-  page: z.string().optional().default('1'),
-  perPage: z.string().optional().default('10'),
-})
-
-export const collectionsGetRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
 })
 
 export const collectionsUpdateRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
 })
 
 export const collectionsDeleteRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
+})
+
+export const collectionsBookmarksListRouteParamsSchema = z.object({
+  id: cuidSchema,
 })
 
 export const collectionsAttachCreateRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
 })
 
 export const collectionsDetachCreateRouteParamsSchema = z.object({
-  id: z.string(),
+  id: cuidSchema,
 })

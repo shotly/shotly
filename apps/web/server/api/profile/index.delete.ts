@@ -6,7 +6,7 @@ import { eq } from 'drizzle-orm'
  */
 export default defineHttpHandler(async (event) => {
   const db = useDatabase()
-  const { user } = await requireUserSession(event)
+  const user = await getValidatedUser(event)
 
   await db
     .delete(tables.users)

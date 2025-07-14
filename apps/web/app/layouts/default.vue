@@ -18,6 +18,8 @@
     </template>
 
     <slot />
+
+    <ShortcutsSideover />
   </NuxtLayout>
 </template>
 
@@ -29,6 +31,8 @@ type RouteName = keyof RouteNamedMap
 
 const bookmarksRoutes: RouteName[] = [
   'index',
+  'collections',
+  'collections-id',
 ]
 
 const settingsRoutes: RouteName[] = [

@@ -55,8 +55,8 @@ const items = computed<DropdownMenuItem[][]>(() => ([
     ),
     {
       label: $t('settings.title'),
-      icon: 'lucide:settings',
       kbds: [','],
+      icon: 'lucide:settings',
       to: { name: 'settings' },
     },
   ],
@@ -93,8 +93,8 @@ const items = computed<DropdownMenuItem[][]>(() => ([
   [
     {
       label: $t('shortcuts.title'),
-      icon: 'lucide:keyboard',
       kbds: ['?'],
+      icon: 'lucide:keyboard',
       onSelect: () => isShortcutsHelpOpen.value = true,
     },
     {

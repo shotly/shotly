@@ -203,7 +203,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       responses:
         200:
           description: Get bookmark by id
@@ -222,7 +222,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       requestBody:
         content:
           application/json:
@@ -247,7 +247,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       requestBody:
         content:
           application/json:
@@ -269,8 +269,6 @@ paths:
       operationId: CollectionsList
       parameters:
         - $ref: '#/components/parameters/x-api-key'
-        - $ref: '#/components/parameters/page'
-        - $ref: '#/components/parameters/perPage'
       responses:
         200:
           description: Get collections list
@@ -298,26 +296,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/CollectionsCreateResult'
 
-  /collections/{id}:
-    get:
-      summary: Get collection by id
+  /collections/reorganize:
+    put:
+      summary: Reorganize collections
       tags:
         - Collections
-      operationId: CollectionsGet
-      parameters:
-        - $ref: '#/components/parameters/x-api-key'
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
+      operationId: CollectionsReorganizeCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionsReorganizeCreatePayload'
       responses:
-        200:
-          description: Get collection by id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionsGetResult'
+        204:
+          description: Reorganize collections
+
+  /collections/{id}:
     put:
       summary: Update collection
       tags:
@@ -329,19 +323,16 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CollectionsUpdatePayload'
       responses:
-        200:
+        204:
           description: Update collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionsUpdateResult'
+
     delete:
       summary: Delete collection
       tags:
@@ -353,19 +344,31 @@ paths:
           in: path
           required: true
           schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CollectionsDeletePayload'
+            $ref: '#/components/schemas/CUID'
+      responses:
+        204:
+          description: Delete collection
+
+  /collections/{id}/bookmarks:
+    get:
+      summary: Get bookmarks list by collection
+      tags:
+        - Collections
+      operationId: CollectionsBookmarksList
+      parameters:
+        - $ref: '#/components/parameters/x-api-key'
+        - name: id
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/CUID'
       responses:
         200:
-          description: Delete collection
+          description: Get bookmarks list by collection
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CollectionsDeleteResult'
+                $ref: '#/components/schemas/CollectionsBookmarksListResult'
 
   /collections/{id}/attach:
     post:
@@ -379,19 +382,15 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CollectionsAttachCreatePayload'
       responses:
-        200:
+        204:
           description: Attach bookmark to collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionsAttachCreateResult'
 
   /collections/{id}/detach:
     post:
@@ -405,19 +404,15 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/CUID'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/CollectionsDetachCreatePayload'
       responses:
-        200:
+        204:
           description: Detach bookmark from collection
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionsDetachCreateResult'
 
 components:
   parameters:
@@ -675,6 +670,10 @@ components:
           format: uuid
           example: 123e4567-e89b-12d3-a456-426614174000
 
+    BookmarksItem:
+      type: object
+      description: Bookmark
+
     BookmarksListResult:
       type: object
       description: Result "Get bookmarks list"
@@ -707,50 +706,185 @@ components:
       type: object
       description: Result "Delete bookmark"
 
-    CollectionsListResult:
+    CollectionsForm:
       type: object
+      description: Collection form
+      required:
+        - name
+        - icon
+        - parentId
+      properties:
+        name:
+          type: string
+          description: Collection name
+          minLength: 3
+        description:
+          type: string
+          description: Collection description
+        icon:
+          type: string
+          description: Collection icon
+          minLength: 5
+        parentId:
+          anyOf:
+            - $ref: '#/components/schemas/CUID'
+            - type: 'null'
+        isShared:
+          type: boolean
+          description: Collection is shared
+
+    CollectionsListItem:
+      type: object
+      description: Collection
+      required:
+        - id
+        - name
+        - description
+        - icon
+        - isShared
+        - sortOrder
+        - children
+        - parentId
+        - createdAt
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        name:
+          type: string
+          description: Collection name
+        description:
+          anyOf:
+            - type: string
+            - type: 'null'
+          description: Collection description
+        icon:
+          type: string
+          description: Collection icon
+        isShared:
+          type: boolean
+          description: Collection is shared
+        sortOrder:
+          type: number
+          description: Collection sort order
+          example: 1000
+        children:
+          type: array
+          description: Collection children
+          items:
+            $ref: '#/components/schemas/CollectionsListItem'
+        parentId:
+          oneOf:
+            - $ref: '#/components/schemas/CUID'
+            - type: 'null'
+        createdAt:
+          $ref: '#/components/schemas/DateTimeType'
+
+    CollectionsItem:
+      type: object
+      description: Collection
+      required:
+        - id
+        - name
+        - description
+        - icon
+        - isShared
+        - sortOrder
+        - createdAt
+        - bookmarks
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        name:
+          type: string
+          description: Collection name
+          minLength: 3
+        description:
+          type: string
+          description: Collection description
+        icon:
+          type: string
+          description: Collection icon
+          minLength: 5
+        isShared:
+          type: boolean
+          description: Collection is shared
+        sortOrder:
+          type: number
+          description: Collection sort order
+          example: 1000
+        createdAt:
+          $ref: '#/components/schemas/DateTimeType'
+
+    CollectionsListResult:
+      type: array
       description: Result "Get collections list"
+      items:
+        $ref: '#/components/schemas/CollectionsListItem'
+
+    CollectionsReorganizeItem:
+      type: object
+      description: Collection item
+      required:
+        - id
+        - parentId
+        - sortOrder
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        parentId:
+          oneOf:
+            - $ref: '#/components/schemas/CUID'
+            - type: 'null'
+        sortOrder:
+          type: number
+          description: Collection sort order
+          example: 1000
+
+    CollectionsReorganizeCreatePayload:
+      type: array
+      description: Payload "Reorganize collections"
+      items:
+        $ref: '#/components/schemas/CollectionsReorganizeItem'
 
     CollectionsCreatePayload:
-      type: object
-      description: Payload "Create new collection"
+      allOf:
+        - description: Payload "Create new collection"
+        - $ref: '#/components/schemas/CollectionsForm'
 
     CollectionsCreateResult:
       type: object
       description: Result "Create new collection"
-
-    CollectionsGetResult:
-      type: object
-      description: Result "Get collection by id"
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
 
     CollectionsUpdatePayload:
-      type: object
-      description: Payload "Update collection"
+      allOf:
+        - description: Payload "Update collection"
+        - $ref: '#/components/schemas/CollectionsForm'
 
-    CollectionsUpdateResult:
-      type: object
-      description: Result "Update collection"
-
-    CollectionsDeletePayload:
-      type: object
-      description: Payload "Delete collection"
-
-    CollectionsDeleteResult:
-      type: object
-      description: Result "Delete collection"
+    CollectionsBookmarksListResult:
+      type: array
+      description: Result "Get bookmarks list by collection"
+      items:
+        $ref: '#/components/schemas/BookmarksItem'
 
     CollectionsAttachCreatePayload:
       type: object
       description: Payload "Attach bookmark to collection"
-
-    CollectionsAttachCreateResult:
-      type: object
-      description: Result "Attach bookmark to collection"
+      required:
+        - bookmarkId
+      properties:
+        bookmarkId:
+          $ref: '#/components/schemas/CUID'
 
     CollectionsDetachCreatePayload:
       type: object
       description: Payload "Detach bookmark from collection"
-
-    CollectionsDetachCreateResult:
-      type: object
-      description: Result "Detach bookmark from collection"
+      required:
+        - bookmarkId
+      properties:
+        bookmarkId:
+          $ref: '#/components/schemas/CUID'
