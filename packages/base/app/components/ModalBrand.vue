@@ -34,30 +34,28 @@
 </template>
 
 <script setup lang="ts">
-import type { ModalEmits, ModalProps, ModalSlots } from '@nuxt/ui/runtime/components/Modal.vue'
+import type { ModalSlots } from '@nuxt/ui'
 import { DialogDescription, DialogTitle, useForwardPropsEmits } from 'reka-ui'
 
-// todo: remove @vue-ignore after https://github.com/shotly/shotly/issues/55
-export interface ViewModalProps extends /* @vue-ignore */ ModalProps {
-  title?: string
-  description?: string
+export interface ModalBrandProps {
+  title: string
+  description: string
 }
 
-// todo: remove @vue-ignore after https://github.com/shotly/shotly/issues/55
-export interface ViewModalEmits extends /* @vue-ignore */ ModalEmits {
+export interface ModalBrandEmits {
   'after:leave': []
   'after:enter': []
   'close:prevent': []
   'update:open': [value: boolean]
 }
 
-export interface ViewModalSlots extends Omit<ModalSlots, 'header'> {
+export interface ModalBrandSlots extends Omit<ModalSlots, 'header'> {
 
 }
 
-const props = defineProps<ViewModalProps>()
-const emits = defineEmits<ViewModalEmits>()
-const slots = defineSlots<ViewModalSlots>()
+const props = defineProps<ModalBrandProps>()
+const emit = defineEmits<ModalBrandEmits>()
+const slots = defineSlots<ModalBrandSlots>()
 
-const forwarded = useForwardPropsEmits(props, emits)
+const forwarded = useForwardPropsEmits(props, emit)
 </script>

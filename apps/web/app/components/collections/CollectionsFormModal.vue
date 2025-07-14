@@ -1,5 +1,5 @@
 <template>
-  <ViewModal
+  <ModalBrand
     :title="$t('collections.create.title')"
     :description="$t('collections.create.description')"
     @after:leave="onCloseModal"
@@ -21,12 +21,13 @@
           />
         </UFormField>
         <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
-          <USelectMenu
+          <SelectMenuClearable
             v-model="state.parentId"
             class="w-full"
             value-key="value"
             :items="collectionsItems"
             :placeholder="$t('common.placeholders.parentCollection')"
+            :reset-value="null"
           />
         </UFormField>
 
@@ -38,7 +39,7 @@
         />
       </UForm>
     </template>
-  </ViewModal>
+  </ModalBrand>
 </template>
 
 <script setup lang="ts">
