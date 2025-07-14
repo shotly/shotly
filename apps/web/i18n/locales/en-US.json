@@ -122,7 +122,11 @@
 
     "share": {
       "title": "Share collection",
-      "description": "Share your collection with others."
+      "description": "Share your collection with others.",
+      "controlTitle": "Share read-only link",
+      "controlDescription": "Anyone with the link can view your collection.",
+      "shareUrl": "Share URL",
+      "rssUrl": "RSS URL"
     }
   },
 

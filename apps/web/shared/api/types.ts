@@ -270,6 +270,11 @@ export interface CollectionsCreateResult {
 /** Payload "Update collection" */
 export type CollectionsUpdatePayload = CollectionsForm
 
+/** Payload "Share collection" */
+export interface CollectionsShareUpdatePayload {
+  isShared: boolean
+}
+
 /** Result "Get bookmarks list by collection" */
 export type CollectionsBookmarksListResult = BookmarksItem[]
 
@@ -353,6 +358,12 @@ export type CollectionsDeleteRouteParams = {
 export type CollectionsBookmarksListRouteParams = {
   /** Id */
   id: CUID
+
+}
+
+/** Route "Share collection" */
+export type CollectionsShareUpdateRouteParams = {
+  id: string
 
 }
 

@@ -124,6 +124,9 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
         shareModal.open({
           id: item.id,
           isShared: item.isShared,
+          onSuccess: () => {
+            refreshCollections()
+          },
         })
       },
     },

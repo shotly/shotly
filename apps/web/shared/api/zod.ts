@@ -126,6 +126,10 @@ export const collectionsCreateResultSchema = z.object({
 
 export const collectionsUpdatePayloadSchema = collectionsFormSchema
 
+export const collectionsShareUpdatePayloadSchema = z.object({
+  isShared: z.boolean(),
+})
+
 export const collectionsBookmarksListResultSchema = z.array(bookmarksItemSchema)
 
 export const collectionsAttachCreatePayloadSchema = z.object({
@@ -171,6 +175,10 @@ export const collectionsDeleteRouteParamsSchema = z.object({
 
 export const collectionsBookmarksListRouteParamsSchema = z.object({
   id: cuidSchema,
+})
+
+export const collectionsShareUpdateRouteParamsSchema = z.object({
+  id: z.string(),
 })
 
 export const collectionsAttachCreateRouteParamsSchema = z.object({
