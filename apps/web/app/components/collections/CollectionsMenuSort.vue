@@ -8,7 +8,6 @@
     handle=".collection-handle"
     :animation="150"
     :data-has-children="level > 0 ? 'true' : undefined"
-    @update:model-value="updateModelValue()"
     @move="handleMove"
   >
     <li v-for="item in items" :key="item.id">
@@ -17,18 +16,23 @@
         <span class="truncate w-full flex items-center">{{ item.name }}</span>
       </div>
 
-      <CollectionsSortMenu
+      <CollectionsMenuSort
         v-if="level + 1 < 2"
         v-model="item.children"
         :level="level + 1"
         class="ms-6.5"
-        @update:model-value="updateModelValue()"
       />
     </li>
   </VueDraggable>
 </template>
 
 <script setup lang="ts">
+/**
+ * There is a problem with model updates in this component.
+ * When moving an item, emit('update:modelValue') is called multiple times for parent elements.
+ * For the current functionality, where we only allow creating collections at one level, this is not critical.
+ * But in the future, if we add the ability to create collections at multiple levels, this will be a problem.
+ */
 import type { CollectionsListItem } from '#shared/api'
 import type { MoveEvent } from 'sortablejs'
 import { VueDraggable } from 'vue-draggable-plus'
@@ -47,25 +51,10 @@ const props = withDefaults(defineProps<CollectionsSortMenuProps>(), {
 })
 const emit = defineEmits<CollectionsSortMenuEmits>()
 
-const updateModelValue = inject('updateModelValue', () => {})
-
 const items = computed({
   get: () => props.modelValue,
   set: (value) => emit('update:modelValue', value),
 })
-
-if (props.level === 0) {
-  let isUpdating = false
-  provide('updateModelValue', () => {
-    if (isUpdating) {
-      return
-    }
-
-    isUpdating = true
-    items.value = [...items.value]
-    nextTick(() => isUpdating = false)
-  })
-}
 
 function handleMove(event: MoveEvent) {
   /**
@@ -81,7 +70,6 @@ function handleMove(event: MoveEvent) {
 <style>
 .collection-ghost {
   background-color: var(--ui-bg-elevated);
-  /* background-color: var(--ui-bg-inverted); */
   border-radius: calc(var(--ui-radius) * 1.5);
 }
 </style>

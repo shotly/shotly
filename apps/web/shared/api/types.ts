@@ -249,6 +249,21 @@ export interface CollectionsItem {
 /** Result "Get collections list" */
 export type CollectionsListResult = CollectionsListItem[]
 
+/** Collection item */
+export interface CollectionsReorganizeItem {
+  /** Id */
+  id: CUID
+  parentId: CUID | null
+  /**
+   * Collection sort order
+   * @example 1000
+   */
+  sortOrder: number
+}
+
+/** Payload "Reorganize collections" */
+export type CollectionsReorganizeCreatePayload = CollectionsReorganizeItem[]
+
 /** Payload "Create new collection" */
 export type CollectionsCreatePayload = CollectionsForm
 

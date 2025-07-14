@@ -1,107 +1,139 @@
 <template>
-  <DefineItemTemplate v-slot="{ item, level = 0 }">
-    <AccordionItem as="li" class="min-w-0" :value="item.id">
-      <ULink
-        v-slot="{ active }"
-        :to="{ name: 'collections-id', params: { id: item.id } }"
-        class="group relative w-full flex items-center gap-1.5 font-medium text-sm before:absolute before:z-[-1] before:rounded-md focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2 flex-row px-2.5 before:inset-y-px before:inset-x-0 py-2 focus-visible:before:ring-primary hover:text-highlighted hover:before:bg-elevated/50 data-[active=true]:text-highlighted data-[active=true]:before:bg-elevated/50 transition-colors before:transition-colors"
-        inactive-class="text-muted"
-        active-class="text-primary before:bg-elevated"
-        :data-active="activeOption === item.id ? 'true' : undefined"
-      >
-        <AccordionTrigger
-          v-if="item.children?.length"
-          as="span"
-          class="z-1 size-6 absolute left-2.5 top-2 flex items-end justify-end group/trigger"
-          @click.stop.prevent
-        >
-          <span class="bg-elevated rounded-full size-3.5 flex items-center justify-center">
-            <UIcon name="lucide:chevron-right" class="size-3 group-data-[state=open]/trigger:rotate-90 transition-transform" />
-          </span>
-        </AccordionTrigger>
+  <div class="flex flex-col gap-2 mt-4 border-t border-default dark:border-accented/80 pt-4 relative">
+    <div class="flex items-center justify-between">
+      <div class="text-sm text-muted">
+        {{ $t('collections.title') }}
+      </div>
+      <div class="flex items-center pr-1">
+        <template v-if="isSortMode">
+          <UTooltip :text="$t('common.actions.cancel')" :content="{ side: 'top' }">
+            <UButton
+              icon="lucide:x"
+              size="sm"
+              variant="ghost"
+              color="neutral"
+              @click="handleCancelSort"
+            />
+          </UTooltip>
+          <UTooltip :text="$t('common.actions.apply')" :content="{ side: 'top' }">
+            <UButton
+              icon="lucide:check"
+              size="sm"
+              variant="ghost"
+              color="neutral"
+              loading-auto
+              @click="handleApplySort"
+            />
+          </UTooltip>
+        </template>
+        <UDropdownMenu v-else :items="options">
+          <UButton
+            icon="lucide:settings-2"
+            size="sm"
+            variant="ghost"
+            color="neutral"
+          />
+        </UDropdownMenu>
+      </div>
+    </div>
 
-        <UIcon :name="item.icon" class="shrink-0 size-5 group-hover:text-default transition-colors" :class="active || activeOption === item.id ? 'text-primary' : 'text-dimmed'" />
-        <span class="truncate w-full flex items-center">{{ item.name }}</span>
-        <span class="flex-1 flex items-center justify-center" @click.stop.prevent>
-          <UDropdownMenu
-            :items="getItemOptions(item)"
-            :content="{ side: 'bottom', align: 'end', avoidCollisions: false }"
-            @update:open="handleOptionOpen(item.id, $event)"
-          >
-            <UIcon name="lucide:ellipsis" class="size-4 group-hover:block data-[state=open]:block hidden" />
-          </UDropdownMenu>
-        </span>
-      </ULink>
-
-      <AccordionContent
-        v-if="item.children?.length"
-        as="ul"
-        class="isolate ms-5 border-s border-default data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] origin-(--reka-dropdown-menu-content-transform-origin)"
-      >
-        <ReuseItemTemplate
-          v-for="child in item.children"
-          :key="child.id"
-          :item="child"
-          :level="level + 1"
-          class="ps-1.5 -ms-px"
-        />
-      </AccordionContent>
-    </AccordionItem>
-  </DefineItemTemplate>
-
-  <nav v-if="items" class="relative flex flex-col gap-1.5">
-    <AccordionRoot
-      v-model="visibleItems"
-      as="ul"
-      class="isolate min-w-0"
-      type="multiple"
-    >
-      <ReuseItemTemplate v-for="item in items" :key="item.id" :item="item" />
-    </AccordionRoot>
-  </nav>
+    <CollectionsMenuSort v-if="isSortMode" v-model="sortingCollections" />
+    <CollectionsMenuView v-else :items="collections" />
+  </div>
 </template>
 
 <script setup lang="ts">
-import type { CollectionsListItem, CUID } from '#shared/api'
+import type { CollectionsListItem, CollectionsReorganizeItem } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
-import { AccordionContent, AccordionItem, AccordionRoot, AccordionTrigger } from 'reka-ui'
 
-export interface CollectionsMenuProps {
-  items?: CollectionsListItem[]
+const { $api } = useNuxtApp()
+const { isCollectionsFormModalOpen } = useApp()
+const { data: collections, refresh: refreshCollections } = useCollections()
+
+const isSortMode = ref(false)
+const { cloned: sortingCollections, sync: syncSortingCollections } = useCloned(() => collections.value ?? [])
+
+/**
+ * Normalize sorting collections, return flat array of items with parentId & sortOrder (gap-based ordering)
+ */
+function normalizeReorganizeCollections(collections?: CollectionsListItem[], level = 0, parentId: string | null = null): CollectionsReorganizeItem[] {
+  if (!collections) {
+    return []
+  }
+
+  const items: CollectionsReorganizeItem[] = []
+
+  for (const [index, collection] of collections.entries()) {
+    items.push({
+      id: collection.id,
+      parentId: level === 0 ? null : parentId,
+      sortOrder: (index + 1) * 1000,
+    })
+
+    if (collection.children) {
+      items.push(...normalizeReorganizeCollections(collection.children, level + 1, collection.id))
+    }
+  }
+
+  return items
 }
 
-defineOptions({ inheritAttrs: false })
-defineProps<CollectionsMenuProps>()
+/**
+ * Get reorganize diff
+ */
+function getReorganizeDiff(initial: CollectionsReorganizeItem[], current: CollectionsReorganizeItem[]) {
+  const initialMap = new Map(initial.map((item) => [item.id, item]))
+  const diff: CollectionsReorganizeItem[] = []
 
-const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: CollectionsListItem, level?: number }>({
-  props: {
-    item: Object as PropType<CollectionsListItem>,
-    level: Number as PropType<number>,
+  for (const curr of current) {
+    const prev = initialMap.get(curr.id)
+
+    if (!prev) {
+      diff.push(curr)
+      continue
+    }
+
+    if (prev.parentId !== curr.parentId || prev.sortOrder !== curr.sortOrder) {
+      diff.push(curr)
+    }
+  }
+
+  return diff
+}
+
+function handleCancelSort() {
+  isSortMode.value = false
+  syncSortingCollections()
+}
+
+async function handleApplySort() {
+  // Get only diff items
+  const flatDiff = getReorganizeDiff(
+    normalizeReorganizeCollections(collections.value),
+    normalizeReorganizeCollections(sortingCollections.value),
+  )
+
+  await $api('/api/collections/reorganize', {
+    method: 'put',
+    body: flatDiff,
+  })
+  await refreshCollections()
+
+  isSortMode.value = false
+  syncSortingCollections()
+}
+
+const options = computed<DropdownMenuItem[]>(() => [
+  {
+    label: $t('common.actions.create'),
+    icon: 'lucide:plus',
+    onSelect: () => isCollectionsFormModalOpen.value = true,
   },
-})
-
-// visible items, used for the accordion
-const visibleItems = useLocalStorage<CUID[]>('shotly-collections-menu', [])
-
-// current active item, used for the dropdown menu and the active state of the accordion
-const activeOption = ref<CUID | null>(null)
-
-function handleOptionOpen(value: CUID, open: boolean) {
-  activeOption.value = open ? value : null
-}
-
-function getItemOptions(_item: CollectionsListItem): DropdownMenuItem[] {
-  return [
-    {
-      label: $t('common.actions.edit'),
-      kbds: ['e'],
-      icon: 'lucide:pencil',
-    },
-    {
-      label: $t('common.actions.delete'),
-      icon: 'lucide:trash',
-      color: 'error',
-    },
-  ]
-}
+  {
+    label: $t('common.actions.reorganize'),
+    icon: 'lucide:square-dashed-mouse-pointer',
+    kbds: ['r'],
+    onSelect: () => isSortMode.value = true,
+  },
+])
 </script>

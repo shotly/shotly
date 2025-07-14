@@ -296,6 +296,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/CollectionsCreateResult'
 
+  /collections/reorganize:
+    put:
+      summary: Reorganize collections
+      tags:
+        - Collections
+      operationId: CollectionsReorganizeCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionsReorganizeCreatePayload'
+      responses:
+        204:
+          description: Reorganize collections
+
   /collections/{id}:
     put:
       summary: Update collection
@@ -801,6 +816,31 @@ components:
       description: Result "Get collections list"
       items:
         $ref: '#/components/schemas/CollectionsListItem'
+
+    CollectionsReorganizeItem:
+      type: object
+      description: Collection item
+      required:
+        - id
+        - parentId
+        - sortOrder
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
+        parentId:
+          oneOf:
+            - $ref: '#/components/schemas/CUID'
+            - type: 'null'
+        sortOrder:
+          type: number
+          description: Collection sort order
+          example: 1000
+
+    CollectionsReorganizeCreatePayload:
+      type: array
+      description: Payload "Reorganize collections"
+      items:
+        $ref: '#/components/schemas/CollectionsReorganizeItem'
 
     CollectionsCreatePayload:
       allOf:

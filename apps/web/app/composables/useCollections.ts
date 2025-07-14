@@ -1,14 +1,6 @@
 import type { AsyncDataRequestStatus } from '#app'
 import type { CollectionsListItem } from '#shared/api'
 
-// export interface TransformCollectionsItem {
-//   label: string
-//   value: CUID
-//   icon: string
-//   to: RouteLocationRaw
-//   children?: TransformCollectionsItem[]
-// }
-
 export interface UseCollectionsResult {
   data: Ref<CollectionsListItem[] | undefined>
   status: Ref<AsyncDataRequestStatus>
@@ -21,7 +13,6 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
     key: 'collections',
     immediate: false,
     transform: transformCollections,
-    deep: true,
   })
 
   return {

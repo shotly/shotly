@@ -113,6 +113,14 @@ export const collectionsItemSchema = z.object({
 
 export const collectionsListResultSchema = z.array(collectionsListItemSchema)
 
+export const collectionsReorganizeItemSchema = z.object({
+  id: cuidSchema,
+  parentId: cuidSchema.nullable(),
+  sortOrder: z.number(),
+})
+
+export const collectionsReorganizeCreatePayloadSchema = z.array(collectionsReorganizeItemSchema)
+
 export const collectionsCreatePayloadSchema = collectionsFormSchema
 
 export const collectionsCreateResultSchema = z.object({

@@ -13,7 +13,8 @@
       "done": "Done",
       "copy": "Copy",
       "created": "Created",
-      "deleted": "Deleted"
+      "deleted": "Deleted",
+      "reorganize": "Reorganize"
     },
 
     "fields": {
