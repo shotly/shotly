@@ -118,6 +118,11 @@
       "title": "Create collection",
       "description": "Create a new collection to organize your bookmarks.",
       "tooltip": "Create a new collection"
+    },
+
+    "share": {
+      "title": "Share collection",
+      "description": "Share your collection with others."
     }
   },
 

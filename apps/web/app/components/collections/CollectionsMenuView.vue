@@ -65,7 +65,7 @@
 <script setup lang="ts">
 import type { CollectionsListItem, CUID } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
-import { LazyCollectionsFormModal } from '#components'
+import { LazyCollectionsFormModal, LazyCollectionsShareModal } from '#components'
 import { AccordionContent, AccordionItem, AccordionRoot, AccordionTrigger } from 'reka-ui'
 
 export interface CollectionsMenuProps {
@@ -84,7 +84,9 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
 
 const { $api } = useNuxtApp()
 const { refresh: refreshCollections } = useCollections()
-const createCollectionModal = useOverlay().create(LazyCollectionsFormModal)
+
+const shareModal = useOverlay().create(LazyCollectionsShareModal)
+const formModal = useOverlay().create(LazyCollectionsFormModal)
 
 // visible items, used for the accordion.
 const visibleItems = useLocalStorage<CUID[]>('shotly-collections-menu', [])
@@ -102,7 +104,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
       label: $t('common.actions.edit'),
       kbds: ['e'],
       icon: 'lucide:pencil',
-      onSelect: () => createCollectionModal.open({
+      onSelect: () => formModal.open({
         id: item.id,
         initialState: {
           name: item.name,
@@ -110,7 +112,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
           parentId: item.parentId,
         },
         onSuccess: async () => {
-          createCollectionModal.close()
+          formModal.close()
         },
       }),
     },
@@ -119,7 +121,10 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
       kbds: ['s'],
       icon: 'lucide:globe',
       onSelect: () => {
-        // todo: implement share modal
+        shareModal.open({
+          id: item.id,
+          isShared: item.isShared,
+        })
       },
     },
     {
