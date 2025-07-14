@@ -14,6 +14,8 @@
       "copy": "Copy",
       "created": "Created",
       "deleted": "Deleted",
+      "close": "Close",
+      "share": "Share",
       "reorganize": "Reorganize"
     },
 

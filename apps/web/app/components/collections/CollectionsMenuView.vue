@@ -114,6 +114,14 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
       }),
     },
     {
+      label: $t('common.actions.share'),
+      kbds: ['s'],
+      icon: 'lucide:share-2',
+      onSelect: () => {
+        // todo: implement share modal
+      },
+    },
+    {
       label: $t('common.actions.delete'),
       kbds: ['d'],
       icon: 'lucide:trash',
