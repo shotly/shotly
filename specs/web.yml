@@ -368,6 +368,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/CollectionsBookmarksListResult'
 
+  /collections/{id}/share:
+    put:
+      summary: Share collection
+      tags:
+        - Collections
+      operationId: CollectionsShareUpdate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionsShareUpdatePayload'
+      responses:
+        204:
+          description: Share collection
+
   /collections/{id}/attach:
     post:
       summary: Attach bookmark to collection
@@ -854,6 +875,15 @@ components:
       allOf:
         - description: Payload "Update collection"
         - $ref: '#/components/schemas/CollectionsForm'
+
+    CollectionsShareUpdatePayload:
+      type: object
+      description: Payload "Share collection"
+      required:
+        - isShared
+      properties:
+        isShared:
+          type: boolean
 
     CollectionsBookmarksListResult:
       type: array

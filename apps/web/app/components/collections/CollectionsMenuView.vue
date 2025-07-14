@@ -22,7 +22,13 @@
 
         <UIcon :name="item.icon" class="shrink-0 size-5 group-hover:text-default transition-colors" :class="active || activeOption === item.id ? 'text-primary' : 'text-dimmed'" />
         <span class="truncate w-full flex items-center">{{ item.name }}</span>
-        <span class="flex-1 flex items-center justify-center" @click.stop.prevent>
+        <span class="flex-1 flex items-center justify-center gap-2" @click.stop.prevent>
+          <UIcon
+            v-if="item.isShared && activeOption !== item.id"
+            name="lucide:globe"
+            class="size-4 text-dimmed group-hover:hidden"
+          />
+
           <UDropdownMenu
             :items="getItemOptions(item)"
             :content="{ side: 'bottom', align: 'end', avoidCollisions: false, collisionPadding: 0 }"
@@ -65,7 +71,7 @@
 <script setup lang="ts">
 import type { CollectionsListItem, CUID } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
-import { LazyCollectionsFormModal } from '#components'
+import { LazyCollectionsFormModal, LazyCollectionsShareModal } from '#components'
 import { AccordionContent, AccordionItem, AccordionRoot, AccordionTrigger } from 'reka-ui'
 
 export interface CollectionsMenuProps {
@@ -84,7 +90,9 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
 
 const { $api } = useNuxtApp()
 const { refresh: refreshCollections } = useCollections()
-const createCollectionModal = useOverlay().create(LazyCollectionsFormModal)
+
+const shareModal = useOverlay().create(LazyCollectionsShareModal)
+const formModal = useOverlay().create(LazyCollectionsFormModal)
 
 // visible items, used for the accordion.
 const visibleItems = useLocalStorage<CUID[]>('shotly-collections-menu', [])
@@ -102,7 +110,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
       label: $t('common.actions.edit'),
       kbds: ['e'],
       icon: 'lucide:pencil',
-      onSelect: () => createCollectionModal.open({
+      onSelect: () => formModal.open({
         id: item.id,
         initialState: {
           name: item.name,
@@ -110,7 +118,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
           parentId: item.parentId,
         },
         onSuccess: async () => {
-          createCollectionModal.close()
+          formModal.close()
         },
       }),
     },
@@ -119,7 +127,13 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
       kbds: ['s'],
       icon: 'lucide:globe',
       onSelect: () => {
-        // todo: implement share modal
+        shareModal.open({
+          id: item.id,
+          isShared: item.isShared,
+          onSuccess: () => {
+            refreshCollections()
+          },
+        })
       },
     },
     {
