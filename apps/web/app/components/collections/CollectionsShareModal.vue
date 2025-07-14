@@ -23,23 +23,23 @@
         <template v-if="isShared && (status === 'idle' || status === 'success')">
           <UFormField :label="$t('collections.share.shareUrl')">
             <UInput
-              model-value="https://shotly.com/collections/123"
+              :model-value="links.share"
               readonly
               class="w-full"
             >
               <template #trailing>
-                <ButtonCopy copy-value="https://shotly.com/collections/123" />
+                <ButtonCopy :copy-value="links.share" />
               </template>
             </UInput>
           </UFormField>
           <UFormField :label="$t('collections.share.rssUrl')">
             <UInput
-              model-value="https://shotly.com/collections/123"
+              :model-value="links.rss"
               readonly
               class="w-full"
             >
               <template #trailing>
-                <ButtonCopy copy-value="https://shotly.com/collections/123" />
+                <ButtonCopy :copy-value="links.rss" />
               </template>
             </UInput>
           </UFormField>
@@ -72,7 +72,13 @@ const props = defineProps<CollectionsShareModalProps>()
 const emit = defineEmits<CollectionsShareModalEmits>()
 
 const { $api } = useNuxtApp()
+const runtimeConfig = useRuntimeConfig()
+
 const isShared = ref(props.isShared)
+const links = computed(() => ({
+  share: `${runtimeConfig.public.siteUrl}/share/${props.id}`,
+  rss: `${runtimeConfig.public.siteUrl}/rss/${props.id}`,
+}))
 
 const { execute: handleShare, status, reset } = useAsyncHandler(async (value: boolean) => {
   return $api(`/api/collections/${props.id}/share`, {
