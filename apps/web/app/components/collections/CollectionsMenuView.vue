@@ -25,7 +25,8 @@
         <span class="flex-1 flex items-center justify-center" @click.stop.prevent>
           <UDropdownMenu
             :items="getItemOptions(item)"
-            :content="{ side: 'bottom', align: 'end', avoidCollisions: false }"
+            :content="{ side: 'bottom', align: 'end', avoidCollisions: false, collisionPadding: 0 }"
+            :ui="{ content: 'w-50' }"
             @update:open="handleOptionOpen(item.id, $event)"
           >
             <UIcon name="lucide:ellipsis" class="size-4 group-hover:block data-[state=open]:block hidden" />

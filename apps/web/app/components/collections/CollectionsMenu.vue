@@ -26,7 +26,12 @@
             />
           </UTooltip>
         </template>
-        <UDropdownMenu v-else :items="options" :content="{ side: 'bottom', align: 'end' }">
+        <UDropdownMenu
+          v-else
+          :items="options"
+          :content="{ side: 'bottom', align: 'end' }"
+          :ui="{ content: 'w-56' }"
+        >
           <UButton
             icon="lucide:settings-2"
             size="sm"
