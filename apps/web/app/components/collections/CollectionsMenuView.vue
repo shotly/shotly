@@ -22,7 +22,13 @@
 
         <UIcon :name="item.icon" class="shrink-0 size-5 group-hover:text-default transition-colors" :class="active || activeOption === item.id ? 'text-primary' : 'text-dimmed'" />
         <span class="truncate w-full flex items-center">{{ item.name }}</span>
-        <span class="flex-1 flex items-center justify-center" @click.stop.prevent>
+        <span class="flex-1 flex items-center justify-center gap-2" @click.stop.prevent>
+          <UIcon
+            v-if="item.isShared && activeOption !== item.id"
+            name="lucide:globe"
+            class="size-4 text-dimmed group-hover:hidden"
+          />
+
           <UDropdownMenu
             :items="getItemOptions(item)"
             :content="{ side: 'bottom', align: 'end', avoidCollisions: false, collisionPadding: 0 }"
