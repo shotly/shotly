@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2 mt-4 border-t border-default dark:border-accented/80 pt-4 relative">
+  <div class="flex flex-col gap-2 relative">
     <div class="flex items-center justify-between">
       <div class="text-sm text-muted">
         {{ $t('collections.title') }}
