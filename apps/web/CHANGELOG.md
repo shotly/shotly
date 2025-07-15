@@ -1,6 +1,55 @@
 # Changelog
 
 
+## @shotly/web-v0.3.0
+
+[compare changes](https://github.com/shotly/shotly/compare/@shotly/web-v0.2.0...@shotly/web-v0.3.0)
+
+### 🚀 Enhancements
+
+- **web:** Add user and session types for authentication module ([f470ffc](https://github.com/shotly/shotly/commit/f470ffc))
+- **web:** Implement authentication middleware and enhance OAuth handling ([1c13902](https://github.com/shotly/shotly/commit/1c13902))
+- **web:** Add Authentik OAuth provider ([84836c7](https://github.com/shotly/shotly/commit/84836c7))
+- **web:** Enhance login page with Authentik provider and error handling ([ef9a668](https://github.com/shotly/shotly/commit/ef9a668))
+- **web:** Add webhooks settings page and update navigation menu ([eb37ab7](https://github.com/shotly/shotly/commit/eb37ab7))
+- **web:** Add admin panel and update navigation for admin users ([4f84599](https://github.com/shotly/shotly/commit/4f84599))
+- **web:** Add admin console and users pages with navigation updates ([88575a3](https://github.com/shotly/shotly/commit/88575a3))
+- ⚠️  Separate base package ([#8](https://github.com/shotly/shotly/pull/8))
+- **web:** Update confirmation modal and error handling with i18n support ([#10](https://github.com/shotly/shotly/pull/10))
+- User profile settings ([#52](https://github.com/shotly/shotly/pull/52))
+- Implement api keys ([#53](https://github.com/shotly/shotly/pull/53))
+- Implement crud webhooks ([#62](https://github.com/shotly/shotly/pull/62))
+- ⚠️  Update landing and web apps with new base package integration ([#69](https://github.com/shotly/shotly/pull/69))
+- Add appearance page ([#71](https://github.com/shotly/shotly/pull/71))
+- Normalize database table ([#74](https://github.com/shotly/shotly/pull/74))
+- Collections aside ([#76](https://github.com/shotly/shotly/pull/76))
+- Share collections modal ([#82](https://github.com/shotly/shotly/pull/82))
+- Add simple icon select component ([#87](https://github.com/shotly/shotly/pull/87))
+
+### 💅 Refactors
+
+- **web:** Streamline OAuth handling  authentication ([7e9cc72](https://github.com/shotly/shotly/commit/7e9cc72))
+- **web:** Simplify error logging in OAuth handlers ([20d077c](https://github.com/shotly/shotly/commit/20d077c))
+- **web:** Improve authentication middleware logic and update redirect cookie name ([fd39f36](https://github.com/shotly/shotly/commit/fd39f36))
+- **web:** Update UserDropdown component to use user session and improve avatar handling ([c1e9a89](https://github.com/shotly/shotly/commit/c1e9a89))
+- **web:** Remove disabled state and badges from bookmarks in the aside menu ([2b24f3b](https://github.com/shotly/shotly/commit/2b24f3b))
+- Remove unused environment variable links ([#73](https://github.com/shotly/shotly/pull/73))
+- Simplify ApiKeysList data handling and update API response structure ([#81](https://github.com/shotly/shotly/pull/81))
+
+### 📖 Documentation
+
+- **web:** Update OAuth user parameters in documentation ([cae03ff](https://github.com/shotly/shotly/commit/cae03ff))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Separate base package ([#8](https://github.com/shotly/shotly/pull/8))
+- ⚠️  Update landing and web apps with new base package integration ([#69](https://github.com/shotly/shotly/pull/69))
+
+### ❤️ Contributors
+
+- Alex <a.hywax@gmail.com>
+- Hywax <a.hywax@gmail.com>
+
 ## @shotly/web-v0.2.0
 
 [compare changes](https://github.com/shotly/shotly/compare/@shotly/web-v0.1.0...@shotly/web-v0.2.0)
