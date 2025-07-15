@@ -16,7 +16,7 @@
     "@shotly/base": "workspace:*",
     "@shotly/db": "workspace:*",
     "dayjs": "^1.11.13",
-    "fast-tree-builder": "^2.0.1",
+    "fast-tree-builder": "^2.0.2",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.20",
     "nuxt-site-config": "^3.2.2",
