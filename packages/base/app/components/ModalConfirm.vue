@@ -1,17 +1,14 @@
 <template>
   <UModal
     :title="title"
+    :description="message"
     :ui="{
       content: 'divide-y-0',
-      body: 'py-0! text-sm',
-      description: 'hidden',
+      body: ['text-sm', confirmText ? 'py-4!' : 'py-0!'],
       footer: 'justify-end',
     }"
   >
-    <template #description />
     <template #body>
-      {{ message }}
-
       <UForm
         v-if="confirmText"
         id="confirm-form"
@@ -29,7 +26,11 @@
             </I18nT>
           </template>
 
-          <UInput v-model="state.confirmTextValue" class="w-full" />
+          <UInput
+            v-model="state.confirmTextValue"
+            class="w-full"
+            :placeholder="$t('common.placeholders.confirmText')"
+          />
         </UFormField>
       </UForm>
     </template>

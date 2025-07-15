@@ -2,6 +2,7 @@
   <ModalBrand
     :title="$t('settings.apiKeys.createdTitle')"
     :description="$t('settings.apiKeys.createdDescription')"
+    icon="lucide:key-round"
   >
     <template #body>
       <div class="space-y-6">

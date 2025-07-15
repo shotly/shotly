@@ -2,6 +2,7 @@
   <ModalBrand
     :title="$t('collections.create.title')"
     :description="$t('collections.create.description')"
+    icon="lucide:shapes"
     @after:leave="onCloseModal"
   >
     <template #body>

@@ -39,6 +39,7 @@
 
     "placeholders": {
       "name": "Введите имя",
+      "confirmText": "Введите текст для подтверждения",
       "webhookUrl": "Введите URL вебхука",
       "webhookEvents": "Выберите события вебхука",
       "apiKeyName": "Введите имя API ключа",

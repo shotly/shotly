@@ -40,7 +40,18 @@ export default defineAppConfig({
 
     modal: {
       slots: {
+        content: 'divide-y-0 dark:ring-accented/50',
+        body: 'bg-muted',
+        header: 'relative after:w-full after:h-px after:bg-accented dark:after:bg-accented/70 after:left-0 after:absolute after:bottom-0',
+        footer: 'bg-muted',
         overlay: 'backdrop-blur-xs',
+      },
+      variants: {
+        fullscreen: {
+          false: {
+            content: 'max-w-md',
+          },
+        },
       },
     },
 

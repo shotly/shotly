@@ -1,6 +1,7 @@
 <template>
   <ModalBrand
     :title="$t('settings.webhooks.createdTitle')"
+    icon="lucide:webhook"
   >
     <template #description>
       <I18nT

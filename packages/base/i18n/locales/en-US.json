@@ -39,6 +39,7 @@
 
     "placeholders": {
       "name": "Enter name",
+      "confirmText": "Enter confirmation text",
       "webhookUrl": "Enter webhook URL",
       "webhookEvents": "Select webhook events",
       "apiKeyName": "Enter API key name",
