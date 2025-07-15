@@ -39,7 +39,7 @@ import { DialogDescription, DialogTitle, useForwardPropsEmits } from 'reka-ui'
 
 export interface ModalBrandProps {
   title: string
-  description: string
+  description?: string
 }
 
 export interface ModalBrandEmits {

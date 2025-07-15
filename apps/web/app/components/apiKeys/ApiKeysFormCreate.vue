@@ -10,12 +10,17 @@
       id="api-keys-form-create"
       ref="form"
       class="grid md:grid-cols-2 gap-3"
+      :validate-on="['input']"
       :schema="schema"
       :state="state"
       @submit="onSubmit"
     >
       <UFormField name="name" :label="$t('common.fields.name')">
-        <UInput v-model="state.name" class="w-full" />
+        <UInput
+          v-model="state.name"
+          class="w-full"
+          :placeholder="$t('common.placeholders.apiKeyName')"
+        />
       </UFormField>
       <UFormField name="expiresAt" :label="$t('common.fields.expiresAt')">
         <USelect v-model="state.expiresAt" :items="expiresAtOptions" class="w-full" />

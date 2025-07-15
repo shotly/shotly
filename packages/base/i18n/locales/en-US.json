@@ -32,10 +32,16 @@
       "description": "Description",
       "parentCollection": "Parent collection",
       "icon": "Icon",
+      "apiKey": "API key",
+      "secret": "Secret",
       "optional": "Optional"
     },
 
     "placeholders": {
+      "name": "Enter name",
+      "webhookUrl": "Enter webhook URL",
+      "webhookEvents": "Select webhook events",
+      "apiKeyName": "Enter API key name",
       "collectionName": "Enter collection name",
       "parentCollection": "Select parent collection"
     },

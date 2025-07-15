@@ -32,10 +32,16 @@
       "description": "Описание",
       "parentCollection": "Родительская коллекция",
       "icon": "Иконка",
+      "apiKey": "API ключ",
+      "secret": "Секретный ключ",
       "optional": "Необязательно"
     },
 
     "placeholders": {
+      "name": "Введите имя",
+      "webhookUrl": "Введите URL вебхука",
+      "webhookEvents": "Выберите события вебхука",
+      "apiKeyName": "Введите имя API ключа",
       "collectionName": "Введите название коллекции",
       "parentCollection": "Выберите родительскую коллекцию"
     },
