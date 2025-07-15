@@ -60,7 +60,7 @@
       "createDescription": "Enter a unique URL for your webhook, and select the events you want to receive.",
       "create": "Create webhook",
       "createdTitle": "Webhook created",
-      "createdDescription": "Please copy your secret token and store it in a safe place. Use it to verify events, we will send requests to your URL. Confirm authenticity by comparing the {requestHeader} request header. For security reasons we cannot show it again.",
+      "createdDescription": "Use the key to verify events, we will send requests to your URL with the {requestHeader} header. For security reasons we cannot show it again.",
       "emptyTitle": "No webhooks found",
       "emptyDescription": "Create your first webhook to get started.",
       "events": {

@@ -10,12 +10,17 @@
       id="profile-form-details"
       ref="form"
       class="max-w-sm space-y-3"
+      :validate-on="['input']"
       :schema="schema"
       :state="state"
       @submit="onSubmit"
     >
       <UFormField name="name" :label="$t('common.fields.name')">
-        <UInput v-model="state.name" class="w-full" />
+        <UInput
+          v-model="state.name"
+          class="w-full"
+          :placeholder="$t('common.placeholders.name')"
+        />
       </UFormField>
       <UFormField name="email" :label="$t('common.fields.email')">
         <UInput :model-value="user?.email" class="w-full" disabled />

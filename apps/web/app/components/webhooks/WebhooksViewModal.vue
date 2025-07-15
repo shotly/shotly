@@ -1,12 +1,7 @@
 <template>
-  <UModal
+  <ModalBrand
     :title="$t('settings.webhooks.createdTitle')"
-    :ui="{
-      content: 'divide-y-0 dark:ring-accented/80',
-      description: 'text-default mt-2',
-      body: 'sm:py-2 text-sm',
-      footer: 'justify-end bg-elevated/50 border-t border-default mt-4',
-    }"
+    icon="lucide:webhook"
   >
     <template #description>
       <I18nT
@@ -22,21 +17,27 @@
     </template>
 
     <template #body>
-      <UInput
-        :model-value="secret"
-        readonly
-        class="w-full"
-      >
-        <template #trailing>
-          <ButtonCopy :copy-value="secret" />
-        </template>
-      </UInput>
-    </template>
+      <div class="space-y-6">
+        <UFormField :label="$t('common.fields.secret')">
+          <UInput
+            :model-value="secret"
+            readonly
+            class="w-full"
+          >
+            <template #trailing>
+              <ButtonCopy :copy-value="secret" />
+            </template>
+          </UInput>
+        </UFormField>
 
-    <template #footer>
-      <UButton :label="$t('common.actions.done')" @click="emit('close')" />
+        <UButton
+          class="w-full justify-center"
+          :label="$t('common.actions.done')"
+          @click="emit('close')"
+        />
+      </div>
     </template>
-  </UModal>
+  </ModalBrand>
 </template>
 
 <script setup lang="ts">

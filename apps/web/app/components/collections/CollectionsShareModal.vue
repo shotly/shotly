@@ -2,6 +2,7 @@
   <ModalBrand
     :title="$t('collections.share.title')"
     :description="$t('collections.share.description')"
+    icon="lucide:globe"
   >
     <template #body>
       <div class="space-y-6">

@@ -17,7 +17,7 @@
     </template>
   </USlideover>
 
-  <div class="min-h-screen w-full flex flex-col md:pl-60 bg-elevated/50">
+  <div class="min-h-dvh w-full flex flex-col md:pl-60 bg-elevated/50">
     <header class="h-11 flex items-center justify-between px-3 md:hidden">
       <UButton icon="lucide:menu" variant="soft" @click="isAsideMobileOpen = true" />
       <UButton
@@ -43,10 +43,19 @@
         </UTooltip>
       </div>
 
-      <slot name="aside" />
+      <div class="flex-1 overflow-y-auto">
+        <slot name="aside" />
+      </div>
+
+      <div class="flex flex-col gap-6 mt-auto shrink-0">
+        <!-- update message -->
+        <div class="border-t border-default dark:border-accented/80 pt-3">
+          <UserDropdown />
+        </div>
+      </div>
     </aside>
 
-    <main class="relative min-h-screen flex flex-col md:pt-1.5">
+    <main class="relative min-h-dvh flex flex-col md:pt-1.5">
       <div class="flex-1 border-default dark:border-accented/80 bg-default py-4 sm:py-6 lg:py-8 rounded-tl-2xl rounded-tr-2xl border-l border-t border-r md:border-r-0 md:rounded-tr-none">
         <slot />
       </div>

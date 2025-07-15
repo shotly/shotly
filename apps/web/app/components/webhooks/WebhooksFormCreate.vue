@@ -10,17 +10,23 @@
       id="webhooks-form-create"
       ref="form"
       class="grid md:grid-cols-2 gap-3"
+      :validate-on="['input']"
       :schema="schema"
       :state="state"
       @submit="onSubmit"
     >
       <UFormField name="url" :label="$t('common.fields.url')">
-        <UInput v-model="state.url" class="w-full" />
+        <UInput
+          v-model="state.url"
+          class="w-full"
+          :placeholder="$t('common.placeholders.webhookUrl')"
+        />
       </UFormField>
       <UFormField name="events" :label="$t('common.fields.events')">
         <USelect
           v-model="state.events"
           :items="eventsOptions"
+          :placeholder="$t('common.placeholders.webhookEvents')"
           class="w-full"
           multiple
         />
