@@ -16,9 +16,12 @@
           <UInput
             v-model="state.name"
             class="w-full"
-            :icon="state.icon"
             :placeholder="$t('common.placeholders.collectionName')"
-          />
+          >
+            <template #leading>
+              <SelectIcon v-model="state.icon" />
+            </template>
+          </UInput>
         </UFormField>
         <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
           <SelectMenuClearable
