@@ -2,9 +2,9 @@
   <UModal
     v-bind="forwarded"
     :ui="{
-      content: 'divide-y-0 max-w-md',
+      content: 'divide-y-0 max-w-md dark:ring-accented/50',
       body: 'bg-muted px-4 sm:px-16 sm:py-8',
-      header: 'relative after:w-full after:h-px after:bg-accented after:left-0 after:absolute after:bottom-0',
+      header: 'relative after:w-full after:h-px after:bg-accented dark:after:bg-accented/70 after:left-0 after:absolute after:bottom-0',
       footer: 'bg-muted px-4 sm:px-16 sm:pb-8',
     }"
   >
