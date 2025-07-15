@@ -1,6 +1,6 @@
 <template>
   <div class="h-full flex flex-col">
-    <div class="sticky top-0 border-b border-default dark:border-accented/80 pb-4 mb-4 z-1">
+    <div class="border-b border-default dark:border-accented/80 pb-4 mb-4 z-1">
       <UNavigationMenu :items="mainMenu" orientation="vertical" />
     </div>
 
