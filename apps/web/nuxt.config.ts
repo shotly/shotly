@@ -49,9 +49,6 @@ export default defineNuxtConfig({
   experimental: {
     typedPages: true,
   },
-  future: {
-    compatibilityVersion: 4,
-  },
   devtools: {
     enabled: true,
   },

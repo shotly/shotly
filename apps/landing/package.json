@@ -9,7 +9,8 @@
     "preview": "PORT=3001 nuxt preview",
     "typecheck": "nuxt typecheck",
     "clean": "rm -rf .nuxt .output node_modules",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prepare": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/content": "^3.6.3",
