@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import type { ButtonProps } from '@nuxt/ui'
-import type { ComponentSlots } from '../types/tv'
+import type { ComponentSlots } from '../../types/tv'
 import { tv } from 'tailwind-variants'
 
 export type ResetValue = string | number | boolean | null | undefined

@@ -66,7 +66,7 @@
 <script lang="ts" generic="T">
 import type { DropdownMenuItem, TableProps, TableRow, TableSlots } from '@nuxt/ui'
 import type { ColumnPinningState } from '@tanstack/vue-table'
-import type { ComponentSlots } from '../types/tv'
+import type { ComponentSlots } from '../../types/tv'
 import type { Model as ColumnSortModel } from './DataTableColumnSorting.vue'
 import type { Model as ColumnVisibilityModel } from './DataTableColumnVisibility.vue'
 import { UButton, UDropdownMenu } from '#components'

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import type { ComponentSlots } from '../types/tv'
+import type { ComponentSlots } from '../../types/tv'
 import { tv } from 'tailwind-variants'
 
 const appLogotype = tv({
