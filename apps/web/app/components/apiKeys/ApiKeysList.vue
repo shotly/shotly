@@ -7,11 +7,14 @@
             {{ item.name }}
           </div>
           <div class="text-muted">
-            {{ $t('common.fields.expiresAt') }}
-            <DateTime v-if="item.expiresAt" :datetime="item.expiresAt" relative />
-            <span v-else class="text-muted">
-              {{ $t('common.date.never').toLowerCase() }}
-            </span>
+            <template v-if="isExpired(item.expiresAt)">
+              <span class="text-error">{{ $t('common.actions.expired') }}</span>
+            </template>
+            <template v-else>
+              {{ $t('common.fields.expiresAt') }}
+              <DateTime v-if="item.expiresAt" :datetime="item.expiresAt" relative />
+              <span v-else class="text-muted">{{ $t('common.date.never').toLowerCase() }}</span>
+            </template>
           </div>
         </div>
 
@@ -68,6 +71,10 @@ function rowActions(row: ApiKeysListItem): DropdownMenuItem[] {
       },
     },
   ]
+}
+
+function isExpired(expiresAt?: string | null): boolean {
+  return !!expiresAt && new Date(expiresAt) < new Date()
 }
 
 defineExpose({

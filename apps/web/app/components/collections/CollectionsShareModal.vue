@@ -1,9 +1,15 @@
 <template>
   <ModalBrand
     :title="$t('collections.share.title')"
-    :description="$t('collections.share.description')"
     icon="lucide:globe"
   >
+    <template #description>
+      {{ $t('collections.share.description') }}
+      <LinkBlank
+        :href="appConfig.links.docsWebhook"
+        :label="$t('common.actions.learnMore')"
+      />
+    </template>
     <template #body>
       <div class="space-y-6">
         <div class="flex items-center justify-between gap-4">
@@ -73,6 +79,7 @@ const props = defineProps<CollectionsShareModalProps>()
 const emit = defineEmits<CollectionsShareModalEmits>()
 
 const { $api } = useNuxtApp()
+const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
 
 const isShared = ref(props.isShared)
