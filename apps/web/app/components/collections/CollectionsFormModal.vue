@@ -32,6 +32,14 @@
             </template>
           </UInput>
         </UFormField>
+        <UFormField name="description" :label="$t('common.fields.description')" :hint="$t('common.fields.optional')">
+          <InputClearable
+            v-model="state.description"
+            class="w-full"
+            :reset-value="null"
+            :placeholder="$t('common.placeholders.collectionDescription')"
+          />
+        </UFormField>
         <UFormField name="parentId" :label="$t('common.fields.parentCollection')" :hint="$t('common.fields.optional')">
           <SelectMenuClearable
             v-model="state.parentId"
@@ -93,6 +101,7 @@ const serverEndpoint = computed(() =>
 const { state, reset } = useResettableReactive<Schema>(() => defu(props.initialState, {
   name: '',
   parentId: null,
+  description: null,
   icon: 'lucide:folder',
 }))
 
@@ -104,7 +113,10 @@ function onCloseModal() {
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   await $api(serverEndpoint.value.path, {
     method: serverEndpoint.value.method,
-    body: event.data,
+    body: {
+      ...event.data,
+      description: event.data.description || null,
+    },
     onResponse: async ({ response }) => {
       if (!response.ok) {
         return

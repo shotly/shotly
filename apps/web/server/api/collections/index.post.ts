@@ -39,6 +39,7 @@ export default defineHttpHandler<CollectionsCreateRequest, CollectionsCreateResu
     .insert(tables.collections)
     .values({
       ...data,
+      description: data.description,
       userId: user.id,
       sortOrder: (maxSortOrder?.value ?? 0) + 1000,
     })

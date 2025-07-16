@@ -177,13 +177,13 @@ export interface CollectionsForm {
    * @minLength 3
    */
   name: string
-  /** Collection description */
-  description?: string
   /**
    * Collection icon
    * @minLength 5
    */
   icon: string
+  /** Collection description */
+  description: string | null
   parentId: CUID | null
   /** Collection is shared */
   isShared?: boolean
@@ -223,7 +223,7 @@ export interface CollectionsItem {
    */
   name: string
   /** Collection description */
-  description: string
+  description: string | null
   /**
    * Collection icon
    * @minLength 5

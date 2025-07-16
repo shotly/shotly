@@ -21,6 +21,7 @@ export default defineHttpHandler<CollectionsUpdateRequest, void>(async (event) =
     .update(tables.collections)
     .set({
       ...data,
+      description: data.description,
       updatedAt: new Date().toISOString(),
     })
     .where(and(
