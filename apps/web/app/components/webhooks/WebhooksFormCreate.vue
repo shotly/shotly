@@ -90,7 +90,7 @@ const { state, reset } = useResettableReactive<Schema>(() => ({
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   await $api('/api/webhooks', {
-    method: 'POST',
+    method: 'post',
     body: event.data,
     onResponse: async ({ response }) => {
       if (!response.ok) {

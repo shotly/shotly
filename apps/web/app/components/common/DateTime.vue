@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
+// import type { NuxtTimeProps } from '#app'
 import { NuxtTime } from '#components'
 import { useForwardProps } from 'reka-ui'
 
-// todo: https://github.com/shotly/shotly/issues/58
 export interface NuxtTimeProps {
   locale?: string
   datetime: string | number | Date
@@ -23,11 +23,9 @@ export interface NuxtTimeProps {
   formatMatcher?: 'best fit' | 'basic'
   hour12?: boolean
   timeZone?: string
-
   calendar?: string
   dayPeriod?: 'narrow' | 'short' | 'long'
   numberingSystem?: string
-
   dateStyle?: 'full' | 'long' | 'medium' | 'short'
   timeStyle?: 'full' | 'long' | 'medium' | 'short'
   hourCycle?: 'h11' | 'h12' | 'h23' | 'h24'

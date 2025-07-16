@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" generic="T extends object">
-import type { ComponentSlots } from '../types/tv'
+import type { ComponentSlots } from '../../types/tv'
 import { tv } from 'tailwind-variants'
 
 const pageList = tv({

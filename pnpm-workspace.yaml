@@ -8,7 +8,7 @@ catalog:
   '@iconify-json/simple-icons': ^1.2.43
   '@iconify-json/vscode-icons': ^1.2.23
   consola: ^3.4.2
-  nuxt: ^3.17.7
+  nuxt: ^4.0.0
   tsc: ^2.0.4
   typescript: ^5.8.3
   vue-tsc: ^3.0.1
