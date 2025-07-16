@@ -723,19 +723,22 @@ components:
       required:
         - name
         - icon
+        - description
         - parentId
       properties:
         name:
           type: string
           description: Collection name
           minLength: 3
-        description:
-          type: string
-          description: Collection description
         icon:
           type: string
           description: Collection icon
           minLength: 5
+        description:
+          anyOf:
+            - type: string
+            - type: 'null'
+          description: Collection description
         parentId:
           anyOf:
             - $ref: '#/components/schemas/CUID'
@@ -810,7 +813,9 @@ components:
           description: Collection name
           minLength: 3
         description:
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Collection description
         icon:
           type: string

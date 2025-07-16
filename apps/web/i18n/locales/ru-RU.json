@@ -46,6 +46,7 @@
       "webhookEvents": "Выберите события вебхука",
       "apiKeyName": "Введите имя API ключа",
       "collectionName": "Введите название коллекции",
+      "collectionDescription": "Введите описание коллекции",
       "parentCollection": "Выберите родительскую коллекцию"
     },
 

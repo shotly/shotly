@@ -46,6 +46,7 @@
       "webhookEvents": "Select webhook events",
       "apiKeyName": "Enter API key name",
       "collectionName": "Enter collection name",
+      "collectionDescription": "Enter collection description",
       "parentCollection": "Select parent collection"
     },
 
