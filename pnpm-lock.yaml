@@ -71,18 +71,36 @@ importers:
 
   apps/landing:
     dependencies:
+      '@iconify-json/lucide':
+        specifier: 'catalog:'
+        version: 1.2.57
+      '@iconify-json/simple-icons':
+        specifier: 'catalog:'
+        version: 1.2.43
+      '@iconify-json/vscode-icons':
+        specifier: 'catalog:'
+        version: 1.2.23
       '@nuxt/content':
         specifier: ^3.6.3
         version: 3.6.3(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(magicast@0.3.5)(vue-component-type-helpers@2.2.12)
+      '@nuxt/image':
+        specifier: ^1.10.0
+        version: 1.10.0(@netlify/blobs@9.1.2)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(ioredis@5.6.1)(magicast@0.3.5)
+      '@nuxt/ui-pro':
+        specifier: ^3.2.0
+        version: 3.2.0(@babel/parser@7.28.0)(@netlify/blobs@9.1.2)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(embla-carousel@8.6.0)(ioredis@5.6.1)(jwt-decode@4.0.0)(magicast@0.3.5)(sortablejs@1.15.6)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-router@4.5.1(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))(zod@3.25.76)
       '@nuxtjs/seo':
         specifier: ^3.1.0
         version: 3.1.0(@netlify/blobs@9.1.2)(@unhead/vue@2.0.12(vue@3.5.17(typescript@5.8.3)))(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(h3@1.15.3)(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.45.1)(unstorage@1.16.1(@netlify/blobs@9.1.2)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(ioredis@5.6.1))(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
-      '@shotly/base':
-        specifier: workspace:*
-        version: link:../../packages/base
+      '@vueuse/nuxt':
+        specifier: ^13.5.0
+        version: 13.5.0(magicast@0.3.5)(nuxt@4.0.0(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.1)(@types/node@24.0.14)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.45.1)(terser@5.43.1)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       better-sqlite3:
         specifier: ^12.2.0
         version: 12.2.0
+      consola:
+        specifier: 'catalog:'
+        version: 3.4.2
       nuxt:
         specifier: 'catalog:'
         version: 4.0.0(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.1)(@types/node@24.0.14)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.45.1)(terser@5.43.1)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0)
@@ -92,6 +110,9 @@ importers:
       nuxt-og-image:
         specifier: ^5.1.9
         version: 5.1.9(@unhead/vue@2.0.12(vue@3.5.17(typescript@5.8.3)))(magicast@0.3.5)(unstorage@1.16.1(@netlify/blobs@9.1.2)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(ioredis@5.6.1))(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
     devDependencies:
       typescript:
         specifier: 'catalog:'
@@ -101,43 +122,6 @@ importers:
         version: 3.0.1(typescript@5.8.3)
 
   apps/web:
-    dependencies:
-      '@shotly/base':
-        specifier: workspace:*
-        version: link:../../packages/base
-      '@shotly/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      dayjs:
-        specifier: ^1.11.13
-        version: 1.11.13
-      fast-tree-builder:
-        specifier: ^2.0.2
-        version: 2.0.2
-      nuxt:
-        specifier: 'catalog:'
-        version: 4.0.0(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.1)(@types/node@24.0.14)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.45.1)(terser@5.43.1)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0)
-      nuxt-auth-utils:
-        specifier: ^0.5.20
-        version: 0.5.20(magicast@0.3.5)
-      nuxt-site-config:
-        specifier: ^3.2.2
-        version: 3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
-      sortablejs:
-        specifier: ^1.15.6
-        version: 1.15.6
-      vue-draggable-plus:
-        specifier: ^0.6.0
-        version: 0.6.0(@types/sortablejs@1.15.8)
-    devDependencies:
-      typescript:
-        specifier: 'catalog:'
-        version: 5.8.3
-      vue-tsc:
-        specifier: 'catalog:'
-        version: 3.0.1(typescript@5.8.3)
-
-  packages/base:
     dependencies:
       '@dicebear/collection':
         specifier: ^9.2.3
@@ -163,18 +147,39 @@ importers:
       '@nuxtjs/i18n':
         specifier: ^9.5.6
         version: 9.5.6(@vue/compiler-dom@3.5.17)(eslint@9.31.0(jiti@2.4.2))(magicast@0.3.5)(rollup@4.45.1)(vue@3.5.17(typescript@5.8.3))
+      '@shotly/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@vueuse/nuxt':
         specifier: ^13.5.0
         version: 13.5.0(magicast@0.3.5)(nuxt@4.0.0(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.1)(@types/node@24.0.14)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.45.1)(terser@5.43.1)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       consola:
         specifier: 'catalog:'
         version: 3.4.2
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
+      fast-tree-builder:
+        specifier: ^2.0.2
+        version: 2.0.2
       nuxt:
         specifier: 'catalog:'
         version: 4.0.0(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.1)(@types/node@24.0.14)(@vue/compiler-sfc@3.5.17)(better-sqlite3@12.2.0)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.45.1)(terser@5.43.1)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-tsc@3.0.1(typescript@5.8.3))(yaml@2.8.0)
+      nuxt-auth-utils:
+        specifier: ^0.5.20
+        version: 0.5.20(magicast@0.3.5)
+      nuxt-site-config:
+        specifier: ^3.2.2
+        version: 3.2.2(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
       nuxt-zod-i18n:
         specifier: ^1.12.0
         version: 1.12.0(magicast@0.3.5)(typescript@5.8.3)
+      sortablejs:
+        specifier: ^1.15.6
+        version: 1.15.6
+      vue-draggable-plus:
+        specifier: ^0.6.0
+        version: 0.6.0(@types/sortablejs@1.15.8)
       zod:
         specifier: ^3.25.76
         version: 3.25.76

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "@nuxt/ui-pro";
+
+@theme static {
+  --font-sans: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+}
+
+:root {
+  --ui-primary: oklch(0.2046 0 0);
+}
+
+.dark {
+  --ui-primary: oklch(0.9461 0 0);
+}
+
+@layer utilities {
+  .bg-primary-gradient {
+    background: linear-gradient(
+      225deg,
+      oklch(0.7105 0.066 278.66) 0%,
+      oklch(0.7123 0.0567 257.09) 16.667%,
+      oklch(0.7242 0.04 245.94) 33.333%,
+      oklch(0.7429 0.0128 259.82) 50%,
+      oklch(0.77 0.0263 39.33) 66.667%,
+      oklch(0.7929 0.0618 41.53) 83.333%,
+      oklch(0.8042 0.0842 43.84) 100%
+    );
+  }
+}
