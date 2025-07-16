@@ -120,6 +120,11 @@
       "tooltip": "Create a new collection"
     },
 
+    "edit": {
+      "title": "Edit collection",
+      "description": "Edit your collection details."
+    },
+
     "share": {
       "title": "Share collection",
       "description": "Share your collection with others.",

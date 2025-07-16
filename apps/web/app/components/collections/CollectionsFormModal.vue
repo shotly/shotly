@@ -1,12 +1,13 @@
 <template>
   <ModalBrand
-    :title="$t('collections.create.title')"
+    :title="props.id ? $t('collections.edit.title') : $t('collections.create.title')"
     icon="lucide:shapes"
     @after:leave="onCloseModal"
   >
     <template #description>
-      {{ $t('collections.create.description') }}
+      {{ props.id ? $t('collections.edit.description') : $t('collections.create.description') }}
       <LinkBlank
+        v-if="!props.id"
         :href="appConfig.links.docsCollections"
         :label="$t('common.actions.learnMore')"
       />
