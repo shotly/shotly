@@ -40,6 +40,7 @@ export default defineNuxtConfig({
       {
         title: 'Documentation',
         description: 'Technical documentation and guides',
+        // @ts-expect-error todo: https://github.com/shotly/shotly/issues/98
         contentCollection: 'docs',
         contentFilters: [{ field: 'extension', operator: '=', value: 'md' }],
       },
