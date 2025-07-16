@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     ],
   },
   nitro: {
-    preset: fileURLToPath(new URL('./server/preset.ts', import.meta.url)),
+    preset: import.meta.dev ? fileURLToPath(new URL('./server/preset.ts', import.meta.url)) : undefined,
     experimental: {
       tasks: true,
     },
