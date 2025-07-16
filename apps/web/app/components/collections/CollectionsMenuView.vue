@@ -89,13 +89,10 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
 })
 
 const { $api } = useNuxtApp()
-const { refresh: refreshCollections } = useCollections()
+const { refresh: refreshCollections, visibleItems } = useCollections()
 
 const shareModal = useOverlay().create(LazyCollectionsShareModal)
 const formModal = useOverlay().create(LazyCollectionsFormModal)
-
-// visible items, used for the accordion.
-const visibleItems = useLocalStorage<CUID[]>('shotly-collections-menu', [])
 
 // current active item, used for the dropdown menu and the active state of the accordion
 const activeOption = ref<CUID | null>(null)
