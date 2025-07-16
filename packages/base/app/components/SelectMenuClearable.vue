@@ -3,11 +3,10 @@
     :model-value="(modelValue as any)"
     :multiple="multiple"
     :placeholder="placeholder"
-    :reset-value="resetValue"
     :value-key="valueKey as any"
     :label-key="labelKey as any"
     :items="items"
-    @update:model-value="emit('update:modelValue', $event as any)"
+    @update:model-value="$emit('update:modelValue', $event as any)"
   >
     <template v-if="!multiple && modelValue" #trailing>
       <ButtonClear
@@ -40,5 +39,5 @@ withDefaults(defineProps<SelectMenuClearableProps<T, M>>(), {
   items: () => [],
 })
 
-const emit = defineEmits<SelectMenuClearableEmits<M>>()
+defineEmits<SelectMenuClearableEmits<M>>()
 </script>

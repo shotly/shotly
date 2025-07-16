@@ -115,6 +115,7 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
         initialState: {
           name: item.name,
           icon: item.icon,
+          description: item.description,
           parentId: item.parentId,
         },
         onSuccess: async () => {

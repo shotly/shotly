@@ -80,8 +80,8 @@ export const bookmarksDeleteResultSchema = z.record(z.any())
 
 export const collectionsFormSchema = z.object({
   name: z.string().min(3),
-  description: z.string().optional(),
   icon: z.string().min(5),
+  description: z.string().nullable(),
   parentId: cuidSchema.nullable(),
   isShared: z.boolean().optional(),
 })
@@ -101,7 +101,7 @@ export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.laz
 export const collectionsItemSchema = z.object({
   id: cuidSchema,
   name: z.string().min(3),
-  description: z.string(),
+  description: z.string().nullable(),
   icon: z.string().min(5),
   isShared: z.boolean(),
   sortOrder: z.number(),
