@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     },
   },
   ssr: false,
-  compatibilityDate: '2025-05-15',
+  compatibilityDate: '2025-07-15',
   experimental: {
     typedPages: true,
   },

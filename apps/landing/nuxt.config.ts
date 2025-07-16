@@ -77,7 +77,7 @@ export default defineNuxtConfig({
       url: 'http://localhost:3001',
     },
   },
-  compatibilityDate: '2025-05-15',
+  compatibilityDate: '2025-07-15',
   experimental: {
     typedPages: true,
   },

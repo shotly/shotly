@@ -90,7 +90,7 @@ export default defineNuxtConfig({
     storageKey: 'shotly-color-mode',
   },
   css: [resolvePath('./app/assets/css/main.css')],
-  compatibilityDate: '2025-05-15',
+  compatibilityDate: '2025-07-15',
   experimental: {
     typedPages: true,
   },
