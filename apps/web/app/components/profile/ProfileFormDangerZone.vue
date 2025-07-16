@@ -23,7 +23,7 @@ const { logout } = useLogout()
 
 function handleDelete() {
   return $api('/api/profile', {
-    method: 'DELETE',
+    method: 'delete',
     onResponse: async ({ response }) => {
       if (!response.ok) {
         return

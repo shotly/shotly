@@ -90,7 +90,7 @@ const links = computed(() => ({
 
 const { execute: handleShare, status, reset } = useAsyncHandler(async (value: boolean) => {
   return $api(`/api/collections/${props.id}/share`, {
-    method: 'PUT',
+    method: 'put',
     body: { isShared: value },
     onResponse: ({ response }) => {
       if (!response.ok) {

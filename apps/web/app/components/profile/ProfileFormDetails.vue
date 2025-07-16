@@ -53,7 +53,7 @@ const state = reactive<Schema>({
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   await $api('/api/profile/details', {
-    method: 'PUT',
+    method: 'put',
     body: event.data,
     onResponse: async ({ response }) => {
       if (response.ok) {

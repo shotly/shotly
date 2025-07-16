@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     nitro: {
       envPrefix: 'APP_',
     },
+    // @ts-expect-error https://github.com/atinux/nuxt-auth-utils/blob/main/src/module.ts#L137
     session: {
       name: 'shotly-session',
     },
