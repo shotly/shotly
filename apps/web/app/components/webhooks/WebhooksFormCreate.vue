@@ -41,15 +41,10 @@
         class="leading-7"
       >
         <template #link>
-          <ULink
+          <LinkBlank
             :href="appConfig.links.docsWebhook"
-            target="_blank"
-            inactive-class="text-secondary border-b"
-            external
-          >
-            {{ $t('settings.webhooks.title') }}
-            <UIcon name="lucide:arrow-up-right" class="size-3" />
-          </ULink>
+            :label="$t('settings.webhooks.title')"
+          />
         </template>
       </I18nT>
     </template>

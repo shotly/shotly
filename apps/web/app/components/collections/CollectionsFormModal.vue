@@ -1,10 +1,17 @@
 <template>
   <ModalBrand
     :title="$t('collections.create.title')"
-    :description="$t('collections.create.description')"
     icon="lucide:shapes"
     @after:leave="onCloseModal"
   >
+    <template #description>
+      {{ $t('collections.create.description') }}
+      <LinkBlank
+        :href="appConfig.links.docsCollections"
+        :label="$t('common.actions.learnMore')"
+      />
+    </template>
+
     <template #body>
       <UForm
         class="space-y-6"
@@ -66,6 +73,7 @@ const props = defineProps<CollectionsFormModalProps>()
 const emit = defineEmits<CollectionsFormModalEmits>()
 
 const { $api } = useNuxtApp()
+const appConfig = useAppConfig()
 const { data: collections, refresh: refreshCollections } = useCollections()
 
 // pick only collections without children

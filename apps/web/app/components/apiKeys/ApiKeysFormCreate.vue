@@ -35,15 +35,10 @@
         class="leading-7 "
       >
         <template #link>
-          <ULink
+          <LinkBlank
             :href="appConfig.links.docsApiKeys"
-            target="_blank"
-            inactive-class="text-secondary border-b"
-            external
-          >
-            {{ $t('settings.apiKeys.title') }}
-            <UIcon name="lucide:arrow-up-right" class="size-3" />
-          </ULink>
+            :label="$t('settings.apiKeys.title')"
+          />
         </template>
       </I18nT>
     </template>
