@@ -135,6 +135,14 @@ function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
       },
     },
     {
+      label: $t('common.actions.merge'),
+      kbds: ['m'],
+      icon: 'lucide:combine',
+      onSelect: () => {
+        // todo: implement merge
+      },
+    },
+    {
       label: $t('common.actions.delete'),
       kbds: ['d'],
       icon: 'lucide:trash',

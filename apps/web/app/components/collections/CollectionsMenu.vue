@@ -143,7 +143,7 @@ const options = computed<DropdownMenuItem[]>(() => [
   {
     label: $t('common.actions.reorganize'),
     kbds: ['r'],
-    icon: 'lucide:square-dashed-mouse-pointer',
+    icon: 'lucide:send-to-back',
     onSelect: () => isSortMode.value = true,
   },
 ])
