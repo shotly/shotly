@@ -53,7 +53,7 @@ import type { DropdownMenuItem } from '@nuxt/ui'
 import { LazyCollectionsFormModal } from '#components'
 
 const { $api } = useNuxtApp()
-const { data: collections, refresh: refreshCollections } = useCollections()
+const { tree: collections, refresh: refreshCollections } = useCollections()
 
 const isSortMode = ref(false)
 const { cloned: sortingCollections, sync: syncSortingCollections } = useCloned(() => collections.value ?? [])

@@ -16,7 +16,9 @@ export default defineHttpHandler<CollectionsBookmarksListRequest, CollectionsBoo
   const { id } = await getValidatedRouterParams(event, collectionsBookmarksListRouteParamsSchema.parse)
 
   const bookmarks = await db
-    .select({})
+    .select({
+      id: tables.bookmarks.id,
+    })
     .from(tables.bookmarks)
     .where(and(
       eq(tables.bookmarks.collectionId, id),

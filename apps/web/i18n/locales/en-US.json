@@ -250,6 +250,24 @@
       "controlDescription": "Anyone with the link can view your collection.",
       "shareUrl": "Share URL",
       "rssUrl": "RSS URL"
+    },
+
+    "controls": {
+      "properties": {
+        "title": "Display properties",
+        "link": "Link",
+        "name": "Name",
+        "image": "Image",
+        "icon": "Icon",
+        "date": "Date"
+      },
+
+      "layout": {
+        "title": "View layout",
+        "grid": "Grid",
+        "list": "List",
+        "stack": "Stack"
+      }
     }
   },
 

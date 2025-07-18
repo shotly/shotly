@@ -83,7 +83,7 @@ const emit = defineEmits<CollectionsFormModalEmits>()
 
 const { $api } = useNuxtApp()
 const appConfig = useAppConfig()
-const { data: collections, refresh: refreshCollections } = useCollections()
+const { tree: collections, refresh: refreshCollections } = useCollections()
 
 // pick only collections without children
 const collectionsItems = computed(

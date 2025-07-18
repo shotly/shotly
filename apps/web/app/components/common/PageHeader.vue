@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex items-start justify-between">
     <div class="flex flex-col gap-1">
       <div class="flex items-center gap-2 text-xl font-medium text-highlighted">
         <slot name="title">
@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 export interface PageHeaderProps {
-  title: string
+  title?: string
   description?: string
   help?: string
 }

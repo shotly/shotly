@@ -5,7 +5,8 @@
       description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
     >
       <template #links>
-        <CollectionsControls />
+        <UButton label="Add new bookmark" />
+        <!-- <CollectionsControls type="full" /> -->
       </template>
     </PageHeader>
   </UContainer>
