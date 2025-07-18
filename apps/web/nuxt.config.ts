@@ -45,8 +45,8 @@ export default defineNuxtConfig({
     langDir: 'locales',
     strategy: 'no_prefix',
     defaultLocale: 'en',
+    autoDeclare: true,
     experimental: {
-      autoImportTranslationFunctions: true,
       localeDetector: 'localeDetector.ts',
     },
     detectBrowserLanguage: {

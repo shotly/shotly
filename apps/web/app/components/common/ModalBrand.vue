@@ -25,7 +25,7 @@
       </div>
     </template>
 
-    <template v-for="(_, name) in slots" #[name]="slotData">
+    <template v-for="(_, name) in slots" #[name]="slotData: any">
       <slot :name="name" v-bind="slotData" />
     </template>
   </UModal>
