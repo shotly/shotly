@@ -7,21 +7,34 @@
     >
       <template #links>
         <UButton label="Add new bookmark" />
-
         <CollectionsControls
           v-if="collection"
           type="full"
           :collection-item="collection"
-          @delete="navigateTo({ name: 'index' })"
         />
       </template>
     </PageHeader>
+
+    <div v-if="status === 'pending'">
+      <USkeleton class="h-10 w-full" />
+    </div>
+
+    <div v-else>
+      {{ bookmarks }}
+    </div>
   </UContainer>
 </template>
 
 <script setup lang="ts">
 const route = useRoute<'collections-id'>()
 const { map } = useCollections()
+
+const { hook } = useNuxtApp()
+hook('collections:delete', (id) => {
+  if (id === route.params.id) {
+    navigateTo({ name: 'index' })
+  }
+})
 
 const collection = computed(() => map.value.get(route.params.id))
 
@@ -31,4 +44,6 @@ if (!collection.value) {
     statusMessage: 'Collection not found',
   })
 }
+
+const { data: bookmarks, status } = useApi(`/api/collections/${route.params.id}/bookmarks`)
 </script>

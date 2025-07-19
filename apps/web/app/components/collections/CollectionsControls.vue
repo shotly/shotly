@@ -5,7 +5,11 @@
     @update:open="emit('update:open', $event)"
   >
     <slot>
-      <UButton icon="lucide:ellipsis-vertical" variant="outline" color="neutral" />
+      <UButton
+        icon="lucide:ellipsis"
+        variant="ghost"
+        color="neutral"
+      />
     </slot>
 
     <template #display>
@@ -46,18 +50,17 @@
 </template>
 
 <script setup lang="ts">
-import type { CollectionsListItem, CUID } from '#shared/api'
+import type { CollectionsListItem } from '#shared/api'
 import type { DropdownMenuItem } from '@nuxt/ui'
 import { LazyCollectionsFormModal, LazyCollectionsShareModal } from '#components'
 
 export interface CollectionsControlsProps {
-  collectionItem: Omit<CollectionsListItem, 'children'>
+  collectionItem: CollectionsListItem
   type?: 'short' | 'full'
 }
 
 export interface CollectionsControlsEmits {
   'update:open': [value: boolean]
-  'delete': [value: CUID]
 }
 
 export interface CollectionsControlsSlots {
@@ -69,7 +72,7 @@ const props = withDefaults(defineProps<CollectionsControlsProps>(), {
 })
 const emit = defineEmits<CollectionsControlsEmits>()
 
-const { $api } = useNuxtApp()
+const { $api, hooks } = useNuxtApp()
 const { displayProperties, viewLayout, refresh: refreshCollections } = useCollections()
 
 const shareModal = useOverlay().create(LazyCollectionsShareModal)
@@ -183,7 +186,7 @@ const actions = computed<DropdownMenuItem[]>(() => [
           onConfirm: async () => {
             await $api(`/api/collections/${props.collectionItem.id}` as string, { method: 'delete' })
             await refreshCollections()
-            emit('delete', props.collectionItem.id)
+            hooks.callHook('collections:delete', props.collectionItem.id)
           },
         })
 
