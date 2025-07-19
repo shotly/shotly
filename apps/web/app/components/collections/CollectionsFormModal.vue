@@ -53,7 +53,7 @@
 
         <UButton
           class="w-full justify-center"
-          :label="$t('common.actions.create')"
+          :label="props.id ? $t('common.actions.save') : $t('common.actions.create')"
           loading-auto
           type="submit"
         />
