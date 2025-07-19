@@ -144,7 +144,10 @@ export interface WebhooksCreateResult {
 }
 
 /** Bookmark */
-export type BookmarksItem = object
+export interface BookmarksItem {
+  /** Id */
+  id: CUID
+}
 
 /** Result "Get bookmarks list" */
 export type BookmarksListResult = object
@@ -209,33 +212,6 @@ export interface CollectionsListItem {
   /** Collection children */
   children: CollectionsListItem[]
   parentId: CUID | null
-  /** Date and time with timezone */
-  createdAt: DateTimeType
-}
-
-/** Collection */
-export interface CollectionsItem {
-  /** Id */
-  id: CUID
-  /**
-   * Collection name
-   * @minLength 3
-   */
-  name: string
-  /** Collection description */
-  description: string | null
-  /**
-   * Collection icon
-   * @minLength 5
-   */
-  icon: string
-  /** Collection is shared */
-  isShared: boolean
-  /**
-   * Collection sort order
-   * @example 1000
-   */
-  sortOrder: number
   /** Date and time with timezone */
   createdAt: DateTimeType
 }
