@@ -10,8 +10,8 @@ catalogs:
       specifier: ^1.2.57
       version: 1.2.57
     '@iconify-json/simple-icons':
-      specifier: ^1.2.43
-      version: 1.2.43
+      specifier: ^1.2.44
+      version: 1.2.44
     '@iconify-json/vscode-icons':
       specifier: ^1.2.23
       version: 1.2.23
@@ -76,7 +76,7 @@ importers:
         version: 1.2.57
       '@iconify-json/simple-icons':
         specifier: 'catalog:'
-        version: 1.2.43
+        version: 1.2.44
       '@iconify-json/vscode-icons':
         specifier: 'catalog:'
         version: 1.2.23
@@ -134,7 +134,7 @@ importers:
         version: 1.2.57
       '@iconify-json/simple-icons':
         specifier: 'catalog:'
-        version: 1.2.43
+        version: 1.2.44
       '@iconify-json/vscode-icons':
         specifier: 'catalog:'
         version: 1.2.23
@@ -145,8 +145,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(@babel/parser@7.28.0)(@netlify/blobs@9.1.2)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(embla-carousel@8.6.0)(ioredis@5.6.1)(jwt-decode@4.0.0)(magicast@0.3.5)(sortablejs@1.15.6)(typescript@5.8.3)(vite@7.0.4(@types/node@24.0.14)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue-router@4.5.1(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))(zod@3.25.76)
       '@nuxtjs/i18n':
-        specifier: ^10.0.0
-        version: 10.0.0(@netlify/blobs@9.1.2)(@vue/compiler-dom@3.5.17)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.45.1)(vue@3.5.17(typescript@5.8.3))
+        specifier: ^10.0.1
+        version: 10.0.1(@netlify/blobs@9.1.2)(@vue/compiler-dom@3.5.17)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.45.1)(vue@3.5.17(typescript@5.8.3))
       '@shotly/db':
         specifier: workspace:*
         version: link:../../packages/db
@@ -1336,8 +1336,8 @@ packages:
   '@iconify-json/lucide@1.2.57':
     resolution: {integrity: sha512-I1CIObdPBIL/9v75KKoyHWNhq+qqN6ef8+iJY4AVpHLtnRu0Vbp6K0TKcoYZ70U+EgiL6krEbFdcjK3+fwpfHQ==}
 
-  '@iconify-json/simple-icons@1.2.43':
-    resolution: {integrity: sha512-JERgKGFRfZdyjGyTvVBVW5rftahy9tNUX+P+0QUnbaAEWvEMexXHE9863YVMVrIRhoj/HybGsibg8ZWieo/NDg==}
+  '@iconify-json/simple-icons@1.2.44':
+    resolution: {integrity: sha512-CdWgSPygwDlDbKtDWjvi3NtUefnkoepXv90n3dQxJerqzD9kI+nEJOiWUBM+eOyMYQKtxBpLWFBrgeotF0IZKw==}
 
   '@iconify-json/vscode-icons@1.2.23':
     resolution: {integrity: sha512-gFTcKecKra2/b5SbGDgHGI/l8CuikHyBPmqGlK+YCmS8AK72dtDQbUekdoACsju/3TYS37QvdPoOQwnyx2LdYg==}
@@ -1687,8 +1687,8 @@ packages:
   '@nuxtjs/color-mode@3.5.2':
     resolution: {integrity: sha512-cC6RfgZh3guHBMLLjrBB2Uti5eUoGM9KyauOaYS9ETmxNWBMTvpgjvSiSJp1OFljIXPIqVTJ3xtJpSNZiO3ZaA==}
 
-  '@nuxtjs/i18n@10.0.0':
-    resolution: {integrity: sha512-QPpbFn55LpXEynOSxBxQoIaxUE8Y/W8rFazfsY/A2eVXJCgKIwz8lsEf54+GEj59kO1jZc4InACeFr7Q2suOYA==}
+  '@nuxtjs/i18n@10.0.1':
+    resolution: {integrity: sha512-tYsPNtQAGc9aZtynoOe0vhe4b8geogCv4KBHJow8A8oCGn5P4CSqXJr35y/bEsxqSQ7pdFshvFo2Iz/9fLPA6A==}
     engines: {node: '>=20.11.1'}
 
   '@nuxtjs/mdc@0.17.0':
@@ -9159,7 +9159,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.43':
+  '@iconify-json/simple-icons@1.2.44':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -10054,7 +10054,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxtjs/i18n@10.0.0(@netlify/blobs@9.1.2)(@vue/compiler-dom@3.5.17)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.45.1)(vue@3.5.17(typescript@5.8.3))':
+  '@nuxtjs/i18n@10.0.1(@netlify/blobs@9.1.2)(@vue/compiler-dom@3.5.17)(db0@0.3.2(better-sqlite3@12.2.0)(drizzle-orm@0.44.3(@types/pg@8.15.4)(better-sqlite3@12.2.0)(pg@8.16.3)))(eslint@9.31.0(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.45.1)(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@intlify/core': 11.1.10
       '@intlify/h3': 0.6.1
