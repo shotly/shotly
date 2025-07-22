@@ -5,7 +5,7 @@ packages:
 catalog:
   '@iconify-json/circle-flags': ^1.2.6
   '@iconify-json/lucide': ^1.2.57
-  '@iconify-json/simple-icons': ^1.2.43
+  '@iconify-json/simple-icons': ^1.2.44
   '@iconify-json/vscode-icons': ^1.2.23
   consola: ^3.4.2
   nuxt: ^4.0.0
