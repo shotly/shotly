@@ -53,7 +53,7 @@
 
         <UButton
           class="w-full justify-center"
-          :label="$t('common.actions.create')"
+          :label="props.id ? $t('common.actions.save') : $t('common.actions.create')"
           loading-auto
           type="submit"
         />
@@ -83,7 +83,7 @@ const emit = defineEmits<CollectionsFormModalEmits>()
 
 const { $api } = useNuxtApp()
 const appConfig = useAppConfig()
-const { data: collections, refresh: refreshCollections } = useCollections()
+const { tree: collections, refresh: refreshCollections } = useCollections()
 
 // pick only collections without children
 const collectionsItems = computed(
