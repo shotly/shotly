@@ -28,7 +28,7 @@
     "clean": "pnpm -r run clean && rm -rf node_modules"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.17.0",
+    "@antfu/eslint-config": "^4.19.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@hywax/spec-builder": "^0.1.3",
