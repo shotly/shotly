@@ -12,21 +12,11 @@ export interface UseCollectionsResult {
   execute: () => Promise<void>
   refresh: () => Promise<void>
   visibleItems: Ref<CUID[]>
-  viewLayout: Ref<ViewLayout>
-  displayProperties: Ref<string[]>
 }
 
 export const useCollections = createSharedComposable<() => UseCollectionsResult>(() => {
   // visible items, used for the accordion.
   const visibleItems = useLocalStorage<CUID[]>('shotly-collections-menu', [])
-
-  // view layout, used for the view layout dropdown.
-  const viewLayout = useLocalStorage<ViewLayout>('shotly-collections-view-layout', 'grid')
-
-  // display properties, used for the display properties dropdown.
-  const displayProperties = useLocalStorage<string[]>('shotly-collections-display-properties', [
-    'link', 'name', 'image', 'icon', 'date',
-  ])
 
   const { data: tree, status, execute, refresh } = useApi('/api/collections', {
     key: 'collections',
@@ -49,7 +39,5 @@ export const useCollections = createSharedComposable<() => UseCollectionsResult>
     execute,
     refresh,
     visibleItems,
-    viewLayout,
-    displayProperties,
   }
 })

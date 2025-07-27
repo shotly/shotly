@@ -252,7 +252,7 @@
       "rssUrl": "Ссылка на RSS"
     },
 
-    "controls": {
+    "layers": {
       "properties": {
         "title": "Свойства отображения",
         "link": "Ссылка",

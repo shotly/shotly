@@ -29,13 +29,14 @@
             class="size-4 text-dimmed group-hover:hidden"
           />
 
-          <CollectionsControls
+          <CollectionsActions
             type="short"
             :collection-item="item"
-            @update:open="handleOptionOpen(item.id, $event)"
+            :content="{ side: 'bottom', align: 'end', avoidCollisions: false, collisionPadding: 0 }"
+            @update:open="handleActionOpen(item.id, $event)"
           >
             <UIcon name="lucide:ellipsis" class="size-4 group-hover:block data-[state=open]:block hidden" />
-          </CollectionsControls>
+          </CollectionsActions>
         </span>
       </ULink>
 
@@ -90,7 +91,7 @@ const { visibleItems } = useCollections()
 // current active item, used for the dropdown menu and the active state of the accordion
 const activeOption = ref<CUID | null>(null)
 
-function handleOptionOpen(value: CUID, open: boolean) {
+function handleActionOpen(value: CUID, open: boolean) {
   activeOption.value = open ? value : null
 }
 </script>

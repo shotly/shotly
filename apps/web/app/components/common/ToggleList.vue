@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center flex-wrap gap-2">
+  <div class="flex items-center flex-wrap gap-1.5">
     <UButton
       v-for="item in items"
       :key="item.value"

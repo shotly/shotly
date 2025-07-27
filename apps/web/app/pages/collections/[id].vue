@@ -2,12 +2,13 @@
   <UContainer>
     <PageHeader
       :title="collection?.name"
-      :description="collection?.description ?? undefined"
+      :description="collection?.description ?? '&nbsp;'"
       class="mb-6"
     >
       <template #links>
         <UButton label="Add new bookmark" />
-        <CollectionsControls
+        <CollectionsLayers />
+        <CollectionsActions
           v-if="collection"
           type="full"
           :collection-item="collection"
@@ -45,5 +46,5 @@ if (!collection.value) {
   })
 }
 
-const { data: bookmarks, status } = useApi(`/api/collections/${route.params.id}/bookmarks`)
+const { data: bookmarks, status } = await useApi(`/api/collections/${route.params.id}/bookmarks`)
 </script>
