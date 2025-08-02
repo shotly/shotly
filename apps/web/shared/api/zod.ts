@@ -60,7 +60,9 @@ export const webhooksCreateResultSchema = z.object({
   secret: z.string().uuid(),
 })
 
-export const bookmarksItemSchema = z.record(z.any())
+export const bookmarksItemSchema = z.object({
+  id: cuidSchema,
+})
 
 export const bookmarksListResultSchema = z.record(z.any())
 
@@ -97,16 +99,6 @@ export const collectionsListItemSchema: z.ZodSchema<CollectionsListItem> = z.laz
   parentId: cuidSchema.nullable(),
   createdAt: dateTimeTypeSchema,
 }))
-
-export const collectionsItemSchema = z.object({
-  id: cuidSchema,
-  name: z.string().min(3),
-  description: z.string().nullable(),
-  icon: z.string().min(5),
-  isShared: z.boolean(),
-  sortOrder: z.number(),
-  createdAt: dateTimeTypeSchema,
-})
 
 export const collectionsListResultSchema = z.array(collectionsListItemSchema)
 
