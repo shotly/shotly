@@ -29,14 +29,14 @@
             class="size-4 text-dimmed group-hover:hidden"
           />
 
-          <UDropdownMenu
-            :items="getItemOptions(item)"
+          <CollectionsActions
+            type="short"
+            :collection-item="item"
             :content="{ side: 'bottom', align: 'end', avoidCollisions: false, collisionPadding: 0 }"
-            :ui="{ content: 'w-50' }"
-            @update:open="handleOptionOpen(item.id, $event)"
+            @update:open="handleActionOpen(item.id, $event)"
           >
             <UIcon name="lucide:ellipsis" class="size-4 group-hover:block data-[state=open]:block hidden" />
-          </UDropdownMenu>
+          </CollectionsActions>
         </span>
       </ULink>
 
@@ -70,8 +70,6 @@
 
 <script setup lang="ts">
 import type { CollectionsListItem, CUID } from '#shared/api'
-import type { DropdownMenuItem } from '@nuxt/ui'
-import { LazyCollectionsFormModal, LazyCollectionsShareModal } from '#components'
 import { AccordionContent, AccordionItem, AccordionRoot, AccordionTrigger } from 'reka-ui'
 
 export interface CollectionsMenuProps {
@@ -88,71 +86,12 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: C
   },
 })
 
-const { $api } = useNuxtApp()
-const { refresh: refreshCollections, visibleItems } = useCollections()
-
-const shareModal = useOverlay().create(LazyCollectionsShareModal)
-const formModal = useOverlay().create(LazyCollectionsFormModal)
+const { visibleItems } = useCollections()
 
 // current active item, used for the dropdown menu and the active state of the accordion
 const activeOption = ref<CUID | null>(null)
 
-function handleOptionOpen(value: CUID, open: boolean) {
+function handleActionOpen(value: CUID, open: boolean) {
   activeOption.value = open ? value : null
-}
-
-function getItemOptions(item: CollectionsListItem): DropdownMenuItem[] {
-  return [
-    {
-      label: $t('common.actions.edit'),
-      kbds: ['e'],
-      icon: 'lucide:pencil',
-      onSelect: () => formModal.open({
-        id: item.id,
-        initialState: {
-          name: item.name,
-          icon: item.icon,
-          description: item.description,
-          parentId: item.parentId,
-        },
-        onSuccess: async () => {
-          formModal.close()
-        },
-      }),
-    },
-    {
-      label: $t('common.actions.share'),
-      kbds: ['s'],
-      icon: 'lucide:globe',
-      onSelect: () => {
-        shareModal.open({
-          id: item.id,
-          isShared: item.isShared,
-          onSuccess: () => {
-            refreshCollections()
-          },
-        })
-      },
-    },
-    {
-      label: $t('common.actions.delete'),
-      kbds: ['d'],
-      icon: 'lucide:trash',
-      color: 'error',
-      onSelect: () => {
-        const { open } = useConfirm({
-          title: $t('common.deletion.title'),
-          message: $t('common.deletion.message'),
-          confirmButton: { color: 'error', label: $t('common.actions.delete') },
-          onConfirm: async () => {
-            await $api(`/api/collections/${item.id}` as string, { method: 'delete' })
-            await refreshCollections()
-          },
-        })
-
-        open()
-      },
-    },
-  ]
 }
 </script>

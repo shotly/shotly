@@ -684,6 +684,11 @@ components:
     BookmarksItem:
       type: object
       description: Bookmark
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/CUID'
 
     BookmarksListResult:
       type: object
@@ -790,44 +795,6 @@ components:
           oneOf:
             - $ref: '#/components/schemas/CUID'
             - type: 'null'
-        createdAt:
-          $ref: '#/components/schemas/DateTimeType'
-
-    CollectionsItem:
-      type: object
-      description: Collection
-      required:
-        - id
-        - name
-        - description
-        - icon
-        - isShared
-        - sortOrder
-        - createdAt
-        - bookmarks
-      properties:
-        id:
-          $ref: '#/components/schemas/CUID'
-        name:
-          type: string
-          description: Collection name
-          minLength: 3
-        description:
-          anyOf:
-            - type: string
-            - type: 'null'
-          description: Collection description
-        icon:
-          type: string
-          description: Collection icon
-          minLength: 5
-        isShared:
-          type: boolean
-          description: Collection is shared
-        sortOrder:
-          type: number
-          description: Collection sort order
-          example: 1000
         createdAt:
           $ref: '#/components/schemas/DateTimeType'
 
