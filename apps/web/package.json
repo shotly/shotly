@@ -20,7 +20,7 @@
     "@iconify-json/vscode-icons": "catalog:",
     "@nuxt/image": "^1.11.0",
     "@nuxt/ui-pro": "^3.3.0",
-    "@nuxtjs/i18n": "^10.0.4",
+    "@nuxtjs/i18n": "^10.0.5",
     "@shotly/db": "workspace:*",
     "@vueuse/nuxt": "^13.6.0",
     "consola": "catalog:",
