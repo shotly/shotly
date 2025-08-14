@@ -13,13 +13,13 @@
     "prepare": "nuxt prepare"
   },
   "dependencies": {
-    "@dicebear/collection": "^9.2.3",
-    "@dicebear/core": "^9.2.3",
+    "@dicebear/collection": "^9.2.4",
+    "@dicebear/core": "^9.2.4",
     "@iconify-json/lucide": "catalog:",
     "@iconify-json/simple-icons": "catalog:",
     "@iconify-json/vscode-icons": "catalog:",
     "@nuxt/image": "^1.11.0",
-    "@nuxt/ui-pro": "^3.3.0",
+    "@nuxt/ui-pro": "^3.3.2",
     "@nuxtjs/i18n": "^10.0.5",
     "@shotly/db": "workspace:*",
     "@vueuse/nuxt": "^13.6.0",
