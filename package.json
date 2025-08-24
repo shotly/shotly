@@ -34,7 +34,7 @@
     "@hywax/spec-builder": "^0.1.10",
     "changelogen-monorepo": "^0.5.0",
     "consola": "catalog:",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "madge": "^8.0.0"
