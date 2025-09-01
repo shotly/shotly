@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.1",
   "scripts": {
     "release": "changelogen-monorepo --release --push",
     "build": "pnpm -r run build",
@@ -36,7 +36,7 @@
     "consola": "catalog:",
     "eslint": "^9.34.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
+    "lint-staged": "^16.1.6",
     "madge": "^8.0.0"
   },
   "resolutions": {
