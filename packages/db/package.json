@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/pg": "^8.15.5",
-    "drizzle-kit": "^0.31.4",
+    "drizzle-kit": "^0.31.5",
     "tsc": "catalog:",
     "typescript": "catalog:"
   }
