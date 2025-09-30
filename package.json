@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.4.1",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@hywax/spec-builder": "^0.1.10",
     "changelogen-monorepo": "^0.5.0",
     "consola": "catalog:",
