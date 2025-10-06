@@ -14,7 +14,7 @@
   "dependencies": {
     "consola": "catalog:",
     "drizzle-cuid2": "^2.1.0",
-    "drizzle-orm": "^0.44.5",
+    "drizzle-orm": "^0.44.6",
     "pg": "^8.16.3"
   },
   "devDependencies": {
