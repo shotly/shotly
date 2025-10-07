@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.18.1",
   "scripts": {
     "release": "changelogen-monorepo --release --push",
     "build": "pnpm -r run build",
@@ -34,7 +34,7 @@
     "@hywax/spec-builder": "^0.1.10",
     "changelogen-monorepo": "^0.5.0",
     "consola": "catalog:",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.3",
     "madge": "^8.0.0"
