@@ -28,7 +28,7 @@
     "fast-tree-builder": "^2.0.2",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.25",
-    "nuxt-site-config": "^3.2.9",
+    "nuxt-site-config": "^3.2.11",
     "nuxt-zod-i18n": "^1.12.1",
     "sortablejs": "^1.15.6",
     "vue-draggable-plus": "^0.6.0",
