@@ -3,8 +3,8 @@ packages:
   - packages/*
 
 catalog:
-  '@iconify-json/circle-flags': ^1.2.9
-  '@iconify-json/lucide': ^1.2.69
+  '@iconify-json/circle-flags': ^1.2.10
+  '@iconify-json/lucide': ^1.2.70
   '@iconify-json/simple-icons': ^1.2.54
   '@iconify-json/vscode-icons': ^1.2.32
   consola: ^3.4.2
