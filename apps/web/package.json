@@ -19,7 +19,7 @@
     "@iconify-json/simple-icons": "catalog:",
     "@iconify-json/vscode-icons": "catalog:",
     "@nuxt/image": "^1.11.0",
-    "@nuxt/ui-pro": "^3.3.6",
+    "@nuxt/ui-pro": "^3.3.7",
     "@nuxtjs/i18n": "^10.1.1",
     "@shotly/db": "workspace:*",
     "@vueuse/nuxt": "^13.9.0",
