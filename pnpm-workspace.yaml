@@ -4,14 +4,14 @@ packages:
 
 catalog:
   '@iconify-json/circle-flags': ^1.2.10
-  '@iconify-json/lucide': ^1.2.70
+  '@iconify-json/lucide': ^1.2.71
   '@iconify-json/simple-icons': ^1.2.55
   '@iconify-json/vscode-icons': ^1.2.33
   consola: ^3.4.2
   nuxt: ^4.0.3
   tsc: ^2.0.4
   typescript: ^5.9.3
-  vue-tsc: ^3.1.1
+  vue-tsc: ^3.1.2
   zod: ^3.25.76
 
 ignoredBuiltDependencies:
