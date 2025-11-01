@@ -24,7 +24,7 @@
     "@shotly/db": "workspace:*",
     "@vueuse/nuxt": "^13.9.0",
     "consola": "catalog:",
-    "dayjs": "^1.11.18",
+    "dayjs": "^1.11.19",
     "fast-tree-builder": "^2.0.2",
     "nuxt": "catalog:",
     "nuxt-auth-utils": "^0.5.25",
